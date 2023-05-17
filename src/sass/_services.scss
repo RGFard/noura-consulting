@@ -1,0 +1,65 @@
+%title {
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services {
+  grid-column: center-start / center-end;
+  margin: 10rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(45rem, 1fr));
+  column-gap: 10rem;
+  row-gap: 5rem;
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.service {
+  display: grid;
+  grid-template-rows: 45rem 1fr;
+  row-gap: 4rem;
+  text-align: center;
+
+  &__title {
+    grid-row: 1/2;
+    height: 100%;
+    width: 100%;
+
+    &--1 {
+      @extend %title;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url($img-blockchain-service);
+    }
+    &--2 {
+      @extend %title;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url($img-mobile-app-service);
+    }
+    &--3 {
+      @extend %title;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url($img-api-hub-service);
+      background-position: end;
+    }
+  }
+
+  &__text {
+    font-size: 4rem;
+    text-align: start;
+    padding: 0 2rem;
+  }
+}

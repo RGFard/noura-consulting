@@ -8,5 +8,15 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [],
-}
+  siteMetadata: {
+    title: "Noura Consulting Website",
+    description: "A software provider corporation with specialties in Blockchain Ethereum, Smart Contracts, Web3, Mobile Native Apps, and APIs",
+    author: "Reza Fard",
+  },
+  plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`
+  ]
+};
