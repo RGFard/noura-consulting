@@ -3,7 +3,7 @@ import React from "react";
 const Service = ({ services = [] }) => {
     return (
         services.map((service, index) => {
-            const { title, text } = service;
+            const { title, description } = service;
             let className = `service__title--${index + 1}`;
 
             return (
@@ -12,7 +12,7 @@ const Service = ({ services = [] }) => {
                         <h2 className="heading-2 heading-2--light">{title}</h2>
                     </div>
                     <p className="service__text">
-                        {text}
+                        {description.description}
                     </p>
                 </div>
             );

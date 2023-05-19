@@ -12,7 +12,7 @@ const FooterItem = ({ footerItems = [] }) => {
                 <div className="footer__item" key={index}>
                     <div className="footer__item-title">{title}</div>
                     <div className="footer__item-list">
-                        <FooterItemList list={list} type={type} key={index} />
+                        <FooterItemList list={list.items} type={type} key={index} />
                     </div>
                 </div>
             );

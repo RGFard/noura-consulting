@@ -1,26 +1,28 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import FooterItem from "../footer/FooterItem";
 
-const footerItem1 = {
-    title: "quick menu",
-    list: ["services", "blog", "contact", "console"],
-    type: "text"
-};
-const footerItem2 = {
-    title: "services",
-    list: ["ethereum applications, smart contracts, and web3", "mobile native apps for ethereum applications", "consolidated APIs"],
-    type: "text"
-};
-const footerItem3 = {
-    title: "icons",
-    list: ["facebook", "instagram", "twitter", "youtube"],
-    type: "icon"
-};
-
-var footerItems = [footerItem1, footerItem2, footerItem3];
+const query = graphql`
+{
+  allContentfulContent(sort: {order: ASC}, filter: {type: {in: ["text", "icon"]}}) {
+    nodes {
+      order
+      list {
+        items
+      }
+      title
+      type
+    }
+  }
+}
+`;
 
 const Footer = () => {
+    const {
+        allContentfulContent: { nodes: footerItems1 }
+    } = useStaticQuery(query);
+
     return (
         <footer className="footer">
             <div className="footer__item footer__item--1">
@@ -34,7 +36,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <FooterItem footerItems={footerItems} />
+            <FooterItem footerItems={footerItems1} />
         </footer>
     );
 };

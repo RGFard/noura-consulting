@@ -1,23 +1,27 @@
 import React from "react";
-
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import slugify from "slugify";
 
 const Blog = ({ blogs = [] }) => {
     const image1 = "../../assets/images/blogs/charity.jpg";
     const image2 = "../../assets/images/blogs/digitization-cybersecurity-fg.jpg";
     const image3 = "../../assets/images/blogs/digital-identity-fg.jpg";
+
     return (
         blogs.map((blog, index) => {
-            const { title, body } = blog;
+            const { title, description, image } = blog;
             const classNamePictures = `blog__pictures--${index + 1}`;
             const classNamePicture = `blog__picture--${index + 1}`;
 
+            const pathToImage = getImage(image);
+            const slug = slugify(title, { lower: true });
+
             const imageTag =
                 <div className={classNamePictures}>
-                    <StaticImage
-                        src={image1}
-                        alt="Digital Identity and Credentials"
+                    <GatsbyImage
+                        image={pathToImage}
                         className={classNamePicture}
+                        alt={title}
                     />
                 </div>;
             const bodyTag =
@@ -26,7 +30,7 @@ const Blog = ({ blogs = [] }) => {
                         {title}
                     </h3>
                     <p className="blog__article__body">
-                        {body}
+                        {description.description}
                     </p>
                     <div className="blog__article__footer">
                         <button className="blog__article-button">Learn more</button>
@@ -37,7 +41,7 @@ const Blog = ({ blogs = [] }) => {
             let firstTag;
             let sececondTag;
 
-            if (index % 2 == 0) {
+            if (index % 2 === 0) {
                 firstTag = imageTag;
                 sececondTag = bodyTag;
             } else {
@@ -50,8 +54,8 @@ const Blog = ({ blogs = [] }) => {
                     {sececondTag}
                 </div>
             );
-        })
-    );
+            // <div className=""></div>;
+        }));
 };
 
 export default Blog;

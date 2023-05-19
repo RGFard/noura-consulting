@@ -1,14 +1,32 @@
 import React from "react";
 import parser from "html-react-parser";
+import { useStaticQuery, graphql } from "gatsby";
 
-import icons from "../../assets/data/icon.json";
+const query = graphql`
+{
+  allContentfulJsonContent {
+    nodes {
+      object {
+        name
+        tag
+      }
+    }
+  }
+}
+`;
 
 const Icon = ({ name }) => {
     let iconTag;
-    icons.map((icon) => {
+
+    const {
+        allContentfulJsonContent: { nodes: icons }
+    } = useStaticQuery(query);
+
+    icons.find(() => true).object.map((icon) => {
         if (icon.name === name) {
             iconTag = parser(icon.tag);
         }
+        return iconTag;
     });
 
     return (

@@ -6,10 +6,6 @@ import Video from "../components/Video";
 import Services from "../components/services/Services";
 import Blogs from "../components/blogs/Blogs";
 
-// import fb from "../assets/images/sprite.svg";
-// import Icon from "../assets/sprite.svg";
-
-
 export default function Home() {
   return (
     <Layout>

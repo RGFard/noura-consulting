@@ -52,7 +52,7 @@
     &--3 {
       @extend %title;
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url($img-api-hub-service);
+        url($img-api-service);
       background-position: end;
     }
   }
