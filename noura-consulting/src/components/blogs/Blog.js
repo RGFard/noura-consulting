@@ -11,7 +11,7 @@ const Blog = ({ blogs = [] }) => {
             const classNamePicture = `blog__picture--${index + 1}`;
 
             const pathToImage = getImage(image);
-            const slug = slugify(title, { lower: true });
+            // const slug = slugify(title, { lower: true });
 
             const imageTag =
                 <div className={classNamePictures}>
