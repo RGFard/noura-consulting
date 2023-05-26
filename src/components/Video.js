@@ -7,7 +7,7 @@ const Video = () => {
         <section className="vision">
             <video className="vision__video" autoPlay muted loop>
                 <source src={VisionVideo} type="video/mp4" />
-                Your browser is not supported! Open it with Chrome or Firefox.
+                Your browser is not supported!
             </video>
         </section>
     );
