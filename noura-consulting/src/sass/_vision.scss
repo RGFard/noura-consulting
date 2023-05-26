@@ -1,0 +1,16 @@
+.vision {
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
+
+  &__image {
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+
+    animation: fadeInOut 20s ease-in-out infinite;
+  }
+
+  &__video {
+    width: 100%;
+  }
+}
