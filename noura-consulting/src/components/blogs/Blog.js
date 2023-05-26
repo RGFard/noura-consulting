@@ -3,9 +3,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
 
 const Blog = ({ blogs = [] }) => {
-    const image1 = "../../assets/images/blogs/charity.jpg";
-    const image2 = "../../assets/images/blogs/digitization-cybersecurity-fg.jpg";
-    const image3 = "../../assets/images/blogs/digital-identity-fg.jpg";
 
     return (
         blogs.map((blog, index) => {
