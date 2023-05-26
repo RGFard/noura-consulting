@@ -20,6 +20,7 @@ jobs:
       - run: echo Installing Gatsby and Gatsby-CLI...
       - run: npm install -g gatsby-cli
       - run: npm install -g gatsby
+      - rum: npm install
       - run: gatsby clean
       - run: gatsby build
 
