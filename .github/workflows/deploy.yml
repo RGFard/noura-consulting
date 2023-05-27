@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "noura-consulting/**"
+      - "/**"
 
 defaults:
   run:
@@ -17,11 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: echo Installing Gatsby and Gatsby-CLI...
       - run: npm install -g gatsby-cli
       - run: npm install -g gatsby
-      # - run: gatsby clean
-      # - run: gatsby build
       - run: npm install
       - run: npm run build
         env:
