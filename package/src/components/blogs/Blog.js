@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import slugify from "slugify";
+// import slugify from "slugify";
 
 const Blog = ({ blogs = [] }) => {
 
