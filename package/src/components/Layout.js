@@ -4,12 +4,13 @@ import "../sass/main.scss";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, footerItems }) => {
+
     return (
         <div className="container">
             <Header />
             {children}
-            <Footer />
+            <Footer footerItems={footerItems} />
         </div>
     );
 };
