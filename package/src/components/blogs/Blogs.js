@@ -14,7 +14,6 @@ const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
       }
       title
-      order
     }
   }
 }
@@ -22,24 +21,24 @@ const query = graphql`
 
 const Blogs = () => {
 
-    const {
-        allContentfulContent: { nodes: blogs }
-    } = useStaticQuery(query);
+  const {
+    allContentfulContent: { nodes: blogs }
+  } = useStaticQuery(query);
 
-    return (
-        <section className="blogs">
-            <div className="blogs__title">
-                <h2 className="heading-2 heading-2--dark">Blogs</h2>
-            </div>
-            <Blog blogs={blogs} />
+  return (
+    <section className="blogs">
+      <div className="blogs__title">
+        <h2 className="heading-2 heading-2--dark">Blogs</h2>
+      </div>
+      <Blog blogs={blogs} />
 
-            <div className="blogs__footer">
-                <button className="blog__article-button blogs__footer-button">
-                    See all blog articles
-                </button>
-            </div>
-        </section>
-    );
+      <div className="blogs__footer">
+        <button className="blog__article-button blogs__footer-button">
+          See all blog articles
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default Blogs;

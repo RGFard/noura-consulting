@@ -5,7 +5,7 @@ import Service from "./Service";
 
 const query = graphql`
 {
-    allContentfulContent (filter: {type: {eq: "service"}}) {
+  allContentfulContent(sort: {order: ASC}, filter:  {type: {eq: "service"}}) {
     nodes {
       title
       description {
@@ -18,18 +18,18 @@ const query = graphql`
 
 const Services = () => {
 
-    const {
-        allContentfulContent: { nodes: services }
-    } = useStaticQuery(query);
+  const {
+    allContentfulContent: { nodes: services }
+  } = useStaticQuery(query);
 
-    return (
-        <section className="services">
-            <div className="services__title">
-                <h2 className="heading-2 heading-2--dark">Services</h2>
-            </div>
-            <Service services={services} />
-        </section>
-    );
+  return (
+    <section className="services">
+      <div className="services__title">
+        <h2 className="heading-2 heading-2--dark">Services</h2>
+      </div>
+      <Service services={services} />
+    </section>
+  );
 };
 
 export default Services;
