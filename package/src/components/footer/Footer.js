@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <FooterItem footerItems={footerItems1} />
+      {/* <FooterItem footerItems={footerItems1} /> */}
     </footer>
   );
 };
