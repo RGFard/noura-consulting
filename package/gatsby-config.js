@@ -24,6 +24,7 @@ module.exports = {
         spaceId: `8xjtcyj0blxi`,
         accessToken: process.env.CONTENTFUL_API_KEY,
       },
-    }
+    },
+    'gatsby-plugin-remove-serviceworker'
   ]
 };
