@@ -9,7 +9,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Noura Consulting Website",
-    description: "A software provider corporation with specialties in Blockchain Ethereum, Smart Contracts, Web3, Mobile Native Apps, and APIs",
+    description: "A software provider corporation with specialties in Blockchain Applications, Smart Contracts, Web3, Mobile Native Apps, and APIs",
     author: "Reza Fard",
   },
   plugins: [
