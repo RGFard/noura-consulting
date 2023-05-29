@@ -19,7 +19,7 @@ import Blog from "./Blog";
 // }
 // `;
 
-const Blogs = ({ blogs }) => {
+const Blogs = () => {
 
   // const {
   //   allContentfulContent: { nodes: blogs }
