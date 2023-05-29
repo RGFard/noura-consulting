@@ -16,7 +16,7 @@ import Service from "./Service";
 // }
 // `;
 
-const Services = () => {
+const Services = ({ services }) => {
 
   // const {
   //   allContentfulContent: { nodes: services }
@@ -27,7 +27,7 @@ const Services = () => {
       <div className="services__title">
         <h2 className="heading-2 heading-2--dark">Services</h2>
       </div>
-      {/* <Service services={services} /> */}
+      <Service services={services} />
     </section>
   );
 };

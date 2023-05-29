@@ -17,14 +17,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `8xjtcyj0blxi`,
         accessToken: process.env.CONTENTFUL_API_KEY,
       },
-    },
-    'gatsby-plugin-remove-serviceworker'
+    }
   ]
 };

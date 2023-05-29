@@ -12,7 +12,7 @@ export default function Home({ data }) {
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
       <Seo title="Home Page" />
       <Video />
-      <Services />
+      <Services services={data.services.nodes} />
       <Blogs />
     </Layout >);
 }
