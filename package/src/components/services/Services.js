@@ -1,26 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 import Service from "./Service";
 
-// const query = graphql`
-// {
-//   allContentfulContent(sort: {order: ASC}, filter:  {type: {eq: "service"}}) {
-//     nodes {
-//       title
-//       description {
-//         description
-//       }
-//     }
-//   }
-// }
-// `;
-
 const Services = ({ services }) => {
-
-  // const {
-  //   allContentfulContent: { nodes: services }
-  // } = useStaticQuery(query);
 
   return (
     <section className="services">
