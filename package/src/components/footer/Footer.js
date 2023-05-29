@@ -18,7 +18,7 @@ import FooterItem from "./FooterItem";
 // }
 // `;
 
-const Footer = ({ footerItems }) => {
+const Footer = ({ footerItems, icons }) => {
   // const {
   //   allContentfulContent: { nodes: footerItems1 }
   // } = useStaticQuery(query);
@@ -36,7 +36,7 @@ const Footer = ({ footerItems }) => {
           </div>
         </div>
       </div>
-      <FooterItem footerItems={footerItems} />
+      <FooterItem footerItems={footerItems} icons={icons} />
     </footer>
   );
 };

@@ -15,25 +15,25 @@ import { useStaticQuery, graphql } from "gatsby";
 // }
 // `;
 
-const Icon = ({ name }) => {
+const Icon = ({ name, icons }) => {
   let iconTag;
 
   // const {
   //     allContentfulJsonContent: { nodes: icons }
   // } = useStaticQuery(query);
 
-  // icons.find(() => true).object.map((icon) => {
-  //     if (icon.name === name) {
-  //         iconTag = parser(icon.tag);
-  //     }
-  //     return iconTag;
-  // });
+  icons.find(() => true).object.map((icon) => {
+    if (icon.name === name) {
+      iconTag = parser(icon.tag);
+    }
+    return iconTag;
+  });
 
-  // return (
-  //     <>
-  //         {iconTag}
-  //     </>
-  // );
+  return (
+    <>
+      {iconTag}
+    </>
+  );
 };
 
 export default Icon;

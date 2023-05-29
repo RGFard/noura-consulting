@@ -2,7 +2,7 @@ import React from "react";
 
 import Icon from "../icons/Icon";
 
-const FooterItemList = ({ list = [], type }) => {
+const FooterItemList = ({ list = [], type, icons }) => {
     return (
         list.map((listItem, index) => {
             let item, tooltipItem;
@@ -12,7 +12,7 @@ const FooterItemList = ({ list = [], type }) => {
                     item = item.substring(0, 20) + "...";
                 }
             } else {
-                item = <Icon name={listItem} key={index} />;
+                item = <Icon name={listItem} key={index} icons={icons} />;
             }
 
             return (

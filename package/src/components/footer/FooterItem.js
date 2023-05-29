@@ -2,7 +2,7 @@ import React from "react";
 
 import FooterItemList from "./FooterItemList";
 
-const FooterItem = ({ footerItems = [] }) => {
+const FooterItem = ({ footerItems = [], icons }) => {
 
     return (
         footerItems.map((footerItem, index) => {
@@ -12,7 +12,7 @@ const FooterItem = ({ footerItems = [] }) => {
                 <div className="footer__item" key={index}>
                     <div className="footer__item-title">{title}</div>
                     <div className="footer__item-list">
-                        <FooterItemList list={list.items} type={type} key={index} />
+                        <FooterItemList list={list.items} icons={icons} type={type} key={index} />
                     </div>
                 </div>
             );
