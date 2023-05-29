@@ -3,25 +3,25 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import FooterItem from "./FooterItem";
 
-const query = graphql`
-{
-  allContentfulContent(sort: {order: ASC}, filter: {type: {in: ["text", "icon"]}}) {
-    nodes {
-      order
-      list {
-        items
-      }
-      title
-      type
-    }
-  }
-}
-`;
+// const query = graphql`
+// {
+//   allContentfulContent(sort: {order: ASC}, filter: {type: {in: ["text", "icon"]}}) {
+//     nodes {
+//       order
+//       list {
+//         items
+//       }
+//       title
+//       type
+//     }
+//   }
+// }
+// `;
 
 const Footer = () => {
-  const {
-    allContentfulContent: { nodes: footerItems1 }
-  } = useStaticQuery(query);
+  // const {
+  //   allContentfulContent: { nodes: footerItems1 }
+  // } = useStaticQuery(query);
 
   return (
     <footer className="footer">

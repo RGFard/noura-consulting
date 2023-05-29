@@ -3,18 +3,18 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Service from "./Service";
 
-const query = graphql`
-{
-  allContentfulContent(sort: {order: ASC}, filter:  {type: {eq: "service"}}) {
-    nodes {
-      title
-      description {
-        description
-      }
-    }
-  }
-}
-`;
+// const query = graphql`
+// {
+//   allContentfulContent(sort: {order: ASC}, filter:  {type: {eq: "service"}}) {
+//     nodes {
+//       title
+//       description {
+//         description
+//       }
+//     }
+//   }
+// }
+// `;
 
 const Services = () => {
 
