@@ -8,9 +8,9 @@ import Services from "../components/services/Services";
 import Blogs from "../components/blogs/Blogs";
 
 export default function Home({ data }) {
-  // console.log(data.footerItems.nodes);
-  // console.log(data.services.nodes);
-  // console.log(data.blogs.nodes);
+  console.log(data.footerItems.nodes);
+  console.log(data.services.nodes);
+  console.log(data.blogs.nodes);
   return (
     <Layout footerItems={data.footerItems.nodes}>
       <Seo title="Home Page" />
