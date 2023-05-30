@@ -1,29 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 import Blog from "./Blog";
 
-// const query = graphql`
-// {
-//   allContentfulContent(sort: {order: ASC}, filter:  {type: {eq: "blog"}}) {
-//     nodes {
-//       description {
-//         description
-//       }
-//       image {
-//         gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-//       }
-//       title
-//     }
-//   }
-// }
-// `;
-
 const Blogs = ({ blogs }) => {
-
-  // const {
-  //   allContentfulContent: { nodes: blogs }
-  // } = useStaticQuery(query);
 
   return (
     <section className="blogs">

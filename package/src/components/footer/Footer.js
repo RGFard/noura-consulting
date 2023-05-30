@@ -1,28 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 import FooterItem from "./FooterItem";
 
-// const query = graphql`
-// {
-//   allContentfulContent(sort: {order: ASC}, filter: {type: {in: ["text", "icon"]}}) {
-//     nodes {
-//       order
-//       list {
-//         items
-//       }
-//       title
-//       type
-//     }
-//   }
-// }
-// `;
-
 const Footer = ({ footerItems, icons }) => {
-  // const {
-  //   allContentfulContent: { nodes: footerItems1 }
-  // } = useStaticQuery(query);
-
   return (
     <footer className="footer">
       <div className="footer__item footer__item--1">

@@ -51,7 +51,6 @@ const Blog = ({ blogs = [] }) => {
                     {sececondTag}
                 </div>
             );
-            // <div className=""></div>;
         }));
 };
 
