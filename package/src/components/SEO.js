@@ -13,20 +13,20 @@ import { useStaticQuery, graphql } from "gatsby";
 //   }
 // `;
 
-const SEO = ({ title, description }) => {
+const SEO = ({ title, description, siteMetadata }) => {
   // const { site } = useStaticQuery(query);
-  // const metaDescription = site.siteMetadata.description || description;
+  const metaDescription = siteMetadata.description || description;
   return (
-    // <Helmet
-    //   htmlAttributes={{ lang: "en" }}
-    //   title={`${title} | ${site.siteMetadata.title}`}
-    //   meta={[{ name: `description`, content: metaDescription }]}>
-    //   <link
-    //     href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i"
-    //     rel="stylesheet"
-    //   />
-    // </Helmet>
-    <div></div>
+    <Helmet
+      htmlAttributes={{ lang: "en" }}
+      title={`${title} | ${siteMetadata.title}`}
+      meta={[{ name: `description`, content: metaDescription }]}>
+      <link
+        href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i"
+        rel="stylesheet"
+      />
+    </Helmet>
+    // <div></div>
   );
 };
 
