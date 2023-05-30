@@ -13,9 +13,9 @@ import { useStaticQuery, graphql } from "gatsby";
 //   }
 // `;
 
-const SEO = ({ title, description, siteMetadata }) => {
+const SEO = ({ title, siteMetadata }) => {
   // const { site } = useStaticQuery(query);
-  const metaDescription = siteMetadata.description || description;
+  const metaDescription = siteMetadata.description;
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
