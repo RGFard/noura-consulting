@@ -8,10 +8,9 @@ import Services from "../components/services/Services";
 import Blogs from "../components/blogs/Blogs";
 
 export default function Home({ data }) {
-
   return (
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
-      <Seo title="Home Page" siteMetadata={data.site.siteMetadata} />
+      <Seo title="Home Page" site={data.site} />
       <Video />
       <Services services={data.services.nodes} />
       <Blogs blogs={data.blogs.nodes} />
@@ -20,7 +19,7 @@ export default function Home({ data }) {
 
 export const query = graphql`
 query query {
-  site: site {
+  site {
     siteMetadata {
       title
       description

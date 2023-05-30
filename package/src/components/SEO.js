@@ -13,14 +13,14 @@ import { useStaticQuery, graphql } from "gatsby";
 //   }
 // `;
 
-const SEO = ({ title, siteMetadata }) => {
+const SEO = ({ title, site }) => {
   // const { site } = useStaticQuery(query);
-  // console.log(siteMetadata.description);
+  // console.log(site.siteMetadata.title);
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
-      title={`${title} | ${siteMetadata.title}`}
-      meta={[{ name: `description`, content: siteMetadata.description }]}>
+      title={`${title} | ${site.siteMetadata.title}`}
+      meta={[{ name: `description`, content: site.siteMetadata.description }]}>
       <link
         href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i"
         rel="stylesheet"
