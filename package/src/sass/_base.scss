@@ -41,15 +41,19 @@ $img-mobile-app-service: "../assets/images/services/mobile-app-service.jpg";
 $img-api-service: "../assets/images/services/api-service.jpg";
 $img-blockchain-blog: "../assets/images/blogs/blockchain.jpg";
 $img-digitization-cybersecurity-bg-blog: "../assets/images/blogs/digitization-cybersecurity-bg.jpg";
-$img-digitization-cybersecurity-fg-blog: "../assets/images/blogs/digitization-cybersecurity-fg.jpg";
 $img-digital-identity-bg-blog: "../assets/images/blogs/digital-identity-bg.jpg";
-// $img-api-blog: "../assets/images/blogs/api-service.jpg";
 
 // Extends
 %button {
   color: $color-white;
   width: 30rem;
   height: 8rem;
+
+  @supports (-webkit-hyphens: none) {
+    width: 20rem;
+    height: 4rem;
+  }
+
   border-radius: 2rem;
   border: 0;
   cursor: pointer;
