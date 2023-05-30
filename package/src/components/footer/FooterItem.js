@@ -2,7 +2,7 @@ import React from "react";
 
 import FooterItemList from "./FooterItemList";
 
-const FooterItem = ({ footerItems, icons }) => {
+const FooterItem = ({ footerItems = [], icons }) => {
     return (
         footerItems.map((footerItem, index) => {
             const { title, list, type } = footerItem;
