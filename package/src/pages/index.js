@@ -10,7 +10,7 @@ import Blogs from "../components/blogs/Blogs";
 export default function Home({ data }) {
   return (
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
-      <Seo title="Home Page" site={data.site} />
+      <Seo pageTitle="Home Page" siteMetadata={data.siteMetadata.nodes} />
       <Video />
       <Services services={data.services.nodes} />
       <Blogs blogs={data.blogs.nodes} />
@@ -18,11 +18,16 @@ export default function Home({ data }) {
 }
 
 export const query = graphql`
-query query {
-  site {
-    siteMetadata {
-      title
-      description
+query MyQuery {
+  siteMetadata: allContentfulContent(
+    filter: {title: {eq: "siteMetadata"}}
+  ) {
+    nodes {
+      list {
+        description
+        author
+        title
+      }
     }
   }
   icons: allContentfulJsonContent {
@@ -35,7 +40,7 @@ query query {
   }
   footerItems: allContentfulContent(
     sort: {order: ASC}
-    filter: {type: {in: ["text", "icon"]}}
+    filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
   ) {
     nodes {
       order
