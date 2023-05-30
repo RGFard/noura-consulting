@@ -13,7 +13,7 @@ export default function Home({ data }) {
       <Seo pageTitle="Home Page" />
       <Video />
       <Services services={data.services.nodes} />
-      {/* <Blogs blogs={data.blogs.nodes} /> */}
+      <Blogs blogs={data.blogs.nodes} />
     </Layout >);
 }
 
