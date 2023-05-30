@@ -11,7 +11,7 @@ export default function Home({ data }) {
   const siteMetadata = data.siteMetadata.nodes[0].list;
   return (
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
-      <Seo pageTitle="Home Page" siteMetadata={siteMetadata} />
+      <Seo pageTitle="Home Page" />
       <Video />
       <Services services={data.services.nodes} />
       <Blogs blogs={data.blogs.nodes} />
