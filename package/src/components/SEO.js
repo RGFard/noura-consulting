@@ -15,12 +15,12 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, siteMetadata }) => {
   // const { site } = useStaticQuery(query);
-  const metaDescription = siteMetadata.description;
+  // console.log(siteMetadata.description);
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
       title={`${title} | ${siteMetadata.title}`}
-      meta={[{ name: `description`, content: metaDescription }]}>
+      meta={[{ name: `description`, content: siteMetadata.description }]}>
       <link
         href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i"
         rel="stylesheet"
