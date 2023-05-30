@@ -16,8 +16,15 @@
   column-gap: 10rem;
   row-gap: 5rem;
 
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    margin: 4rem 0;
+    grid-template-columns: minmax(15rem, 1fr);
+    row-gap: 3rem;
+  }
+
   @media only screen and (max-width: $bp-small) {
-    grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+    grid-template-columns: minmax(35rem, 1fr);
   }
 
   &__title {
@@ -33,6 +40,11 @@
   grid-template-rows: 45rem 1fr;
   row-gap: 4rem;
   text-align: center;
+
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    grid-template-rows: 25rem 1fr;
+  }
 
   &__title {
     grid-row: 1/2;

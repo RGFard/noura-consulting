@@ -49,6 +49,7 @@ $img-digital-identity-bg-blog: "../assets/images/blogs/digital-identity-bg.jpg";
   width: 30rem;
   height: 8rem;
 
+  // Safari only
   @supports (-webkit-hyphens: none) {
     width: 20rem;
     height: 4rem;
@@ -77,6 +78,11 @@ $img-digital-identity-bg-blog: "../assets/images/blogs/digital-identity-bg.jpg";
   background-size: cover;
   background-position: center;
   height: 93rem;
+
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    height: 38rem;
+  }
 }
 
 *,

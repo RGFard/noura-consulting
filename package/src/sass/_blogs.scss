@@ -27,6 +27,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 5rem;
 
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    gap: 2rem;
+  }
+
   @media only screen and (max-width: $bp-medium) {
     grid-template-columns: auto;
   }
@@ -102,6 +107,11 @@
   &__article {
     padding: 3rem 4rem;
     font-size: 4rem;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      padding: 0.5rem 2rem;
+    }
 
     @media only screen and (max-width: $bp-medium) {
       padding: 0.5rem 5rem;
