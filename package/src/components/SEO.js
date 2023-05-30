@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 const SEO = ({ pageTitle, siteMetadata }) => {
-  const { title, description } = siteMetadata[0].list;
+  const { title, description } = siteMetadata;
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}

@@ -10,7 +10,7 @@ import Blogs from "../components/blogs/Blogs";
 export default function Home({ data }) {
   return (
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
-      <Seo pageTitle="Home Page" siteMetadata={data.siteMetadata.nodes} />
+      <Seo pageTitle="Home Page" siteMetadata={data.siteMetadata.nodes[0].list} />
       <Video />
       <Services services={data.services.nodes} />
       <Blogs blogs={data.blogs.nodes} />
