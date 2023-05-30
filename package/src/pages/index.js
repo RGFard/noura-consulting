@@ -8,13 +8,12 @@ import Services from "../components/services/Services";
 import Blogs from "../components/blogs/Blogs";
 
 export default function Home({ data }) {
-  const siteMetadata = data.siteMetadata.nodes[0].list;
   return (
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
       <Seo pageTitle="Home Page" />
       <Video />
-      <Services services={data.services.nodes} />
-      <Blogs blogs={data.blogs.nodes} />
+      {/* <Services services={data.services.nodes} />
+      <Blogs blogs={data.blogs.nodes} /> */}
     </Layout >);
 }
 
