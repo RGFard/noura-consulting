@@ -108,6 +108,14 @@
     z-index: 2000;
     text-align: center;
     cursor: pointer;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      height: 4rem;
+      width: 5rem;
+      top: 0rem;
+      right: 1rem;
+    }
   }
 
   &__icon {
@@ -120,6 +128,12 @@
       height: 2px;
       width: 8.5rem;
       margin: 2px 0px;
+
+      // Safari only
+      @supports (-webkit-hyphens: none) {
+        height: 3px;
+        width: 3.7rem;
+      }
     }
   }
 
@@ -132,6 +146,14 @@
     background-image: radial-gradient($color-grey-light-1, $color-grey-dark-2);
     z-index: 1500;
     transition: transform 0.8s;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      height: 2.7rem;
+      width: 2rem;
+      top: 1rem;
+      right: 2rem;
+    }
   }
 
   &__checkbox:checked ~ &__background {
@@ -158,6 +180,11 @@
     list-style: none;
     text-align: center;
     width: 100%;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      top: 30%;
+    }
   }
 
   &__item {
