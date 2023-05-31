@@ -138,10 +138,10 @@
   }
 
   &__background {
-    height: 7rem;
+    height: 6rem;
     width: 6.5rem;
     position: fixed;
-    top: 7.5rem;
+    top: 4rem;
     right: 7.5rem;
     background-image: radial-gradient($color-grey-light-1, $color-grey-dark-2);
     z-index: 1500;
@@ -180,11 +180,6 @@
     list-style: none;
     text-align: center;
     width: 100%;
-
-    // Safari only
-    @supports (-webkit-hyphens: none) {
-      top: 30%;
-    }
   }
 
   &__item {
