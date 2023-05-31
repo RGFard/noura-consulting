@@ -20,6 +20,7 @@
   @supports (-webkit-hyphens: none) {
     margin: 4rem 0;
     grid-template-columns: minmax(15rem, 1fr);
+    column-gap: 0rem;
     row-gap: 3rem;
   }
 
