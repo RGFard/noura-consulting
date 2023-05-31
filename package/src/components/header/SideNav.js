@@ -3,7 +3,7 @@ import React from "react";
 const SideNav = () => {
     return (
         <aside className="sidenav">
-            {/* <input type="checkbox" className="sidenav__checkbox" id="navi-toggle" />
+            <input type="checkbox" className="sidenav__checkbox" id="navi-toggle" />
 
             <label htmlFor="navi-toggle" className="sidenav__button">
                 <div className="sidenav__icon">
@@ -13,7 +13,7 @@ const SideNav = () => {
                 </div>
             </label>
 
-            <div className="sidenav__background">&nbsp;</div> */}
+            <div className="sidenav__background">&nbsp;</div>
 
             <nav className="sidenav__nav">
                 <ul className="sidenav__list">
