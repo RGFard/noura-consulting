@@ -45,7 +45,9 @@
   // Safari only
   @supports (-webkit-hyphens: none) {
     grid-template-rows: 25rem 1fr;
-    width: 115%;
+    width: 105%;
+
+    margin: 0 1rem;
   }
 
   &__title {
