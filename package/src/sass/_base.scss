@@ -97,6 +97,8 @@ html {
   box-sizing: border-box;
   // font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
   font-size: 30%;
+  width: 100%;
+  height: 100%;
 
   @media only screen and (max-width: $bp-xlarge) {
     font-size: 20%;
@@ -108,6 +110,8 @@ body {
   color: $color-grey-dark-2;
   font-weight: 300;
   line-height: 1.6;
+  width: 100%;
+  height: 100%;
 }
 
 svg {
