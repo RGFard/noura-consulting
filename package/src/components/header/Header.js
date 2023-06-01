@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className="header">
             <TopNav />
-            {/* <SideNav /> */}
+            <SideNav />
         </header>
     );
 };

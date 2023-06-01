@@ -7,7 +7,7 @@ const SEO = ({ pageTitle }) => {
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
-      title={`${pageTitle} | ${title}`}
+      title={`${title} | ${pageTitle}`}
       meta={[{ name: `description`, content: description }]}>
       <link
         href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i"
