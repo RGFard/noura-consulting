@@ -18,12 +18,13 @@
 
   // Safari only
   @supports (-webkit-hyphens: none) {
-    margin: 4rem 0rem 4rem 3rem;
+    margin: 4rem 0rem;
     grid-template-columns: 1fr;
     column-gap: 0rem;
     row-gap: 3rem;
+
     @media only screen and (max-width: $bp-xsmall) {
-      width: 120%;
+      width: 125%;
     }
   }
 
