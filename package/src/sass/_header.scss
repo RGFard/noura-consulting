@@ -7,6 +7,11 @@
 }
 
 .nav {
+  @supports (-webkit-hyphens: none) {
+    @media only screen and (max-width: $bp-xsmall) {
+      width: 400px;
+    }
+  }
   &__list {
     list-style: none;
     font-size: 5rem;
@@ -19,12 +24,10 @@
     align-items: center;
     gap: 7rem;
 
-    @media only screen and (max-width: $bp-xsmall) {
-      max-width: 25em;
-    }
-
     @supports (-webkit-hyphens: none) {
-      max-width: 25em;
+      @media only screen and (max-width: $bp-xsmall) {
+        width: 400px;
+      }
     }
   }
 
