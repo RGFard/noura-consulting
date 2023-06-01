@@ -4,6 +4,7 @@
   grid-column: 1 / 5;
   top: 0;
   z-index: 20;
+  width: 100%;
 }
 
 .nav {
@@ -26,7 +27,7 @@
       // Safari only
       @supports (-webkit-hyphens: none) {
         max-height: 6rem;
-        width: 130%;
+        // min-width: 130%;
       }
     }
   }
