@@ -22,6 +22,12 @@
     @media only screen and (max-width: $bp-medium) {
       display: block;
       max-height: 15rem;
+
+      // Safari only
+      @supports (-webkit-hyphens: none) {
+        max-height: 7rem;
+        width: 100%;
+      }
     }
   }
 
