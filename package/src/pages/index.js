@@ -11,7 +11,7 @@ export default function Home({ data }) {
   return (
     <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
       <Seo pageTitle="Home Page" />
-      {/* <Video /> */}
+      <Video />
       <Services services={data.services.nodes} />
       <Blogs blogs={data.blogs.nodes} />
     </Layout >);
