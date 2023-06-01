@@ -16,6 +16,10 @@
   column-gap: 10rem;
   row-gap: 5rem;
 
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: minmax(35rem, 1fr);
+  }
+
   // Safari only
   @supports (-webkit-hyphens: none) {
     margin: 4rem 0rem;
@@ -28,12 +32,8 @@
       column-gap: 0rem;
     }
     @media only screen and (max-width: $bp-xsmall) {
-      width: 135%;
+      width: 132%;
     }
-  }
-
-  @media only screen and (max-width: $bp-small) {
-    grid-template-columns: minmax(35rem, 1fr);
   }
 
   &__title {
