@@ -1,14 +1,6 @@
 .vision {
-  grid-row: 2 / 3;
-  grid-column: 1 / -1;
-
-  &__image {
-    z-index: -1;
-    width: 100%;
-    position: absolute;
-
-    // animation: fadeInOut 20s ease-in-out infinite;
-  }
+  // grid-row: 2 / 3;
+  grid-column: 1 / 5;
 
   &__video {
     width: 100%;
@@ -16,7 +8,6 @@
     // Safari only
     @supports (-webkit-hyphens: none) {
       @media only screen and (max-width: $bp-xsmall) {
-        width: 110%;
         padding: 0 4rem;
       }
     }
