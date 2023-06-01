@@ -9,7 +9,7 @@
 
 .services {
   grid-column: center-start / center-end;
-  margin: 10rem 0;
+  margin: 10rem 7rem;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(45rem, 1fr));
@@ -18,10 +18,11 @@
 
   // Safari only
   @supports (-webkit-hyphens: none) {
-    margin: 4rem 0;
+    margin: 4rem 3rem;
     grid-template-columns: minmax(15rem, 1fr);
     column-gap: 0rem;
     row-gap: 3rem;
+    width: 100%;
   }
 
   @media only screen and (max-width: $bp-small) {
@@ -41,14 +42,11 @@
   grid-template-rows: 45rem 1fr;
   row-gap: 4rem;
   text-align: center;
-  margin: 0 3rem;
 
   // Safari only
   @supports (-webkit-hyphens: none) {
     grid-template-rows: 25rem 1fr;
-    width: 105%;
-
-    margin-left: 4rem;
+    // width: 105%;
   }
 
   &__title {
