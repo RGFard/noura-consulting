@@ -9,7 +9,7 @@
 
 .services {
   grid-column: center-start / center-end;
-  margin: 10rem 7rem;
+  margin: 10rem 4rem;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(45rem, 1fr));
@@ -18,7 +18,7 @@
 
   // Safari only
   @supports (-webkit-hyphens: none) {
-    margin: 4rem 3rem;
+    margin: 4rem 2rem;
     grid-template-columns: minmax(15rem, 1fr);
     column-gap: 0rem;
     row-gap: 3rem;
