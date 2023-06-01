@@ -1,5 +1,4 @@
 .vision {
-  // grid-row: 2 / 3;
   grid-column: 1 / 5;
 
   &__video {
@@ -8,7 +7,8 @@
     // Safari only
     @supports (-webkit-hyphens: none) {
       @media only screen and (max-width: $bp-xsmall) {
-        padding: 0 4rem;
+        grid-column: center-start / center-end;
+        width: 132%;
       }
     }
   }
