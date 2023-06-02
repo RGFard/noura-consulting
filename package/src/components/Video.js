@@ -7,7 +7,7 @@ const Video = () => {
     return (
         <section className="vision">
             <video className="vision__video" autoPlay muted loop>
-                <source src={VisionVideoMp4} type="video/mp4" />
+                {/* <source src={VisionVideoMp4} type="video/mp4" /> */}
                 <source src={VisionVideoWebm} type="video/webm" />
                 Your browser is not supported! Use Chrome or Firefox.
             </video>
