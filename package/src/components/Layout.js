@@ -8,7 +8,7 @@ const Layout = ({ children, footerItems, icons }) => {
 
     return (
         <div className="container">
-            {/* <Header /> */}
+            <Header />
             {children}
             {/* <Footer footerItems={footerItems} icons={icons} /> */}
         </div>
