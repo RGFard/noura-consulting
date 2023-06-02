@@ -27,7 +27,7 @@
       @supports (-webkit-hyphens: none) {
         max-height: 6rem;
         @media only screen and (max-width: $bp-xsmall) {
-          // width: 130%;
+          width: 300%;
         }
       }
     }
