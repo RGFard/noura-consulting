@@ -4,6 +4,13 @@
   grid-column: 1 / 5;
   top: 0;
   z-index: 20;
+
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    @media only screen and (max-width: $bp-xsmall) {
+      width: 140%;
+    }
+  }
 }
 
 .nav {
@@ -26,9 +33,6 @@
       // Safari only
       @supports (-webkit-hyphens: none) {
         max-height: 6rem;
-        @media only screen and (max-width: $bp-xsmall) {
-          width: 300%;
-        }
       }
     }
   }
