@@ -5,7 +5,7 @@ import VisionVideoMp4 from "../assets/images/vision.mp4";
 const Video = () => {
     return (
         <section className="vision">
-            <video className="vision__video" preload='auto' autoplay loop muted playsinline>
+            <video className="vision__video" muted preload="metadata">
                 <source src={VisionVideoMp4} type="video/mp4" />
                 Your browser is not supported! Use Chrome or Firefox.
             </video>
