@@ -8,7 +8,7 @@
   // Safari only
   @supports (-webkit-hyphens: none) {
     @media only screen and (max-width: $bp-xsmall) {
-      width: 132%;
+      // width: 132%;
     }
   }
 }
