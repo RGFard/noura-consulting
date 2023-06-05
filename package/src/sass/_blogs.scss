@@ -8,7 +8,7 @@
   // Safari only
   @supports (-webkit-hyphens: none) {
     @media only screen and (max-width: $bp-xsmall) {
-      max-width: 90%;
+      // max-width: 90%;
     }
   }
 
@@ -46,7 +46,7 @@
     grid-template-columns: auto;
   }
   @media only screen and (max-width: $bp-xsmall) {
-    max-width: 85%;
+    // max-width: 85%;
   }
 
   &__pictures {
