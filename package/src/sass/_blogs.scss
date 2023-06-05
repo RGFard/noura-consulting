@@ -35,13 +35,13 @@
   // Safari only
   @supports (-webkit-hyphens: none) {
     gap: 2rem;
-    @media only screen and (max-width: $bp-xsmall) {
-      max-width: 92%;
-    }
   }
 
   @media only screen and (max-width: $bp-xmedium) {
     grid-template-columns: auto;
+  }
+  @media only screen and (max-width: $bp-xsmall) {
+    max-width: 85%;
   }
 
   &__pictures {
