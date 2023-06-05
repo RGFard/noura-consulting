@@ -83,9 +83,6 @@ $img-digital-identity-bg-blog: "../assets/images/blogs/digital-identity-bg.jpg";
   // Safari only
   @supports (-webkit-hyphens: none) {
     height: 38rem;
-    @media only screen and (max-width: $bp-xsmall) {
-      // max-width: 87.5%;
-    }
   }
 }
 
@@ -122,6 +119,12 @@ svg {
   cursor: pointer;
   &:hover {
     fill: white;
+  }
+
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 

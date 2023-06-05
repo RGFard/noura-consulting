@@ -10,7 +10,7 @@ const Layout = ({ children, footerItems, icons }) => {
         <div className="container">
             <Header />
             {children}
-            {/* <Footer footerItems={footerItems} icons={icons} /> */}
+            <Footer footerItems={footerItems} icons={icons} />
         </div>
     );
 };

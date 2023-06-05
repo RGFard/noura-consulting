@@ -5,13 +5,6 @@
   display: grid;
   gap: 5rem;
 
-  // Safari only
-  @supports (-webkit-hyphens: none) {
-    @media only screen and (max-width: $bp-xsmall) {
-      // max-width: 90%;
-    }
-  }
-
   &__title {
     display: flex;
     justify-content: center;
@@ -44,9 +37,6 @@
 
   @media only screen and (max-width: $bp-xmedium) {
     grid-template-columns: auto;
-  }
-  @media only screen and (max-width: $bp-xsmall) {
-    // max-width: 85%;
   }
 
   &__pictures {
