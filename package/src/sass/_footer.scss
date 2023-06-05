@@ -83,18 +83,18 @@
 
         // Safari only
         @supports (-webkit-hyphens: none) {
-          width: 20rem;
+          width: 18rem;
           top: -1rem;
           left: -21rem;
           @media only screen and (max-width: $bp-xsmall) {
-            top: -1rem;
-            left: 22rem;
+            top: -10rem;
+            left: -3rem;
           }
         }
 
         @media only screen and (max-width: $bp-xsmall) {
-          top: -1rem;
-          left: 22rem;
+          top: -10rem;
+          left: -3rem;
         }
       }
 
