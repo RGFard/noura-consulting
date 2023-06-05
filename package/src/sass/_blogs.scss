@@ -5,6 +5,13 @@
   display: grid;
   gap: 5rem;
 
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    @media only screen and (max-width: $bp-xsmall) {
+      max-width: 90%;
+    }
+  }
+
   &__title {
     display: flex;
     justify-content: center;
@@ -29,7 +36,7 @@
   @supports (-webkit-hyphens: none) {
     gap: 2rem;
     @media only screen and (max-width: $bp-xsmall) {
-      max-width: 80%;
+      max-width: 92%;
     }
   }
 
