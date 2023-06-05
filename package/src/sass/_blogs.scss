@@ -23,6 +23,11 @@
     align-items: center;
     &-button {
       width: 50rem;
+
+      // Safari only
+      @supports (-webkit-hyphens: none) {
+        width: 30rem;
+      }
     }
   }
 }
@@ -118,11 +123,14 @@
 
     // Safari only
     @supports (-webkit-hyphens: none) {
-      padding: 0.5rem 2rem;
+      padding: 0.5rem 1rem;
+      @media only screen and (max-width: $bp-xsmall) {
+        padding: 0.5rem 0.5rem;
+      }
     }
 
-    @media only screen and (max-width: $bp-xmedium) {
-      padding: 0.5rem 5rem;
+    @media only screen and (min-width: $bp-xsmall) and (max-width: $bp-xmedium) {
+      padding: 0.5rem 3rem;
     }
 
     display: grid;
