@@ -45,6 +45,10 @@
 
       display: grid;
       grid-template-rows: repeat(4, 1fr);
+
+      @media only screen and (max-width: $bp-xsmall) {
+        font-size: 3.2rem;
+      }
     }
 
     &-about {
@@ -87,13 +91,13 @@
           top: -1rem;
           left: -21rem;
           @media only screen and (max-width: $bp-xsmall) {
-            top: -10rem;
+            top: -5rem;
             left: -3rem;
           }
         }
 
         @media only screen and (max-width: $bp-xsmall) {
-          top: -10rem;
+          top: -12rem;
           left: -3rem;
         }
       }
