@@ -2,13 +2,6 @@
   grid-column: center-start / center-end;
   padding: 0 0 3rem 0;
 
-  // Safari only
-  @supports (-webkit-hyphens: none) {
-    @media only screen and (max-width: $bp-xsmall) {
-      max-width: 70%;
-    }
-  }
-
   display: grid;
   gap: 5rem;
 
@@ -35,6 +28,9 @@
   // Safari only
   @supports (-webkit-hyphens: none) {
     gap: 2rem;
+    @media only screen and (max-width: $bp-xsmall) {
+      max-width: 80%;
+    }
   }
 
   @media only screen and (max-width: $bp-xmedium) {
