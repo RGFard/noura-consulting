@@ -1,6 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 
+import "../sass/style.scss";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 import Video from "../components/Video";

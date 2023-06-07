@@ -5,8 +5,16 @@
 
 .heading-1 {
   @extend %heading;
-  font-size: 6rem;
+  font-size: 20rem;
   line-height: 1;
+
+  &--light {
+    color: $color-grey-light-1;
+  }
+
+  &--dark {
+    color: $color-grey-dark-1;
+  }
 }
 
 .heading-2 {

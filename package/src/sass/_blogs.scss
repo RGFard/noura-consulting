@@ -105,6 +105,10 @@
     grid-row: 4 / 6;
     grid-column: 5 / 7;
     width: 115%;
+
+    @media only screen and (min-width: $bp-xlarge) {
+      width: 110%;
+    }
   }
 
   &__article {
