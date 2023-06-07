@@ -5,8 +5,8 @@ import "../sass/style.scss";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 
-export default function Error({ data }) {
-    console.log(data);
+export default function Error({ data: { allContentfulContent: { nodes: footerItems } } }) {
+    console.log(footerItems);
     return (
         // <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
         <Layout>
@@ -21,16 +21,8 @@ export default function Error({ data }) {
 };
 
 export const query = graphql`
-query MyQuery {
-    icons: allContentfulJsonContent {
-        nodes {
-            object {
-                name
-                tag
-            }
-        }
-    }
-    footerItems: allContentfulContent(
+query {
+    allContentfulContent(
         sort: {order: ASC}
         filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
         ) {
