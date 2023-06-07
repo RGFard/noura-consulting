@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 
 export default function Error({ data }) {
+    console.log(data);
     return (
         // <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
         <Layout>
