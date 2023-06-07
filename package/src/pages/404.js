@@ -7,7 +7,8 @@ import Seo from "../components/SEO";
 
 export default function Error({ data }) {
     return (
-        <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
+        // <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
+        <Layout>
             <Seo pageTitle="Error page" />
             <main className="error">
                 <section>
