@@ -10,7 +10,7 @@ const SideNav = () => {
                     <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-line"></span>
-                    <span className="sidenav__icon-cross">&#10060;</span>
+                    <span className="sidenav__icon-cross">&times;</span>
                 </div>
             </label>
 
