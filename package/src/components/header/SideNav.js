@@ -10,6 +10,7 @@ const SideNav = () => {
                     <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-line"></span>
+                    <span className="sidenav__icon-cross">&#10060;</span>
                 </div>
             </label>
 
