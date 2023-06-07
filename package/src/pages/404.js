@@ -9,7 +9,7 @@ export default function Error({ data }) {
     console.log(data);
     return (
         <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
-            <Seo pageTitle="Error" />
+            <Seo pageTitle="Error page" />
             <main className="error">
                 <section>
                     <h1 className="heading-1 heading-1--dark">404</h1>
