@@ -10,7 +10,7 @@ import Blogs from "../components/blogs/Blogs";
 
 export default function Home({ data }) {
   return (
-    <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
+    <Layout>
       <Seo pageTitle="Home Page" />
       <Video />
       <Services services={data.services.nodes} />
@@ -29,27 +29,6 @@ query MyQuery {
         author
         title
       }
-    }
-  }
-  icons: allContentfulJsonContent {
-    nodes {
-      object {
-        name
-        tag
-      }
-    }
-  }
-  footerItems: allContentfulContent(
-    sort: {order: ASC}
-    filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
-  ) {
-    nodes {
-      order
-      list {
-        items
-      }
-      title
-      type
     }
   }
   services: allContentfulContent(

@@ -1,14 +1,11 @@
 import * as React from "react";
-import { graphql } from "gatsby";
 
 import "../sass/style.scss";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 
 export default function Error() {
-    // console.log(data);
     return (
-        // <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
         <Layout>
             <Seo pageTitle="Error page" />
             <main className="error">
@@ -19,21 +16,3 @@ export default function Error() {
             </main>
         </Layout>);
 };
-
-// export const query = graphql`
-// query {
-//     allContentfulContent(
-//         sort: {order: ASC}
-//         filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
-//         ) {
-//             nodes {
-//             order
-//             list {
-//                 items
-//             }
-//             title
-//             type
-//             }
-//         }
-//     }
-// `;
