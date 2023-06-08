@@ -1,12 +1,12 @@
-import React from "react";
+import * as React from "react";
 import { graphql } from "gatsby";
 
 import "../sass/style.scss";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 
-export default function Error({ data }) {
-    console.log(data);
+export default function Error() {
+    // console.log(data);
     return (
         // <Layout footerItems={data.footerItems.nodes} icons={data.icons.nodes}>
         <Layout>
@@ -20,20 +20,20 @@ export default function Error({ data }) {
         </Layout>);
 };
 
-export const query = graphql`
-query {
-    allContentfulContent(
-        sort: {order: ASC}
-        filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
-        ) {
-            nodes {
-            order
-            list {
-                items
-            }
-            title
-            type
-            }
-        }
-    }
-`;
+// export const query = graphql`
+// query {
+//     allContentfulContent(
+//         sort: {order: ASC}
+//         filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
+//         ) {
+//             nodes {
+//             order
+//             list {
+//                 items
+//             }
+//             title
+//             type
+//             }
+//         }
+//     }
+// `;
