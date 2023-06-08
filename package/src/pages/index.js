@@ -20,17 +20,6 @@ export default function Home({ data }) {
 
 export const query = graphql`
 query MyQuery {
-  siteMetadata: allContentfulContent(
-    filter: {title: {eq: "siteMetadata"}}
-  ) {
-    nodes {
-      list {
-        description
-        author
-        title
-      }
-    }
-  }
   services: allContentfulContent(
     sort: {order: ASC}
     filter: {type: {eq: "service"}}

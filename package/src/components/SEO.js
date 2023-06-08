@@ -1,9 +1,25 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 
+const query = graphql`
+{
+  siteMetadata: allContentfulContent(
+    filter: {title: {eq: "siteMetadata"}}
+  ) {
+    nodes {
+      list {
+        description
+        author
+        title
+      }
+    }
+  }
+}
+`;
+
 const SEO = ({ pageTitle }) => {
-  const title = "Noura Consulting Website";
-  const description = "A software provider corporation with specialties in Blockchain Applications, Smart Contracts, Web3, Mobile Native Apps, and APIs";
+  const { title, description } = useStaticQuery(query).siteMetadata.nodes[0].list;
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
