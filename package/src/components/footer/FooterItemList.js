@@ -9,7 +9,7 @@ const FooterItemList = ({ list = [], type, icons }) => {
             item = tooltipItem = listItem.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
             if (type !== "icon") {
                 if (item.length > 20) {
-                    item = item.substring(0, 20) + "...";
+                    item = item.substring(0, 18) + "...";
                 }
             } else {
                 item = <Icon name={listItem} key={index} icons={icons} />;

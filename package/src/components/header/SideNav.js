@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'gatsby';
 
 const SideNav = () => {
     return (
@@ -19,19 +20,19 @@ const SideNav = () => {
             <nav className="sidenav__nav">
                 <ul className="sidenav__list">
                     <li className="sidenav__item">
-                        <a href="testUrl" className="sidenav__link">About</a>
+                        <Link to="/under-construction" className="sidenav__link">about</Link>
                     </li>
                     <li className="sidenav__item">
-                        <a href="testUrl" className="sidenav__link">Services</a>
+                        <Link to="/under-construction" className="sidenav__link">services</Link>
                     </li>
                     <li className="sidenav__item">
-                        <a href="testUrl" className="sidenav__link">Blog</a>
+                        <Link to="/under-construction" className="sidenav__link">blog</Link>
                     </li>
                     <li className="sidenav__item">
-                        <a href="testUrl" className="sidenav__link">contact</a>
+                        <Link to="/under-construction" className="sidenav__link">contact</Link>
                     </li>
                     <li className="sidenav__item">
-                        <a href="testUrl" className="sidenav__link">Console</a>
+                        <Link to="/under-construction" className="sidenav__link">console</Link>
                     </li>
                 </ul>
             </nav>

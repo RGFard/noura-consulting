@@ -19,12 +19,12 @@ const query = graphql`
         filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
         ) {
             nodes {
-            order
-            list {
-                items
-            }
-            title
-            type
+                order
+                list {
+                    items
+                }
+                title
+                type
             }
         }
     }

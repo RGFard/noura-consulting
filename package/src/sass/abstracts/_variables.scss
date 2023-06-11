@@ -1,0 +1,49 @@
+// COLOR VARIABLES
+
+// PURPLE
+// $color-primary: #aa0ccd;
+// $color-primary-dark: #630678;
+
+$color-primary: #7d3f01;
+$color-primary-dark: #592d02;
+
+$color-secondary: #0ca9c5;
+$color-secondary-dark: #27666a;
+
+$color-tertiary: #5c7893;
+$color-tertiary-dark: #2f3e4c;
+
+$color-quaternary: #de7008;
+$color-quaternary-dark: #773e0a;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #8b8b89;
+
+$color-grey-dark-1: #352c2c;
+$color-grey-dark-2: #474747;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+$font-secondray: "Lucida Sans", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-xxxlarge: 118.75em; // 1900px 1900/16=118.75,  16 is the default browser font size
+$bp-xxlarge: 93.75em; // 1500px 1500/16=93.75
+$bp-xlarge: 75em; // 1200px 1200/16=75
+$bp-large: 62.5em; // 1000px 1000/16=62.5
+$bp-medium: 56.25em; // 900px; 900/16=56.25
+$bp-xmedium: 50em; // 800px; 800/16=50
+$bp-small: 37.5em; // 600px; 600/16=32.5
+$bp-xsmall: 25em; // 400px; 400/16=25
+
+// Image Paths
+$img-blockchain-service: "../assets/images/services/blockchain-service.jpg";
+$img-mobile-app-service: "../assets/images/services/mobile-app-service.jpg";
+$img-api-service: "../assets/images/services/api-service.jpg";
+$img-blockchain-blog: "../assets/images/blogs/blockchain.jpg";
+$img-digitization-cybersecurity-bg-blog: "../assets/images/blogs/digitization-cybersecurity-bg.jpg";
+$img-digital-identity-bg-blog: "../assets/images/blogs/digital-identity-bg.jpg";

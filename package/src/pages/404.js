@@ -8,7 +8,7 @@ export default function Error() {
     return (
         <Layout>
             <Seo pageTitle="Error page" />
-            <main className="error">
+            <main className="template--1">
                 <section>
                     <h1 className="heading-1 heading-1--dark">404</h1>
                     <h3 className="heading-3">page not found!</h3>
