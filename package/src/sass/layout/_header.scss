@@ -30,7 +30,7 @@
 
   &__item {
     text-decoration: none;
-    flex: 0.5;
+    flex: 1;
     align-self: center;
     cursor: pointer;
 
@@ -51,7 +51,7 @@
     }
 
     &--last {
-      flex: 1;
+      flex: 1.5;
       align-self: center;
     }
 
