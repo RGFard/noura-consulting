@@ -71,6 +71,10 @@
       &--link {
         color: $color-grey-light-2;
         text-decoration: none;
+
+        &:hover {
+          color: white;
+        }
       }
 
       &--tooltip {
