@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import Icon from "../icons/Icon";
 
@@ -16,8 +17,9 @@ const FooterItemList = ({ list = [], type, icons }) => {
             }
 
             return (
-                <div className="footer__item-link" key={index}>{item}
-                    <span className="footer__item-link--tooltip">{tooltipItem}</span>
+                <div className="footer__item-caption" key={index}>
+                    <Link to="/under-construction" className="footer__item-caption--link">{item}</Link>
+                    <span className="footer__item-caption--tooltip">{tooltipItem}</span>
                 </div>
             );
         })

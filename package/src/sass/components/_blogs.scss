@@ -13,15 +13,6 @@
   &__footer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    &-button {
-      width: 50rem;
-
-      // Safari only
-      @supports (-webkit-hyphens: none) {
-        width: 30rem;
-      }
-    }
   }
 }
 
@@ -137,15 +128,6 @@
     &__footer {
       display: flex;
       justify-content: center;
-    }
-
-    &-button {
-      @extend %button;
-      background-color: $color-secondary;
-
-      &:hover {
-        background-color: $color-secondary-dark;
-      }
     }
   }
 }

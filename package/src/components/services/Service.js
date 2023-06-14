@@ -1,6 +1,10 @@
 import React from "react";
 
+import Button from "../Button";
+
 const Service = ({ services = [] }) => {
+    const caption = "Learn more";
+
     return (
         services.map((service, index) => {
             const { title, description } = service;
@@ -14,6 +18,7 @@ const Service = ({ services = [] }) => {
                     <p className="service__text">
                         {description.description}
                     </p>
+                    <Button caption={caption} />
                 </div>
             );
         })

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 
 const TopNav = () => {
     return (
@@ -10,7 +10,9 @@ const TopNav = () => {
                         <p className="nav__item-logo--1st">Noura</p>
                         <p className="nav__item-logo--2nd">Consulting</p>
                     </Link>
+                    <div className=""></div>
                 </li>
+                <li className="nav__item--2"></li>
                 <li className="nav__item">
                     <Link to="/under-construction" className="nav__item-link">About</Link>
                 </li>
@@ -24,7 +26,7 @@ const TopNav = () => {
                     <Link to="/under-construction" className="nav__item-link">Contact</Link>
                 </li>
                 <li className="nav__item--last">
-                    <button className="nav__item-console-btn">Console</button>
+                    <button className="nav__item-console-btn" onClick={() => navigate("/under-construction")}>Console</button>
                 </li>
             </ul>
         </nav>

@@ -19,7 +19,7 @@ export default function Home({ data }) {
 }
 
 export const query = graphql`
-query MyQuery {
+query Main {
   services: allContentfulContent(
     sort: {order: ASC}
     filter: {type: {eq: "service"}}
@@ -43,6 +43,9 @@ query MyQuery {
         gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
       }
       title
+      list {
+        link
+      }
     }
   }
 }

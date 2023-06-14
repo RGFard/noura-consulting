@@ -1,0 +1,19 @@
+.btn {
+  &__specs {
+    @extend %button;
+    background-color: $color-secondary;
+
+    &:hover {
+      background-color: $color-secondary-dark;
+    }
+  }
+
+  &__wide {
+    width: 50rem;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      width: 30rem;
+    }
+  }
+}

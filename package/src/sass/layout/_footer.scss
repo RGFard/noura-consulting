@@ -60,12 +60,17 @@
       }
     }
 
-    &-link {
+    &-caption {
       cursor: pointer;
       position: relative;
 
       @media only screen and (max-width: $bp-small) {
         font-size: 3.2rem;
+      }
+
+      &--link {
+        color: $color-grey-light-2;
+        text-decoration: none;
       }
 
       &--tooltip {

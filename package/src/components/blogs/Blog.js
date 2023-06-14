@@ -1,17 +1,17 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-// import slugify from "slugify";
+
+import Button from "../Button";
 
 const Blog = ({ blogs = [] }) => {
+    const caption = "Learn more";
 
     return (
         blogs.map((blog, index) => {
             const { title, description, image } = blog;
             const classNamePictures = `blog__pictures--${index + 1}`;
             const classNamePicture = `blog__picture--${index + 1}`;
-
             const pathToImage = getImage(image);
-            // const slug = slugify(title, { lower: true });
 
             const imageTag =
                 <div className={classNamePictures}>
@@ -30,7 +30,7 @@ const Blog = ({ blogs = [] }) => {
                         {description.description}
                     </p>
                     <div className="blog__article__footer">
-                        <button className="blog__article-button">Learn more</button>
+                        <Button caption={caption} />
                     </div>
                 </div>;
 

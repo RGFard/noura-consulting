@@ -1,8 +1,11 @@
 import React from "react";
 
 import Blog from "./Blog";
+import Button from "../Button";
 
 const Blogs = ({ blogs }) => {
+  const wide = true;
+  const caption = "See all blog articles";
 
   return (
     <section className="blogs">
@@ -10,11 +13,8 @@ const Blogs = ({ blogs }) => {
         <h2 className="heading-2 heading-2--dark">Blogs</h2>
       </div>
       <Blog blogs={blogs} />
-
       <div className="blogs__footer">
-        <button className="blog__article-button blogs__footer-button">
-          See all blog articles
-        </button>
+        <Button wide={wide} caption={caption} />
       </div>
     </section>
   );
