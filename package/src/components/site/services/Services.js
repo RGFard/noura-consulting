@@ -21,8 +21,6 @@ const Services = () => {
 
   const services = useStaticQuery(query).allContentfulService.nodes;
 
-  console.log(services);
-
   return (
     <section className="services">
       <div className="services__row">

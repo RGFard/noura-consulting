@@ -2,7 +2,7 @@ import * as React from "react";
 
 import "../sass/style.scss";
 import Layout from "../components/layout/Layout";
-import Seo from "../components/SEO";
+import Seo from "../components/general/SEO";
 
 export default function Error() {
     return (

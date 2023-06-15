@@ -1,11 +1,32 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Blog from "./Blog";
 import Button from "../../general/Button";
 
-const Blogs = ({ blogs }) => {
+const query = graphql`
+{
+  allContentfulBlog(
+    sort: {order: ASC}
+  ) {
+    nodes {
+      friendlyTitle
+      shortDescription {
+        shortDescription
+      }
+      image {
+        gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+      }
+    }
+  }
+}
+`;
+
+const Blogs = () => {
   const wide = true;
   const caption = "See all blog articles";
+
+  const blogs = useStaticQuery(query).allContentfulBlog.nodes;
 
   return (
     <section className="blogs">

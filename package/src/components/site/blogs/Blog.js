@@ -8,7 +8,7 @@ const Blog = ({ blogs = [] }) => {
 
     return (
         blogs.map((blog, index) => {
-            const { title, description, image } = blog;
+            const { friendlyTitle, shortDescription, image } = blog;
             const classNamePictures = `blog__pictures--${index + 1}`;
             const classNamePicture = `blog__picture--${index + 1}`;
             const pathToImage = getImage(image);
@@ -18,16 +18,16 @@ const Blog = ({ blogs = [] }) => {
                     <GatsbyImage
                         image={pathToImage}
                         className={classNamePicture}
-                        alt={title}
+                        alt={friendlyTitle}
                     />
                 </div>;
             const bodyTag =
                 <div className="blog__article">
                     <h3 className="heading-3 heading-3--secondry-dark">
-                        {title}
+                        {friendlyTitle}
                     </h3>
                     <p className="blog__article__body">
-                        {description.description}
+                        {shortDescription.shortDescription}
                     </p>
                     <div className="blog__article__footer">
                         <Button caption={caption} />
