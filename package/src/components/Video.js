@@ -1,6 +1,6 @@
 import React from "react";
 
-import VisionVideoMp4 from "../../assets/images/vision.mp4";
+import VisionVideoMp4 from "../assets/images/vision.mp4";
 
 const Video = () => {
     return (
