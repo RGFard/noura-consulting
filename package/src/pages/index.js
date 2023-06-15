@@ -2,35 +2,24 @@ import * as React from "react";
 import { graphql } from "gatsby";
 
 import "../sass/style.scss";
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 import Seo from "../components/SEO";
-import Video from "../components/Video";
-import Services from "../components/services/Services";
-import Blogs from "../components/blogs/Blogs";
+import Video from "../components/general/Video";
+import Services from "../components/site/services/Services";
+import Blogs from "../components/site/blogs/Blogs";
 
 export default function Home({ data }) {
   return (
     <Layout>
       <Seo pageTitle="Home Page" />
       <Video />
-      <Services services={data.services.nodes} />
+      <Services />
       <Blogs blogs={data.blogs.nodes} />
-    </Layout >);
+    </ Layout>);
 }
 
 export const query = graphql`
 query Main {
-  services: allContentfulContent(
-    sort: {order: ASC}
-    filter: {type: {eq: "service"}}
-  ) {
-    nodes {
-      title
-      description {
-        description
-      }
-    }
-  }
   blogs: allContentfulContent(
     sort: {order: ASC}, 
     filter:  {type: {eq: "blog"}}

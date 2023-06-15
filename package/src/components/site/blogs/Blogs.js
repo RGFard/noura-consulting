@@ -1,7 +1,7 @@
 import React from "react";
 
 import Blog from "./Blog";
-import Button from "../Button";
+import Button from "../../general/Button";
 
 const Blogs = ({ blogs }) => {
   const wide = true;

@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Button from "../Button";
+import Button from "../../general/Button";
 
 const Blog = ({ blogs = [] }) => {
     const caption = "Learn more";

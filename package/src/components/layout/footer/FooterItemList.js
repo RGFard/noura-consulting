@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Icon from "../icons/Icon";
+import Icon from "../../general/Icon";
 
 const FooterItemList = ({ list = [], type, icons }) => {
     return (

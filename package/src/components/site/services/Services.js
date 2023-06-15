@@ -1,11 +1,27 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Service from "./Service";
-import Button from "../Button";
+import Button from "../../general/Button";
 
-const Services = ({ services }) => {
+const query = graphql`
+{
+  allContentfulService {
+    nodes {
+      friendlyTitle
+      shortDescription
+    }
+  }
+}
+`;
+
+const Services = () => {
   const wide = true;
   const caption = "See all services";
+
+  const services = useStaticQuery(query).allContentfulService.nodes;
+
+  console.log(services);
 
   return (
     <section className="services">

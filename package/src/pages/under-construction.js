@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "../sass/style.scss";
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 import Seo from "../components/SEO";
 import underConstructionImage from "../assets/images/under-construction.jpg";
 
@@ -16,5 +16,5 @@ export default function UnderConstruction() {
                     <img alt="Under Construction!" src={underConstructionImage} className="template-1--image" />
                 </section>
             </main>
-        </Layout>);
+        </ Layout>);
 };
