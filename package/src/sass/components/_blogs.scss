@@ -14,6 +14,14 @@
     display: flex;
     justify-content: center;
   }
+
+  &-button {
+    @include btn($color-secondary);
+
+    &:hover {
+      @include btn($color-secondary-dark);
+    }
+  }
 }
 
 .blog {
@@ -128,6 +136,14 @@
     &__footer {
       display: flex;
       justify-content: center;
+    }
+
+    &-button {
+      @include btn($color-secondary);
+
+      &:hover {
+        @include btn($color-secondary-dark);
+      }
     }
   }
 }

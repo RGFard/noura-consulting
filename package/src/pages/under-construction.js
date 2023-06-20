@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 
 import "../sass/style.scss";
 import Layout from "../components/layout/Layout";
@@ -14,6 +15,8 @@ export default function UnderConstruction() {
                     <h1 className="heading-1 heading-1--dark">Coming Soon!</h1>
                     <h3 className="heading-3">Under Construction!</h3>
                     <img alt="Under Construction!" src={underConstructionImage} className="template-1--image" />
+                    <br />
+                    <Link to="/" className="template-1--text">Return Home</Link>
                 </section>
             </main>
         </ Layout>);

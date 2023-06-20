@@ -30,7 +30,7 @@ const Blog = ({ blogs = [] }) => {
                         {shortDescription.shortDescription}
                     </p>
                     <div className="blog__article__footer">
-                        <Button caption={caption} />
+                        <Button color="blog__article-button" caption={caption} />
                     </div>
                 </div>;
 

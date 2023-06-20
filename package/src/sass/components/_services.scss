@@ -33,11 +33,27 @@
     }
   }
 
+  &-button {
+    @include btn($color-secondary);
+
+    &:hover {
+      @include btn($color-secondary-dark);
+    }
+  }
+
   &__row {
     grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &-button {
+      @include btn($color-secondary);
+
+      &:hover {
+        @include btn($color-secondary-dark);
+      }
+    }
   }
 }
 

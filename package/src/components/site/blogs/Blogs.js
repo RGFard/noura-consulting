@@ -35,7 +35,7 @@ const Blogs = () => {
       </div>
       <Blog blogs={blogs} />
       <div className="blogs__footer">
-        <Button wide={wide} caption={caption} />
+        <Button color="services-button" wide={wide} caption={caption} />
       </div>
     </section>
   );

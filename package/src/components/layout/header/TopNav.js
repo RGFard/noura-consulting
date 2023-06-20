@@ -1,7 +1,11 @@
 import React from "react";
-import { Link, navigate } from 'gatsby';
+import { Link } from 'gatsby';
+
+import Button from "../../general/Button";
 
 const TopNav = () => {
+    const caption = "Console";
+
     return (
         <nav className="nav">
             <ul className="nav__list">
@@ -26,7 +30,7 @@ const TopNav = () => {
                     <Link to="/under-construction" className="nav__item-link">Contact</Link>
                 </li>
                 <li className="nav__item--last">
-                    <button className="nav__item-console-btn" onClick={() => navigate("/under-construction")}>Console</button>
+                    <Button color="nav__item-console-btn" caption={caption} />
                 </li>
             </ul>
         </nav>

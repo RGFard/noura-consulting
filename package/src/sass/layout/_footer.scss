@@ -118,11 +118,10 @@
     }
 
     &-button {
-      @extend %button;
-      background-color: $color-tertiary;
+      @include btn($color-tertiary);
 
       &:hover {
-        background-color: $color-tertiary-dark;
+        @include btn($color-tertiary-dark);
       }
     }
   }
