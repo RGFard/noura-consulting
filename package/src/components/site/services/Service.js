@@ -18,7 +18,7 @@ const Service = ({ services = [] }) => {
                     <p className="service__text">
                         {shortDescription}
                     </p>
-                    <Button color="services-button" caption={caption} />
+                    <Button specifiedClass="services-button" caption={caption} />
                 </div>
             );
         })

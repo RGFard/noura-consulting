@@ -28,7 +28,7 @@ const Services = () => {
       </div>
       <Service services={services} />
       <div className="services__row">
-        <Button color="services__row-button" wide={wide} caption={caption} />
+        <Button specifiedClass="services__row-button" wide={wide} caption={caption} />
       </div>
     </section>
   );

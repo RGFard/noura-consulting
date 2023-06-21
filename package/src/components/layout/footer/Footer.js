@@ -14,7 +14,7 @@ const Footer = ({ footerItems, icons }) => {
           <div>Noura Consulting Ltd. is an IT consulting and technology startup established in 2014 in Greater Toronto Area (GTA), Ontario, Canada.
           </div>
           <div className="footer__item-about-footer">
-            <Button color="footer__item-button" caption={caption} />
+            <Button specifiedClass="footer__item-button" caption={caption} />
           </div>
         </div>
       </div>

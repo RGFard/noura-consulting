@@ -5,8 +5,6 @@ const ServiceTemplate = ({ data }) => {
   const {
     title
   } = data.contentfulBlog;
-  console.log(title);
-
 
   return (
     <div className="">{title}</div>

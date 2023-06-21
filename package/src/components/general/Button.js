@@ -2,9 +2,9 @@ import React from "react";
 import { navigate } from 'gatsby';
 
 
-const Button = ({ caption, wide, color }) => {
+const Button = ({ caption, wide, specifiedClass }) => {
     let className = wide === true ? "btn__specs btn__wide" : "btn__specs";
-    className = className + " " + color;
+    className = className + " " + specifiedClass;
     const onClick = () => navigate("/under-construction");
 
     return (
