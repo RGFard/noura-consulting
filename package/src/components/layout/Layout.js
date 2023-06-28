@@ -14,20 +14,19 @@ const query = graphql`
             }
         }
     }
-    footerItems: allContentfulContent(
-        sort: {order: ASC}
-        filter: {type: {in: ["text", "icon"]}, title: {ne: "siteMetadata"}}
-        ) {
-            nodes {
-                order
-                list {
-                    items
-                }
+    siteMetadata: allContentfulSite {
+        nodes {
+            data {
                 title
-                type
+                description
+                author
+                mainServices
+                quickMenu
+                followUs
             }
         }
     }
+}
 `;
 
 const Layout = ({ children }) => {
@@ -36,7 +35,7 @@ const Layout = ({ children }) => {
         <div className="container">
             <Header />
             {children}
-            <Footer footerItems={data.footerItems.nodes} icons={data.icons.nodes} />
+            <Footer siteMetadata={data.siteMetadata.nodes[0].data} icons={data.icons.nodes} />
         </div>
     );
 };

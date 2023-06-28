@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 import Icon from "../../general/Icon";
 
-const FooterItemList = ({ list = [], type, icons }) => {
+const FooterItemList = ({ list = [], icons, type }) => {
     return (
         list.map((listItem, index) => {
             let item, tooltipItem;

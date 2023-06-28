@@ -4,14 +4,12 @@ import { Helmet } from "react-helmet";
 
 const query = graphql`
 {
-  siteMetadata: allContentfulContent(
-    filter: {title: {eq: "siteMetadata"}}
-  ) {
+  siteMetadata: allContentfulSite {
     nodes {
-      list {
+      data {
+        title
         description
         author
-        title
       }
     }
   }
@@ -19,7 +17,7 @@ const query = graphql`
 `;
 
 const SEO = ({ pageTitle }) => {
-  const { title, description } = useStaticQuery(query).siteMetadata.nodes[0].list;
+  const { title, description } = useStaticQuery(query).siteMetadata.nodes[0];
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
