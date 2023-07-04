@@ -17,7 +17,7 @@ const query = graphql`
 `;
 
 const SEO = ({ pageTitle }) => {
-  const { title, description } = useStaticQuery(query).siteMetadata.nodes[0];
+  const { title, description } = useStaticQuery(query).siteMetadata.nodes[0].data;
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}

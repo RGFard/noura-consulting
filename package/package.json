@@ -13,6 +13,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
+    "@contentful/rich-text-types": "^16.2.0",
     "gatsby": "^5.9.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-react-helmet": "^6.9.0",
@@ -25,6 +27,7 @@
     "html-react-parser": "^3.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "sass": "^1.62.1",
     "slugify": "^1.6.6",
     "socket.io-parser": "^4.2.4"

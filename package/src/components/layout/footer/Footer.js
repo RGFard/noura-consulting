@@ -3,7 +3,7 @@ import React from "react";
 import FooterItem from "./FooterItem";
 import Button from "../../general/Button";
 
-const Footer = ({ footerItems, siteMetadata, icons }) => {
+const Footer = ({ siteMetadata, icons }) => {
   const caption = "Learn more";
 
   return (
@@ -18,7 +18,7 @@ const Footer = ({ footerItems, siteMetadata, icons }) => {
           </div>
         </div>
       </div>
-      <FooterItem footerItems={footerItems} siteMetadata={siteMetadata} icons={icons} />
+      <FooterItem siteMetadata={siteMetadata} icons={icons} />
     </footer>
   );
 };

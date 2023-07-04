@@ -11,8 +11,8 @@ const query = graphql`
   ) {
     nodes {
       friendlyTitle
-      shortDescription {
-        shortDescription
+      mainDescription {
+        raw
       }
       image {
         gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
