@@ -35,11 +35,15 @@ const ServiceTemplate = ({ data }) => {
           <GatsbyImage
             image={pathToMainImage}
             className="template2__section--header-image"
-            alt={mainImage.description}
+          // alt={mainImage.description}
           />
         </section>
-        <Body text={intro} image={pathToIntroductionImage} alt={introductionImage.description} />
-        <Body text={problem} image={pathToProblemStatementImage} alt={problemStatementImage.description} />
+        <Body text={intro} image={pathToIntroductionImage}
+        // alt={introductionImage.description}
+        />
+        <Body text={problem} image={pathToProblemStatementImage}
+        // alt={problemStatementImage.description}
+        />
       </main>
     </ Layout>
   );
