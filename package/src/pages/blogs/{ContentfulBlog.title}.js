@@ -16,13 +16,15 @@ const ServiceTemplate = ({ data }) => {
     introduction,
     introductionImage,
     problemStatement,
-    problemStatementImage
+    problemStatementImage,
+    solution
   } = data.contentfulBlog;
   const pathToMainImage = getImage(mainImage);
   const pathToIntroductionImage = getImage(introductionImage);
   const pathToProblemStatementImage = getImage(problemStatementImage);
   const intro = setupRichText(introduction);
   const problem = setupRichText(problemStatement);
+  const resolution = setupRichText(solution);
 
   return (
     <Layout>
@@ -44,6 +46,14 @@ const ServiceTemplate = ({ data }) => {
         <Body text={problem} image={pathToProblemStatementImage}
         // alt={problemStatementImage.description}
         />
+        <section className="template2__section--body">
+          <div className="template2__section--body-text">
+            {resolution}
+          </div>
+          <div className="template2__section--body-image">
+            {/* <GatsbyImage image={image} alt={alt} /> */}
+          </div>
+        </section>
       </main>
     </ Layout>
   );
@@ -54,26 +64,29 @@ query getSingleBlog($title: String) {
   contentfulBlog(
     title: {eq: $title}
   ) {
-    title,
-    friendlyTitle,
+    title
+    friendlyTitle
     mainImage {
       gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
       description
-    },
+    }
     introductionImage {
       gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
       description
-    },
+    }
     problemStatementImage {
       gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
       description
-    },
+    }
     introduction {
       raw
     }
     problemStatement {
       raw
-    }      
+    }
+    solution {
+      raw
+    }
   }
 }
 `;
