@@ -11,6 +11,7 @@ const query = graphql`
   ) {
     nodes {
       friendlyTitle
+      url
       mainDescription {
         raw
       }

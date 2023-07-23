@@ -9,11 +9,14 @@ const Blog = ({ blogs = [] }) => {
 
     return (
         blogs.map((blog, index) => {
-            const { friendlyTitle, mainDescription, image } = blog;
+            const { friendlyTitle, url, mainDescription, image } = blog;
             const classNamePictures = `blog__pictures--${index + 1}`;
             const classNamePicture = `blog__picture--${index + 1}`;
             const pathToImage = getImage(image);
             const description = setupRichText(mainDescription);
+
+            const tempUrl = (url === "/blogs/charitable-giving-using-blockchain-technology") ? url : null;
+
 
             const imageTag =
                 <div className={classNamePictures}>
@@ -32,7 +35,7 @@ const Blog = ({ blogs = [] }) => {
                         {description}
                     </p>
                     <div className="blog__article__footer">
-                        <Button specifiedClass="blog__article-button" caption={caption} />
+                        <Button specifiedClass="blog__article-button" url={tempUrl} caption={caption} />
                     </div>
                 </div>;
 

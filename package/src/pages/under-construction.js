@@ -10,13 +10,13 @@ export default function UnderConstruction() {
     return (
         <Layout>
             <Seo pageTitle="Under Construction page" />
-            <main className="template-1">
+            <main className="template1">
                 <section>
                     <h1 className="heading-1 heading-1--dark">Coming Soon!</h1>
                     <h3 className="heading-3">Under Construction!</h3>
-                    <img alt="Under Construction!" src={underConstructionImage} className="template-1--image" />
+                    <img alt="Under Construction!" src={underConstructionImage} className="template1--image" />
                     <br />
-                    <Link to="/" className="template-1--text">Return Home</Link>
+                    <Link to="/" className="template1--text">Return Home</Link>
                 </section>
             </main>
         </ Layout>);

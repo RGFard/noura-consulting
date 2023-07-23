@@ -1,6 +1,6 @@
-import React from 'react';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
+import React from "react";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 const setupRichText = (richText) => {
 
@@ -17,13 +17,30 @@ const setupRichText = (richText) => {
                     </a>
                 );
             },
+            [BLOCKS.PARAGRAPH]: (node, children) => {
+                return (
+                    children.map((line, index) => {
+                        if (!line) {
+                            return <br key="newLine" />;
+                        } else {
+                            return <p className="body-text" key={index}>{line}</p>;
+                        }
+                    })
+                );
+            },
+            [BLOCKS.HEADING_1]: (node, children) => {
+                return <h1 className="heading-1">{children}</h1>;
+            },
             [BLOCKS.HEADING_2]: (node, children) => {
-                return <h2>{children}</h2>;
+                return <h2 className="heading-2">{children}</h2>;
+            },
+            [BLOCKS.HEADING_3]: (node, children) => {
+                return <h2 className="heading-3 heading-3--black">{children}</h2>;
             },
         },
     };
     return (
-        renderRichText(richText, options)[0].props.children
+        renderRichText(richText, options)
     );
 };
 

@@ -40,6 +40,10 @@
   &--secondry-dark {
     color: $color-secondary-dark;
   }
+  &--black {
+    font-size: 5rem;
+    color: $color-black;
+  }
 }
 
 .heading-4 {
@@ -52,6 +56,12 @@
   &--dark {
     color: $color-grey-dark-1;
   }
+}
+
+.body-text {
+  font-family: $font-primary;
+  font-size: 3.9rem;
+  // white-space: pre-line;
 }
 
 // .mb-sm { margin-bottom: 2rem; }

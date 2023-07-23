@@ -9,11 +9,11 @@ export default function Error() {
     return (
         <Layout>
             <Seo pageTitle="Error page" />
-            <main className="template-1">
+            <main className="template1">
                 <section>
                     <h1 className="heading-1 heading-1--dark">404</h1>
                     <h3 className="heading-3">page not found!</h3>
-                    <Link to="/" className="template-1--text">Return Home</Link>
+                    <Link to="/" className="template1--text">Return Home</Link>
                 </section>
             </main>
         </ Layout>);
