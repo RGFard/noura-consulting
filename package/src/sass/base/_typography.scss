@@ -35,7 +35,7 @@
   @extend %heading;
   font-size: 7rem;
   color: $color-primary;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 
   &--secondry-dark {
     color: $color-secondary-dark;

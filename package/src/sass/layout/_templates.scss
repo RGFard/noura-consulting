@@ -69,6 +69,21 @@
         padding: 5rem 10rem;
       }
 
+      // Safari only
+      @supports (-webkit-hyphens: none) {
+        padding: 5rem 30rem 0rem 30rem;
+
+        @media only screen and (max-width: $bp-xlarge) {
+          padding: 5rem 15rem 0rem 15rem;
+        }
+        @media only screen and (max-width: $bp-xmedium) {
+          padding: 5rem 7rem 0rem 7rem;
+        }
+        @media only screen and (max-width: $bp-small) {
+          padding: 5rem 3rem 0rem 3rem;
+        }
+      }
+
       &-text {
         flex: 1;
       }
