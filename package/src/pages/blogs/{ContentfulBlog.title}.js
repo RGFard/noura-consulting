@@ -24,7 +24,7 @@ const ServiceTemplate = ({ data }) => {
   const pathToProblemStatementImage = getImage(problemStatementImage);
   const intro = setupRichText(introduction);
   const problem = setupRichText(problemStatement);
-  const resolution = setupRichText(solution);
+  const resolution = solution.raw !== null ? setupRichText(solution) : null;
 
   return (
     <Layout>
