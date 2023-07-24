@@ -31,9 +31,9 @@ const Blog = ({ blogs = [] }) => {
                     <h3 className="heading-3 heading-3--secondry-dark">
                         {friendlyTitle}
                     </h3>
-                    <p className="blog__article__body">
+                    <div className="blog__article__body">
                         {description}
-                    </p>
+                    </div>
                     <div className="blog__article__footer">
                         <Button specifiedClass="blog__article-button" url={tempUrl} caption={caption} />
                     </div>

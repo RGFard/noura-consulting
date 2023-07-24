@@ -17,15 +17,16 @@ const ServiceTemplate = ({ data }) => {
     introductionImage,
     problemStatement,
     problemStatementImage,
-    solution
+    solution,
+    solutionImage
   } = data.contentfulBlog;
   const pathToMainImage = getImage(mainImage);
   const pathToIntroductionImage = getImage(introductionImage);
   const pathToProblemStatementImage = getImage(problemStatementImage);
+  const pathToSolutionImage = getImage(solutionImage);
   const intro = setupRichText(introduction);
   const problem = setupRichText(problemStatement);
-  console.log(solution);
-  const resolution = solution !== null ? setupRichText(solution) : null;
+  const resolution = setupRichText(solution);
 
   return (
     <Layout>
@@ -38,23 +39,15 @@ const ServiceTemplate = ({ data }) => {
           <GatsbyImage
             image={pathToMainImage}
             className="template2__section--header-image"
-          // alt={mainImage.description}
+            alt={mainImage.description}
           />
         </section>
-        <Body text={intro} image={pathToIntroductionImage}
-        // alt={introductionImage.description}
+        <Body text={intro} image={pathToIntroductionImage} alt={introductionImage.description}
         />
-        <Body text={problem} image={pathToProblemStatementImage}
-        // alt={problemStatementImage.description}
+        <Body text={problem} image={pathToProblemStatementImage} alt={problemStatementImage.description}
         />
-        <section className="template2__section--body">
-          <div className="template2__section--body-text">
-            {resolution}
-          </div>
-          <div className="template2__section--body-image">
-            {/* <GatsbyImage image={image} alt={alt} /> */}
-          </div>
-        </section>
+        <Body text={resolution} image={pathToSolutionImage} alt={solutionImage.description}
+        />
       </main>
     </ Layout>
   );
@@ -76,6 +69,10 @@ query getSingleBlog($title: String) {
       description
     }
     problemStatementImage {
+      gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+      description
+    }
+    solutionImage {
       gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
       description
     }

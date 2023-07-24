@@ -18,15 +18,20 @@ const setupRichText = (richText) => {
                 );
             },
             [BLOCKS.PARAGRAPH]: (node, children) => {
-                return (
-                    children.map((line, index) => {
-                        if (!line) {
-                            return <br key="newLine" />;
-                        } else {
-                            return <p className="body-text" key={index}>{line}</p>;
-                        }
-                    })
-                );
+                if (children.length > 1) {
+                    return <p>{children}</p>;
+                }
+                else {
+                    return (
+                        children.map((line, index) => {
+                            if (!line) {
+                                return <br key={index} />;
+                            } else {
+                                return <p className="body-text" key={index}>{line}</p>;
+                            }
+                        })
+                    );
+                }
             },
             [BLOCKS.HEADING_1]: (node, children) => {
                 return <h1 className="heading-1">{children}</h1>;
