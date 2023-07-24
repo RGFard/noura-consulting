@@ -18,15 +18,17 @@ const ServiceTemplate = ({ data }) => {
     problemStatement,
     problemStatementImage,
     solution,
-    solutionImage
+    solutionImage,
+    conclusion
   } = data.contentfulBlog;
   const pathToMainImage = getImage(mainImage);
   const pathToIntroductionImage = getImage(introductionImage);
   const pathToProblemStatementImage = getImage(problemStatementImage);
   const pathToSolutionImage = getImage(solutionImage);
-  const intro = setupRichText(introduction);
-  const problem = setupRichText(problemStatement);
-  const resolution = setupRichText(solution);
+  const introductionParagraph = setupRichText(introduction);
+  const problemStatementParagraph = setupRichText(problemStatement);
+  const solutionParagraph = setupRichText(solution);
+  const conclusionParagraph = setupRichText(conclusion);
 
   return (
     <Layout>
@@ -42,12 +44,14 @@ const ServiceTemplate = ({ data }) => {
             alt={mainImage.description}
           />
         </section>
-        <Body text={intro} image={pathToIntroductionImage} alt={introductionImage.description}
-        />
-        <Body text={problem} image={pathToProblemStatementImage} alt={problemStatementImage.description}
-        />
-        <Body text={resolution} image={pathToSolutionImage} alt={solutionImage.description}
-        />
+        <Body text={introductionParagraph} image={pathToIntroductionImage} alt={introductionImage.description} />
+        <Body text={problemStatementParagraph} image={pathToProblemStatementImage} alt={problemStatementImage.description} />
+        <Body text={solutionParagraph} image={pathToSolutionImage} alt={solutionImage.description} />
+        <section className="template2__section--body">
+          <div className="template2__section--body-text">
+            {conclusionParagraph}
+          </div>
+        </section>
       </main>
     </ Layout>
   );
@@ -83,6 +87,9 @@ query getSingleBlog($title: String) {
       raw
     }
     solution {
+      raw
+    }
+    conclusion {
       raw
     }
   }
