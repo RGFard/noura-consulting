@@ -3,12 +3,12 @@ import { Link } from "gatsby";
 
 import "../sass/style.scss";
 import Layout from "../components/layout/Layout";
-import Seo from "../components/general/SEO";
+import Head from "../components/general/Head";
 
 export default function Error() {
     return (
         <Layout>
-            <Seo pageTitle="Error page" />
+            <Head pageTitle="Error page" />
             <main className="template1">
                 <section>
                     <h1 className="heading-1 heading-1--dark">404</h1>

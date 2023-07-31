@@ -39,15 +39,23 @@
         width: 100%;
         font-size: 5vw;
         line-height: 1;
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 8vw;
+        }
       }
 
       &-image {
         z-index: 1;
         width: 100%;
-        height: auto;
+        height: 80vh;
         grid-row: 1 / 9;
         grid-column: 1 / 9;
         filter: brightness(50%);
+
+        @media only screen and (max-width: $bp-xlarge) {
+          height: auto;
+        }
       }
     }
 
@@ -56,11 +64,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 5rem 65rem;
+      padding: 5rem 55rem;
       min-height: 50vh;
 
       @media only screen and (max-width: $bp-xlarge) {
-        padding: 5rem 35rem;
+        padding: 5rem 30rem;
       }
       @media only screen and (max-width: $bp-xmedium) {
         padding: 5rem 25rem;
@@ -89,7 +97,11 @@
       }
 
       &-image {
-        padding-top: 5rem;
+        padding-top: 10rem;
+
+        @supports (-webkit-hyphens: none) {
+          padding-top: 6rem;
+        }
       }
     }
   }

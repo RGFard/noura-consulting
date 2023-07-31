@@ -40,7 +40,7 @@ const setupRichText = (richText) => {
                 return <h2 className="heading-2">{children}</h2>;
             },
             [BLOCKS.HEADING_3]: (node, children) => {
-                return <h2 className="heading-3 heading-3--black">{children}</h2>;
+                return <h3 className="heading-3 heading-3--black">{children}</h3>;
             },
         },
     };

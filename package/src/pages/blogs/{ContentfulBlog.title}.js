@@ -3,7 +3,7 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../../components/layout/Layout";
-import Seo from "../../components/general/SEO";
+import Head from "../../components/general/Head";
 import setupRichText from "../../utils/setupRichText";
 import Body from "../../components/site/blogs/Body";
 
@@ -32,7 +32,7 @@ const ServiceTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <Seo pageTitle={title} />
+      <Head pageTitle={title} />
       <main className="template2">
         <section className="template2__section--header" key="header">
           <div className="template2__section--header-text">

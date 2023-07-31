@@ -40,8 +40,9 @@
     color: $color-secondary-dark;
   }
   &--black {
-    font-size: 5rem;
+    font-size: 6rem;
     color: $color-black;
+    font-weight: bolder;
   }
 }
 
@@ -59,7 +60,14 @@
 
 .body-text {
   font-family: $font-primary;
-  font-size: 3.9rem;
+  font-size: 4.1rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 4.7rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 4.7rem;
+  }
 }
 
 // .mb-sm { margin-bottom: 2rem; }

@@ -15,9 +15,6 @@ const Blog = ({ blogs = [] }) => {
             const pathToImage = getImage(image);
             const description = setupRichText(mainDescription);
 
-            const tempUrl = (url === "/blogs/charitable-giving-using-blockchain-technology") ? url : null;
-
-
             const imageTag =
                 <div className={classNamePictures}>
                     <GatsbyImage
@@ -35,7 +32,7 @@ const Blog = ({ blogs = [] }) => {
                         {description}
                     </div>
                     <div className="blog__article__footer">
-                        <Button specifiedClass="blog__article-button" url={tempUrl} caption={caption} />
+                        <Button specifiedClass="blog__article-button" url={url} caption={caption} />
                     </div>
                 </div>;
 

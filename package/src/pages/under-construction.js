@@ -3,13 +3,13 @@ import { Link } from "gatsby";
 
 import "../sass/style.scss";
 import Layout from "../components/layout/Layout";
-import Seo from "../components/general/SEO";
+import Head from "../components/general/Head";
 import underConstructionImage from "../assets/images/under-construction.jpg";
 
 export default function UnderConstruction() {
     return (
         <Layout>
-            <Seo pageTitle="Under Construction page" />
+            <Head pageTitle="Under Construction page" />
             <main className="template1">
                 <section>
                     <h1 className="heading-1 heading-1--dark">Coming Soon!</h1>
