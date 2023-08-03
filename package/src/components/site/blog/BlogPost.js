@@ -4,11 +4,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Button from "../../general/Button";
 import setupRichText from "../../../utils/setupRichText";
 
-const Blog = ({ blogs = [] }) => {
+const BlogPost = ({ weblog = [] }) => {
     const caption = "Learn more";
 
     return (
-        blogs.map((blog, index) => {
+        weblog.map((blog, index) => {
             const { friendlyTitle, url, mainDescription, image } = blog;
             const classNamePictures = `blog__pictures--${index + 1}`;
             const classNamePicture = `blog__picture--${index + 1}`;
@@ -56,4 +56,4 @@ const Blog = ({ blogs = [] }) => {
         }));
 };
 
-export default Blog;
+export default BlogPost;

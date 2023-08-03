@@ -5,7 +5,7 @@ import Layout from "../components/layout/Layout";
 import Head from "../components/general/Head";
 import Video from "../components/general/Video";
 import Services from "../components/site/services/Services";
-import Blogs from "../components/site/blogs/Blogs";
+import Weblog from "../components/site/blog/Weblog";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <Head pageTitle="Home Page" />
       <Video />
       <Services />
-      <Blogs />
+      <Weblog footer={true} />
     </ Layout>
   );
 }

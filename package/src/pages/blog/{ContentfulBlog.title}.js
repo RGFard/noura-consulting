@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout/Layout";
 import Head from "../../components/general/Head";
 import setupRichText from "../../utils/setupRichText";
-import Body from "../../components/site/blogs/Body";
+import Body from "../../components/site/blog/Body";
 
 
 const ServiceTemplate = ({ data }) => {

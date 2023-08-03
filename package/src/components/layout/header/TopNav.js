@@ -24,7 +24,7 @@ const TopNav = () => {
                     <Link to="/under-construction" className="nav__item-link">Services</Link>
                 </li>
                 <li className="nav__item">
-                    <Link to="/under-construction" className="nav__item-link">Blog</Link>
+                    <Link to="/blog" className="nav__item-link">Blog</Link>
                 </li>
                 <li className="nav__item">
                     <Link to="/under-construction" className="nav__item-link">Contact</Link>
