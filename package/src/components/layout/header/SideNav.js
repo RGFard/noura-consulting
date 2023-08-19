@@ -23,7 +23,7 @@ const SideNav = () => {
                         <Link to="/under-construction" className="sidenav__link">about</Link>
                     </li>
                     <li className="sidenav__item">
-                        <Link to="/under-construction" className="sidenav__link">services</Link>
+                        <Link to="/services" className="sidenav__link">services</Link>
                     </li>
                     <li className="sidenav__item">
                         <Link to="/blog" className="sidenav__link">blog</Link>

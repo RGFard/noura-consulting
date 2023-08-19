@@ -5,7 +5,7 @@ import "../sass/style.scss";
 import Layout from "../components/layout/Layout";
 import Head from "../components/general/Head";
 
-export default function Error() {
+export default function ErrorPage() {
     return (
         <Layout>
             <Head pageTitle="Error page" />

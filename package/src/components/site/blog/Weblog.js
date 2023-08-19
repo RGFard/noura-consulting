@@ -36,7 +36,7 @@ const Weblog = ({ footer }) => {
   return (
     <section className="weblog">
       <div className="weblog__title">
-        <h2 className="heading-2 heading-2--dark">Blog</h2>
+        <h2 className="heading-2 heading-2--dark">Blog Posts</h2>
       </div>
       <BlogPost weblog={weblog} />
       {weblogFooter}

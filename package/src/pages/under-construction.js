@@ -6,7 +6,7 @@ import Layout from "../components/layout/Layout";
 import Head from "../components/general/Head";
 import underConstructionImage from "../assets/images/under-construction.jpg";
 
-export default function UnderConstruction() {
+export default function UnderConstructionPage() {
     return (
         <Layout>
             <Head pageTitle="Under Construction page" />

@@ -7,7 +7,7 @@ const Service = ({ services = [] }) => {
 
     return (
         services.map((service, index) => {
-            const { friendlyTitle, shortDescription } = service;
+            const { friendlyTitle, shortDescription, url } = service;
             let className = `service__title--${index + 1}`;
 
             return (
@@ -18,7 +18,7 @@ const Service = ({ services = [] }) => {
                     <p className="service__text">
                         {shortDescription}
                     </p>
-                    <Button specifiedClass="services-button" caption={caption} />
+                    <Button specifiedClass="services-button" url={url} caption={caption} />
                 </div>
             );
         })

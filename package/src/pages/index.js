@@ -7,12 +7,12 @@ import Video from "../components/general/Video";
 import Services from "../components/site/services/Services";
 import Weblog from "../components/site/blog/Weblog";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <Layout>
       <Head pageTitle="Home Page" />
       <Video />
-      <Services />
+      <Services footer={true} />
       <Weblog footer={true} />
     </ Layout>
   );

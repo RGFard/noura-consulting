@@ -3,7 +3,7 @@ import React from "react";
 import FooterItemList from "./FooterItemList";
 
 const FooterItem = ({ siteMetadata, icons }) => {
-    const { followUs, mainServices, quickMenu } = siteMetadata;
+    const { mainServices, quickMenu, followUs } = siteMetadata;
 
     const footerItems = [];
 
@@ -19,7 +19,7 @@ const FooterItem = ({ siteMetadata, icons }) => {
                 <div className="footer__item" key={index}>
                     <div className="footer__item-title">{title}</div>
                     <div className="footer__item-list">
-                        <FooterItemList list={list} icons={icons} type={type} key={index} />
+                        <FooterItemList icons={icons} type={type} key={index} list={list} />
                     </div>
                 </div>
             );

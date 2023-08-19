@@ -8,7 +8,7 @@ import setupRichText from "../../utils/setupRichText";
 import Body from "../../components/site/blog/Body";
 
 
-const ServiceTemplate = ({ data }) => {
+const BlogTemplate = ({ data }) => {
   const {
     title,
     friendlyTitle,
@@ -96,4 +96,4 @@ query getSingleBlog($title: String) {
 }
 `;
 
-export default ServiceTemplate;
+export default BlogTemplate;

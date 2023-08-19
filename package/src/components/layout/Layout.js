@@ -20,9 +20,18 @@ const query = graphql`
                 title
                 description
                 author
-                mainServices
-                quickMenu
-                followUs
+                mainServices {
+                    name
+                    url
+                }
+                quickMenu {
+                    name
+                    url
+                }
+                followUs {
+                    name
+                    url
+                }                
             }
         }
     }

@@ -19,7 +19,7 @@ const setupRichText = (richText) => {
             },
             [BLOCKS.PARAGRAPH]: (node, children) => {
                 if (children.length > 1) {
-                    return <p>{children}</p>;
+                    return <p className="body-text">{children}</p>;
                 }
                 else {
                     return (
@@ -33,6 +33,14 @@ const setupRichText = (richText) => {
                     );
                 }
             },
+            // [BLOCKS.UL_LIST]: (node, children) => (
+            //     <ul className="body-text">{children}</ul>
+            // ),
+            // [BLOCKS.OL_LIST]: (node, children) => (
+            //     <ol className="body-text">{children}</ol>
+            // ),
+            [BLOCKS.LIST_ITEM]: (node, children) =>
+                <li className="body-text body-text--margined">{children}</li>,
             [BLOCKS.HEADING_1]: (node, children) => {
                 return <h1 className="heading-1">{children}</h1>;
             },
@@ -43,6 +51,8 @@ const setupRichText = (richText) => {
                 return <h3 className="heading-3 heading-3--black">{children}</h3>;
             },
         },
+        renderText: text =>
+            text.split("\\n").flatMap((text, i) => [i > 0 && <br />, text])
     };
     return (
         renderRichText(richText, options)
