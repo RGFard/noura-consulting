@@ -6,7 +6,7 @@ import Button from "../../general/Button";
 
 const query = graphql`
 {
-  allContentfulService {
+  allContentfulService(sort: {order: ASC}) {
     nodes {
       friendlyTitle
       shortDescription

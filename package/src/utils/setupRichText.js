@@ -33,12 +33,12 @@ const setupRichText = (richText) => {
                     );
                 }
             },
-            // [BLOCKS.UL_LIST]: (node, children) => (
-            //     <ul className="body-text">{children}</ul>
-            // ),
-            // [BLOCKS.OL_LIST]: (node, children) => (
-            //     <ol className="body-text">{children}</ol>
-            // ),
+            [BLOCKS.UL_LIST]: (node, children) => (
+                <ul className="body-text">{children}</ul>
+            ),
+            [BLOCKS.OL_LIST]: (node, children) => (
+                <ol className="body-text">{children}</ol>
+            ),
             [BLOCKS.LIST_ITEM]: (node, children) =>
                 <li className="body-text body-text--margined">{children}</li>,
             [BLOCKS.HEADING_1]: (node, children) => {
