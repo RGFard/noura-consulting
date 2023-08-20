@@ -10,7 +10,9 @@ const FooterItemList = ({ list = [], icons, type }) => {
             let item, tooltipItem, url;
             console.log(listItem.url);
             url = (listItem.url === "/services" || listItem.url === "/blog"
-                || listItem.url === "/services/ethereum-applications-smart-contracts-and-web3") ?
+                || listItem.url === "/services/ethereum-applications-smart-contracts-and-web3"
+                || listItem.url === "/services/web-and-mobile-interface-for-ethereum-application"
+                || listItem.url === "/services/consolidated-apis") ?
                 listItem.url : "/under-construction";
             item = tooltipItem = listItem.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
             if (type !== "icon") {
