@@ -8,7 +8,7 @@ const FooterItemList = ({ list = [], icons, type }) => {
     return (
         list.map((listItem, index) => {
             let item, tooltipItem, url;
-            url = (listItem.url === "/services" || listItem.url === "/blog"
+            url = (listItem.url === "/services" || listItem.url === "/blog" || listItem.url === "/about"
                 || listItem.url === "/services/ethereum-applications-smart-contracts-and-web3"
                 || listItem.url === "/services/web-and-mobile-interface-for-ethereum-application"
                 || listItem.url === "/services/consolidated-apis-for-off-chain-operations") ?

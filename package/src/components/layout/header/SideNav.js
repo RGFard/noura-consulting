@@ -20,7 +20,7 @@ const SideNav = () => {
             <nav className="sidenav__nav">
                 <ul className="sidenav__list">
                     <li className="sidenav__item">
-                        <Link to="/under-construction" className="sidenav__link">about</Link>
+                        <Link to="/about" className="sidenav__link">about</Link>
                     </li>
                     <li className="sidenav__item">
                         <Link to="/services" className="sidenav__link">services</Link>

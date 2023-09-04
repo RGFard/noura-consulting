@@ -19,6 +19,6 @@ export default function ServicesPage() {
                 </section>
             </div>
             <Services footer={false} />
-        </ Layout>
+        </Layout>
     );
 }

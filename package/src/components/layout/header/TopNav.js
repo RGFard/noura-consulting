@@ -18,7 +18,7 @@ const TopNav = () => {
                 </li>
                 <li className="nav__item--2"></li>
                 <li className="nav__item">
-                    <Link to="/under-construction" className="nav__item-link">About</Link>
+                    <Link to="/about" className="nav__item-link">About</Link>
                 </li>
                 <li className="nav__item">
                     <Link to="/services" className="nav__item-link">Services</Link>

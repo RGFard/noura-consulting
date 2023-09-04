@@ -20,7 +20,6 @@
 
 .template2 {
   grid-column: 1/5;
-  // margin: 7rem 0;
 
   &__section {
     width: 100%;
@@ -30,6 +29,20 @@
       display: grid;
       grid-template-rows: repeat(8, 1fr);
       grid-template-columns: repeat(8, 1fr);
+
+      &-video {
+        width: 100%;
+        grid-row: 1 / 9;
+        grid-column: 1 / 9;
+        filter: brightness(50%);
+
+        // Safari only
+        @supports (-webkit-hyphens: none) {
+          @media only screen and (max-width: $bp-xsmall) {
+            grid-column: center-start / center-end;
+          }
+        }
+      }
 
       &-text {
         z-index: 10;
