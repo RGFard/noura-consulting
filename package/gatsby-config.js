@@ -19,5 +19,11 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_API_KEY,
       },
     },
+    {
+      resolve: "gatsby-source-formspree",
+      options: {
+        form: "xlekbrbw"
+      },
+    },
   ]
 };
