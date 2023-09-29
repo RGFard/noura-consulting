@@ -5,7 +5,8 @@ import Button from "../general/Button";
 
 
 export default function ContactForm() {
-    const [state, handleSubmit] = useForm(process.env.FORMSPREE_FORM_ID);
+    // const [state, handleSubmit] = useForm(process.env.FORMSPREE_FORM_ID);
+    const [state, handleSubmit] = useForm("xlekbrbw");
 
     if (state.succeeded) {
         return (
@@ -26,13 +27,13 @@ export default function ContactForm() {
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" maxLength="50" className="template2__section--form-input" key="input-1" />
 
-                <label htmlFor="email">Email <label className="template2__section--form-error">*</label></label>
+                <label htmlFor="email">Email <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
                 <div>
                     <ValidationError prefix="This" field="email" errors={state.errors} className="template2__section--form-error" />
                     <input type="text" name="email" id="email" maxLength="50" className="template2__section--form-input" required />
                 </div>
 
-                <label htmlFor="message">Message <label className="template2__section--form-error">*</label></label>
+                <label htmlFor="message">Message <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
                 <div>
                     <ValidationError prefix="This" field="message" errors={state.errors} className="template2__section--form-error" />
                     <textarea name="message" id="message" maxLength="550" className="template2__section--form-input template2__section--form-textarea" required />
