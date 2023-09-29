@@ -7,10 +7,6 @@ import Button from "../general/Button";
 export default function ContactForm() {
     const [state, handleSubmit] = useForm(process.env.FORMSPREE_FORM_ID);
 
-
-
-    let message;
-
     if (state.succeeded) {
         return (
             <section className="template2__section--body">
