@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.1",
+    "@formspree/react": "^2.5.1",
     "babel-plugin-lodash": "^3.3.4",
     "gatsby": "^5.9.0",
     "gatsby-plugin-image": "^3.10.0",

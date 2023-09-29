@@ -27,7 +27,7 @@ const TopNav = () => {
                     <Link to="/blog" className="nav__item-link">Blog</Link>
                 </li>
                 <li className="nav__item">
-                    <Link to="/under-construction" className="nav__item-link">Contact</Link>
+                    <Link to="/contact" className="nav__item-link">Contact</Link>
                 </li>
                 <li className="nav__item--last">
                     <Button specifiedClass="nav__item-console-btn" caption={caption} />

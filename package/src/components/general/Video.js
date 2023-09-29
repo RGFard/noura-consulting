@@ -1,12 +1,13 @@
 import React from "react";
 
-import VisionVideoMp4 from "../../assets/images/vision.mp4";
-
-const Video = () => {
+const Video = ({ src, title }) => {
     return (
-        <section className="vision">
-            <video className="vision__video" autoPlay loop muted playsInline>
-                <source src={VisionVideoMp4} type="video/mp4" />
+        <section className="template2__section--header" key="header">
+            <div className="template2__section--header-text">
+                {title}
+            </div>
+            <video className="template2__section--header-video" autoPlay loop muted playsInline>
+                <source src={src} type="video/mp4" />
                 Your browser is not supported! Use Chrome or Firefox.
             </video>
         </section>
