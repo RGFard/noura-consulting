@@ -5,7 +5,7 @@ import { encrypt, decrypt } from "../../utils/crypto";
 import Button from "../general/Button";
 
 export default function ContactForm() {
-    const [state, handleSubmit] = useForm(String(decrypt(process.env.FORMSPREE_FORM_ID_ENCRYPTED)));
+    const [state, handleSubmit] = useForm("xlekbrbw");
 
     if (state.succeeded) {
         return (
