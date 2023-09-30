@@ -20,7 +20,7 @@ const AboutPage = ({ data }) => {
       <Head pageTitle="About Page" />
 
       <main className="template2">
-        <Video src={AboutVideoMp4} title={friendlyTitle} />
+        <Video src={AboutVideoMp4} title={friendlyTitle} dark={true} />
         <section className="template2__section--body">
           <div className="template2__section--body-text">
             {descriptionParagraph}

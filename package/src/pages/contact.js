@@ -12,7 +12,7 @@ export default function ContactPage() {
         <Layout>
             <Head pageTitle="Blog Page" />
             <main className="template2">
-                <Video src={ContactVideoMp4} title="Contact Us" />
+                <Video src={ContactVideoMp4} title="Contact Us" dark={true} />
                 <ContactForm />
             </main>
         </ Layout>

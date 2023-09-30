@@ -34,7 +34,10 @@
         width: 100%;
         grid-row: 1 / 9;
         grid-column: 1 / 9;
-        filter: brightness(50%);
+
+        &--dark {
+          filter: brightness(50%);
+        }
 
         // Safari only
         @supports (-webkit-hyphens: none) {

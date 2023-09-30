@@ -1,12 +1,11 @@
 import * as React from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { encrypt, decrypt } from "../../utils/crypto";
 
 import Button from "../general/Button";
 
-
 export default function ContactForm() {
-    // const [state, handleSubmit] = useForm(process.env.FORMSPREE_FORM_ID);
-    const [state, handleSubmit] = useForm("xlekbrbw");
+    const [state, handleSubmit] = useForm(decrypt(process.env.FORMSPREE_FORM_ID_ENCRYPTED));
 
     if (state.succeeded) {
         return (
@@ -21,7 +20,7 @@ export default function ContactForm() {
 
     return (
         <section className="template2__section--body">
-            <p className="template2__section--form-result">We will respond within 24 hours, upon submittion of a successful message.</p>
+            <p className="template2__section--form-result">We will respond within 24 hours upon submittion of a successful message.</p>
             <br /><br /><br /><br />
             <form className="template2__section--form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
@@ -35,7 +34,6 @@ export default function ContactForm() {
 
                 <label htmlFor="message">Message <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
                 <div>
-                    <ValidationError prefix="This" field="message" errors={state.errors} className="template2__section--form-error" />
                     <textarea name="message" id="message" maxLength="550" className="template2__section--form-input template2__section--form-textarea" required />
                 </div>
                 <div>

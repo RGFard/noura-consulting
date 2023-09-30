@@ -24,6 +24,8 @@ jobs:
         env:
           CONTENTFUL_API_KEY: ${{ secrets.CONTENTFUL_API_KEY }}
           FORMSPREE_FORM_ID: ${{ secrets.FORMSPREE_FORM_ID }}
+          SECRET_PHRASE: ${{ secrets.SECRET_PHRASE }}
+          FORMSPREE_FORM_ID_ENCRYPTED: ${{ secrets.FORMSPREE_FORM_ID_ENCRYPTED }}
 
       - uses: shinyinc/action-aws-cli@v1.2
       - run: aws s3 sync public s3://${{ secrets.AWS_S3_BUCKET_NAME }}/

@@ -12,7 +12,7 @@ export default function BlogPage() {
         <Layout>
             <Head pageTitle="Blog Page" />
             <div className="template2">
-                <Video src={BlogVideoMp4} title="Blog" />
+                <Video src={BlogVideoMp4} title="Blog" dark={true} />
             </div>
             <Weblog footer={false} />
         </ Layout>
