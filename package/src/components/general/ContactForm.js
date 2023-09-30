@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { encrypt, decrypt } from "../../utils/crypto";
+import { decrypt } from "../../utils/crypto";
 
 import Button from "../general/Button";
 
