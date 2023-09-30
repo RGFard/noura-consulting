@@ -8,7 +8,9 @@ export const encrypt = (phrase) => {
 };
 
 export const decrypt = (encryptedPhrase) => {
-    var bytes = CryptoJS.AES.decrypt(String(encryptedPhrase), String(process.env.SECRET_PHRASE));
+    encryptedPhrase = encryptedPhrase + "";
+    const secretPhrase = process.env.SECRET_PHRASE + "";
+    var bytes = CryptoJS.AES.decrypt(encryptedPhrase, secretPhrase);
     var originalPhrase = bytes.toString(CryptoJS.enc.Utf8);
     return originalPhrase;
 };
