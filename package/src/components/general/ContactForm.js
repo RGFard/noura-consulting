@@ -5,7 +5,8 @@ import { encrypt, decrypt } from "../../utils/crypto";
 import Button from "../general/Button";
 
 export default function ContactForm() {
-    const [state, handleSubmit] = useForm("xlekbrbw");
+    const formId = "xlekbrbw";
+    const [state, handleSubmit] = useForm(formId);
 
     if (state.succeeded) {
         return (
@@ -41,6 +42,7 @@ export default function ContactForm() {
                     <Button specifiedClass="services-button" caption="Submit" submit="submit" state={state} url="submit" />
                 </div>
             </form>
+            {/* <br /><br /><br /><br /> */}
         </section>
     );
 }
