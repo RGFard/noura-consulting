@@ -1,20 +1,11 @@
 import * as React from "react";
 import { useForm, ValidationError } from "@formspree/react";
-// import { encrypt, decrypt } from "../../utils/crypto";
-import CryptoJS from "crypto-js";
+import { decrypt } from "../../utils/crypto";
 
 import Button from "../general/Button";
 
-export const decrypt = (encryptedPhrase) => {
-    const secretPhrase = process.env.GATSBY_SECRET_PHRASE + "";
-    var bytes = CryptoJS.AES.decrypt(encryptedPhrase, secretPhrase);
-    var originalPhrase = bytes.toString(CryptoJS.enc.Utf8);
-    return originalPhrase;
-};
-
 export default function ContactForm() {
-    const formId = decrypt("U2FsdGVkX19IhGwwwgdrs41FREwb++io5Hd6VUKv+Lo=");
-    const [state, handleSubmit] = useForm(formId);
+    const [state, handleSubmit] = useForm(decrypt(process.env.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED));
 
     if (state.succeeded) {
         return (
