@@ -6,7 +6,7 @@ import CryptoJS from "crypto-js";
 import Button from "../general/Button";
 
 export const decrypt = (encryptedPhrase) => {
-    const secretPhrase = process.env.SECRET_PHRASE + "";
+    const secretPhrase = process.env.GATSBY_SECRET_PHRASE + "";
     var bytes = CryptoJS.AES.decrypt(encryptedPhrase, secretPhrase);
     var originalPhrase = bytes.toString(CryptoJS.enc.Utf8);
     return originalPhrase;
