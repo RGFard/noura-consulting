@@ -1,11 +1,18 @@
 import * as React from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { encrypt, decrypt } from "../../utils/crypto";
+// import { encrypt, decrypt } from "../../utils/crypto";
+import CryptoJS from "crypto-js";
 
 import Button from "../general/Button";
 
+export const decrypt = (encryptedPhrase) => {
+    var bytes = CryptoJS.AES.decrypt(encryptedPhrase, "This is my very secure secret key Aramaic5297");
+    var originalPhrase = bytes.toString(CryptoJS.enc.Utf8);
+    return originalPhrase;
+};
+
 export default function ContactForm() {
-    const formId = "xlekbrbw";
+    const formId = decrypt("U2FsdGVkX19IhGwwwgdrs41FREwb++io5Hd6VUKv+Lo=");
     const [state, handleSubmit] = useForm(formId);
 
     if (state.succeeded) {
@@ -42,7 +49,6 @@ export default function ContactForm() {
                     <Button specifiedClass="services-button" caption="Submit" submit="submit" state={state} url="submit" />
                 </div>
             </form>
-            {/* <br /><br /><br /><br /> */}
         </section>
     );
 }
