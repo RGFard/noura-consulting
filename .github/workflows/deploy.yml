@@ -23,7 +23,6 @@ jobs:
       - run: npm run build
         env:
           CONTENTFUL_API_KEY: ${{ secrets.CONTENTFUL_API_KEY }}
-          FORMSPREE_FORM_ID: ${{ secrets.FORMSPREE_FORM_ID }}
           GATSBY_SECRET_PHRASE: ${{ secrets.GATSBY_SECRET_PHRASE }}
           GATSBY_FORMSPREE_FORM_ID_ENCRYPTED: ${{ secrets.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED }}
 
