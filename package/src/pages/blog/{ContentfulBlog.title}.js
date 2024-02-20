@@ -7,7 +7,7 @@ import Head from "../../components/general/Head";
 import setupRichText from "../../utils/setupRichText";
 import Body from "../../components/site/blog/Body";
 
-
+// This is a test comment
 const BlogTemplate = ({ data }) => {
   const {
     title,
