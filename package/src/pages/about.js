@@ -8,6 +8,7 @@ import setupRichText from "../utils/setupRichText";
 import Video from "../components/general/Video";
 import AboutVideoMp4 from "../assets/videos/about.mp4";
 
+// This is test comment.
 const AboutPage = ({ data }) => {
   const {
     friendlyTitle,
