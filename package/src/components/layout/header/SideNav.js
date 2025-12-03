@@ -10,7 +10,7 @@ const SideNav = ({ siteMetadata }) => {
 
             <label htmlFor="navi-toggle" className="sidenav__button" aria-label="Toggle navigation menu">
                 <div className="sidenav__icon">
-                    <span className="sidenav__icon-line">.</span>
+                    <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-line"></span>
                     <span className="sidenav__icon-cross">&times;</span>
@@ -21,7 +21,7 @@ const SideNav = ({ siteMetadata }) => {
 
             <nav className="sidenav__nav">
                 <ul className="sidenav__list">
-                    {quickMenu
+                    {/* {quickMenu
                         .map((item, index) => {
                             return (
                                 <li key={index} className="sidenav__item">
@@ -30,8 +30,7 @@ const SideNav = ({ siteMetadata }) => {
                                     </Link>
                                 </li>
                             );
-                        })}
-
+                        })} */}
                 </ul>
             </nav>
         </aside>
