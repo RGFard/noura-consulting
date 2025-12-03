@@ -41,11 +41,12 @@ const query = graphql`
 
 const Layout = ({ children }) => {
     const data = useStaticQuery(query);
+    const siteMetadata = data?.siteMetadata?.nodes?.[0]?.data ?? {};
     return (
         <div className="container">
-            <Header siteMetadata={data.siteMetadata.nodes[0].data} />
+            <Header siteMetadata={siteMetadata} />
             {children}
-            <Footer siteMetadata={data.siteMetadata.nodes[0].data} icons={data.icons.nodes} />
+            <Footer siteMetadata={siteMetadata} icons={data.icons.nodes} />
         </div>
     );
 };

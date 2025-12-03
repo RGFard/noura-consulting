@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Button from "../../general/Button";
 
 const TopNav = ({ siteMetadata }) => {
-    const { quickMenu = [] } = siteMetadata;
+    const quickMenu = siteMetadata?.quickMenu ?? [];
 
     return (
         <nav className="nav">
@@ -18,11 +18,13 @@ const TopNav = ({ siteMetadata }) => {
                 </li>
                 <li className="nav__item--2"></li>
 
-                {/* {quickMenu.map((item, index) => {
-                    const name = item.name[0].toUpperCase() + item.name.slice(1);
-                    return item.type !== "button" ? (
+                {quickMenu?.map((item, index) => {
+                    const rawName = item?.name ?? "";
+                    const name = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
+                    return item?.type !== "button" ? (
                         <li key={index} className="nav__item">
-                            <Link to={`${item.url}`} className="nav__item-link">
+                            <Link to={`${item?.url}`} className="nav__item-link">
                                 {name}
                             </Link>
                         </li>
@@ -34,7 +36,7 @@ const TopNav = ({ siteMetadata }) => {
                             />
                         </li>
                     );
-                })} */}
+                })}
             </ul>
         </nav>
     );
