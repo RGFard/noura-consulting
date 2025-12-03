@@ -3,11 +3,11 @@ import React from "react";
 import TopNav from "./TopNav";
 import SideNav from "./SideNav";
 
-const Header = () => {
+const Header = ({ siteMetadata }) => {
     return (
         <header className="header">
-            <TopNav />
-            <SideNav />
+            <TopNav siteMetadata={siteMetadata} />
+            <SideNav siteMetadata={siteMetadata} />
         </header>
     );
 };

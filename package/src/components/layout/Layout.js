@@ -27,6 +27,7 @@ const query = graphql`
                 quickMenu {
                     name
                     url
+                    type
                 }
                 followUs {
                     name
@@ -42,7 +43,7 @@ const Layout = ({ children }) => {
     const data = useStaticQuery(query);
     return (
         <div className="container">
-            <Header />
+            <Header siteMetadata={data.siteMetadata.nodes[0].data} />
             {children}
             <Footer siteMetadata={data.siteMetadata.nodes[0].data} icons={data.icons.nodes} />
         </div>
