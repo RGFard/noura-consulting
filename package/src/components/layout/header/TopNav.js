@@ -17,8 +17,8 @@ const TopNav = ({ siteMetadata }) => {
                     <div className=""></div>
                 </li>
                 <li className="nav__item--2"></li>
-{/* 
-                {quickMenu.map((item, index) => {
+
+                {/* {quickMenu.map((item, index) => {
                     const name = item.name[0].toUpperCase() + item.name.slice(1);
                     return item.type !== "button" ? (
                         <li key={index} className="nav__item">

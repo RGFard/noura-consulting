@@ -21,7 +21,7 @@ const SideNav = ({ siteMetadata }) => {
 
             <nav className="sidenav__nav">
                 <ul className="sidenav__list">
-                    {/* {quickMenu
+                    {quickMenu
                         .map((item, index) => {
                             return (
                                 <li key={index} className="sidenav__item">
@@ -30,7 +30,7 @@ const SideNav = ({ siteMetadata }) => {
                                     </Link>
                                 </li>
                             );
-                        })} */}
+                        })}
                 </ul>
             </nav>
         </aside>
