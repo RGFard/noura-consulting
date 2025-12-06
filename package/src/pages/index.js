@@ -3,21 +3,22 @@ import * as React from "react";
 import "../sass/style.scss";
 import Layout from "../components/layout/Layout";
 import Head from "../components/general/Head";
-import Services from "../components/site/services/Services";
+import PageIntro from "../components/site/pageIntro/PageIntro";
 import Weblog from "../components/site/blog/Weblog";
+import Services from "../components/site/services/Services";
 import Video from "../components/general/Video";
-import VisionVideoMp4 from "../assets/videos/vision.mp4";
-
+import HomeVideo from "../assets/videos/home.mp4";
 
 export default function HomePage() {
   return (
     <Layout>
       <Head pageTitle="Home Page" />
       <div className="template2">
-        <Video src={VisionVideoMp4} />
+        <Video src={HomeVideo} dark={true} />
       </div>
-      <Services footer={true} />
+      <PageIntro />
       <Weblog footer={true} />
-    </ Layout>
+      <Services footer={true} />
+    </Layout>
   );
 }

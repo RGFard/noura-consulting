@@ -1,0 +1,65 @@
+.pageIntro {
+    grid-column: center-start / center-end;
+    margin: 15rem 0rem;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+        margin: 8rem 0rem;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-top: 5rem;
+        padding-bottom: 6rem;
+
+        // Safari only
+        @supports (-webkit-hyphens: none) {
+            padding-top: 3.5rem;
+            padding-bottom: 2rem;
+        }
+    }
+
+    &__text {
+        font-size: 4rem;
+        text-align: start;
+        padding: 1rem 2rem;
+        line-height: 1.8; // increase until spacing looks right
+
+
+        // Safari only
+        @supports (-webkit-hyphens: none) {
+            padding: 0.25rem 0.5rem;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
+
+        @media (max-width: $bp-medium) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // &__col {
+    // }
+
+    &__video-wrapper {
+        background: lightgray;
+        display: flex;
+        justify-content: center; // horizontal
+        align-items: center;
+
+    }
+
+    &__video {
+        width: 97%;
+        height: 90%;
+        margin: 2rem;
+        cursor: pointer;
+    }
+
+}

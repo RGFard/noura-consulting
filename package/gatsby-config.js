@@ -18,19 +18,6 @@ module.exports = {
         spaceId: `8xjtcyj0blxi`,
         accessToken: process.env.CONTENTFUL_API_KEY,
       },
-    },
-    {
-      resolve: "gatsby-plugin-svgr",
-      options: {
-        prettier: false,
-        svgo: true,
-        svgoConfig: {
-          plugins: [
-            { removeViewBox: false }
-          ]
-        },
-      },
     }
-
   ]
 };
