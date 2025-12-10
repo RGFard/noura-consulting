@@ -1,8 +1,19 @@
 import React from "react";
+import { getImage } from "gatsby-plugin-image";
 
-import Teaser from "../../../assets/videos/teaser.mp4";
+import VideoIntro from "../../../components/general/VideoIntro";
+import setupRichText from "../../../utils/setupRichText";
 
-const PageIntro = ({ services = [] }) => {
+const PageIntro = ({ data }) => {
+
+    const {
+        friendlyTitle,
+        image,
+        description,
+        video
+    } = data.contentfulPageIntro;
+    const bodyDescription = setupRichText(description);
+
     return (
         <section className="pageIntro">
             {/* One row */}
@@ -10,29 +21,15 @@ const PageIntro = ({ services = [] }) => {
                 {/* row1 col1 */}
                 <div className="pageIntro__col pageIntro__col--left">
                     <div className="pageIntro__title">
-                        <h2 className="heading-2 heading-2--dark">What is Data Nexus?</h2>
+                        <h2 className="heading-2 heading-2--dark">{friendlyTitle}</h2>
                     </div>
-                    <div>
-                        <p className="pageIntro__text">
-                            Data Nexus is an end-to-end integration platform that streamlines and modernizes how organizations exchange and govern data.
-                        </p>
-                        <p className="pageIntro__text">
-                            It uses AI-driven automation to standardize authentication, transform and map data between any system, and enforce compliance automatically.
-                        </p>
-                        <p className="pageIntro__text">
-                            With one unified gateway, every partner, vendor, and internal system connects seamlessly and securely.
-                        </p>
+                    <div className="pageIntro__text">
+                        {bodyDescription}
                     </div>
                 </div>
                 {/* row1 col2 */}
                 <div className="pageIntro__col pageIntro__col--right">
-                    <div className="pageIntro__video-wrapper"
-                        onClick={(e) => e.stopPropagation()}>
-                        <video className="pageIntro__video" controls>
-                            <source src={Teaser} type="video/mp4" />
-                            Your browser is not supported! Use Chrome or Firefox.
-                        </video>
-                    </div>
+                    <VideoIntro src={video.file.url} imageUrl={image.file.url} />
                 </div>
             </div>
         </section>

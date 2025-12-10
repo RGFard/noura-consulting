@@ -1,7 +1,9 @@
 import React from "react";
 
 const Video = ({ src, title, dark }) => {
-    let className = dark === true ? "template2__section--header-video template2__section--header-video--dark" : "template2__section--header-video";
+    let className = dark === true ?
+        "template2__section--header-video template2__section--header-video--dark" :
+        "template2__section--header-video";
 
     return (
         <section className="template2__section--header" key="header">

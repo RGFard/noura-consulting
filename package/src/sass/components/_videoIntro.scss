@@ -1,0 +1,18 @@
+.videoIntro {
+
+    &__video-wrapper {
+        background: lightgray;
+        display: flex;
+        justify-content: center; // horizontal
+        align-items: center;
+        object-fit: cover;
+    }
+
+    &__video {
+        width: 97%;
+        height: 90%;
+        margin: 2rem;
+        cursor: pointer;
+        object-fit:inherit;
+    }
+}

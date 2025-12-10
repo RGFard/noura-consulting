@@ -1,6 +1,7 @@
 .pageIntro {
     grid-column: center-start / center-end;
     margin: 15rem 0rem;
+    gap: 10rem;
 
     // Safari only
     @supports (-webkit-hyphens: none) {
@@ -25,8 +26,6 @@
         font-size: 4rem;
         text-align: start;
         padding: 1rem 2rem;
-        line-height: 1.8; // increase until spacing looks right
-
 
         // Safari only
         @supports (-webkit-hyphens: none) {
@@ -44,22 +43,13 @@
         }
     }
 
-    // &__col {
-    // }
+    &__col {
+        margin-bottom: 4rem;
 
-    &__video-wrapper {
-        background: lightgray;
-        display: flex;
-        justify-content: center; // horizontal
-        align-items: center;
-
+        &--right {
+            display: flex;
+            justify-content: center; // horizontal
+            align-items: center;
+        }
     }
-
-    &__video {
-        width: 97%;
-        height: 90%;
-        margin: 2rem;
-        cursor: pointer;
-    }
-
 }
