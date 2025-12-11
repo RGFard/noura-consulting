@@ -4,6 +4,7 @@ import { getImage } from "gatsby-plugin-image";
 import VideoIntro from "../../../components/general/VideoIntro";
 import setupRichText from "../../../utils/setupRichText";
 
+// Test comment
 const PageIntro = ({ data }) => {
 
     const {
