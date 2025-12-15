@@ -37,7 +37,7 @@ const ServiceTemplate = ({ data }) => {
           </div>
         </section>
       </main>
-    </ Layout>
+    </Layout>
   );
 };
 

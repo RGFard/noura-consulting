@@ -19,7 +19,8 @@
 }
 
 .template2 {
-  grid-column: 1/5;
+  margin-left: -5rem;
+  margin-right: -5rem;
 
   &__section {
     width: 100%;
@@ -87,9 +88,11 @@
       @media only screen and (max-width: $bp-xlarge) {
         padding: 5rem 30rem;
       }
+
       @media only screen and (max-width: $bp-xmedium) {
         padding: 5rem 25rem;
       }
+
       @media only screen and (max-width: $bp-small) {
         padding: 5rem 10rem;
       }
@@ -101,9 +104,11 @@
         @media only screen and (max-width: $bp-xlarge) {
           padding: 5rem 15rem 0rem 15rem;
         }
+
         @media only screen and (max-width: $bp-xmedium) {
           padding: 5rem 7rem 0rem 7rem;
         }
+
         @media only screen and (max-width: $bp-small) {
           padding: 5rem 3rem 0rem 3rem;
         }

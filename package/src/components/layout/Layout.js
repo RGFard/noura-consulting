@@ -6,11 +6,12 @@ import Footer from "./footer/Footer";
 
 const query = graphql`
 {
-    icons: allContentfulJsonContent {
+    allContentfulJsonContent(filter: { name: { eq: "icon" } }) {
         nodes {
-            object {
-                name
-                tag
+            childrenContentfulJsonContentObjectJsonNode {
+                    internal {
+                    content
+                }
             }
         }
     }
@@ -20,6 +21,7 @@ const query = graphql`
                 title
                 description
                 author
+                header
                 mainServices {
                     name
                     url
@@ -42,11 +44,17 @@ const query = graphql`
 const Layout = ({ children }) => {
     const data = useStaticQuery(query);
     const siteMetadata = data?.siteMetadata?.nodes?.[0]?.data ?? {};
+    const header = siteMetadata?.header ?? "";
+    const icons = data.allContentfulJsonContent.nodes[0].childrenContentfulJsonContentObjectJsonNode;
+
     return (
         <div className="container">
+            <h1 className="container__hidden">
+                {header}
+            </h1>
             <Header siteMetadata={siteMetadata} />
-            {children}
-            <Footer siteMetadata={siteMetadata} icons={data.icons.nodes} />
+            <div className="container__main">{children}</div>
+            <Footer siteMetadata={siteMetadata} icons={icons} />
         </div>
     );
 };

@@ -7,31 +7,37 @@
   align-items: center;
 }
 
-.services {
-  grid-column: center-start / center-end;
-  margin: 10rem 0rem;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(45rem, 1fr));
-  column-gap: 10rem;
-  row-gap: 5rem;
-
-  @media only screen and (max-width: $bp-small) {
-    grid-template-columns: minmax(35rem, 1fr);
-  }
+%text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 1rem;
+  padding: 5rem;
 
   // Safari only
   @supports (-webkit-hyphens: none) {
-    margin: 4rem 0rem;
-    grid-template-columns: repeat(3, minmax(25rem, 1fr));
-    column-gap: 3rem;
-    row-gap: 3rem;
-
-    @media only screen and (max-width: $bp-large) {
-      grid-template-columns: 1fr;
-      column-gap: 0rem;
-    }
+    padding: 2rem;
   }
+}
+
+._services {
+  grid-column: center-start / center-end;
+  margin: 5rem 5rem;
+
+  &__title{
+    @extend %title;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
+  }
+}
+
+._service {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
 
   &-button {
     @include btn($color-secondary);
@@ -41,59 +47,45 @@
     }
   }
 
-  &__row {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__reverse {
+    &__image-col {
+      order: 2;
+    }
 
-    &-button {
-      @include btn($color-secondary);
+    &__text-col {
+      order: 1;
+      @extend %text;
 
-      &:hover {
-        @include btn($color-secondary-dark);
+      &__description {
+        text-align: left;
+        margin-top: 6rem;
+        margin-left: 6rem;
+        margin-bottom: 6rem;
+
+        // Safari only
+        @supports (-webkit-hyphens: none) {
+          margin-top: 2rem;
+          margin-bottom: 2rem;
+        }
       }
     }
   }
-}
 
-.service {
-  display: grid;
-  grid-template-rows: 45rem 1fr;
-  row-gap: 4rem;
-  text-align: center;
+  &__text-col {
+    @extend %text;
 
-  // Safari only
-  @supports (-webkit-hyphens: none) {
-    grid-template-rows: 25rem;
-  }
+    &__description {
+      text-align: left;
+      margin-left: 6rem;
+      margin-top: 6rem;
+      margin-bottom: 6rem;
 
-  &__title {
-    grid-row: 1/2;
-    height: 100%;
-    width: 100%;
-
-    &--1 {
-      @extend %title;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url($img-blockchain-service);
+      // Safari only
+      @supports (-webkit-hyphens: none) {
+        margin-left: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
     }
-    &--2 {
-      @extend %title;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url($img-mobile-app-service);
-    }
-    &--3 {
-      @extend %title;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url($img-api-service);
-      background-position: end;
-    }
-  }
-
-  &__text {
-    font-size: 4rem;
-    text-align: start;
-    padding: 0 2rem;
   }
 }

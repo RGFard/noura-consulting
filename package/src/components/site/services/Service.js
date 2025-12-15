@@ -1,24 +1,35 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../../general/Button";
 
-const Service = ({ services = [] }) => {
-    const caption = "Learn more";
 
+const Service = ({ services = [] }) => {
     return (
         services.map((service, index) => {
-            const { friendlyTitle, shortDescription, url } = service;
-            let className = `service__title--${index + 1}`;
+            const { friendlyTitle, shortDescription, url, mainImage, redirectCaption } = service;
+            const isReverse = index % 2 === 1;
+            const pathToImage = getImage(mainImage);
 
             return (
-                <div className="service" key={index + 1}>
-                    <div className={className}>
-                        <h2 className="heading-2 heading-2--light">{friendlyTitle}</h2>
+                <div className={"_service"} key={index}>
+                    <div className={`_service${isReverse ? "__reverse__image-col" : "__image-col"}`}>
+                        <GatsbyImage
+                            image={pathToImage}
+                            alt={friendlyTitle}
+                        />
                     </div>
-                    <p className="service__text">
-                        {shortDescription}
-                    </p>
-                    <Button specifiedClass="services-button" url={url} caption={caption} />
+                    <div className={`_service${isReverse ? "__reverse__text-col" : "__text-col"}`}>
+                        <h3 className="heading-3 heading-3--secondry-dark">
+                            {friendlyTitle}
+                        </h3>
+                        <div className={`_service${isReverse ?
+                            "__reverse__text-col__description body-text" :
+                            "__text-col__description body-text"}`}>
+                            {shortDescription}
+                        </div>
+                        <Button specifiedClass="_service-button" url={url} caption={redirectCaption} />
+                    </div>
                 </div>
             );
         })

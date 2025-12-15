@@ -13,22 +13,25 @@ import HomeVideo from "../assets/videos/home.mp4";
 
 export default function HomePage({ data }) {
 
+  const quickMenu = data?.siteMetadata?.nodes?.[0]?.data?.quickMenu;
+  const servicesMenuData = quickMenu.find(item => item.name === "services");
+
   return (
     <Layout>
       <Head pageTitle="Home Page" />
       <div className="template2">
         <Video src={HomeVideo} dark={true} />
       </div>
-      <PageIntro data={data} />
+      <PageIntro data={data} key={1} />
+      <Services footer={true} servicesMenuData={servicesMenuData} />
       <Weblog footer={true} />
-      <Services footer={true} />
     </Layout>
   );
 }
 
 export const query = graphql`
   query getSinglePageIntro($name: String) {
-    contentfulPageIntro(name: {eq: $name}) {
+    contentfulPageIntro(name: { eq: $name }) {
       name
       friendlyTitle
       url
@@ -42,13 +45,35 @@ export const query = graphql`
           url
           contentType
         }
-      }        
+      }
       video {
         file {
           url
           contentType
         }
       }
-    }  
+    }
+    siteMetadata: allContentfulSite {
+      nodes {
+        data {
+          title
+          description
+          author
+          mainServices {
+            name
+            url
+          }
+          quickMenu {
+            name
+            url
+            type
+          }
+          followUs {
+            name
+            url
+          }
+        }
+      }
+    }
   }
 `;

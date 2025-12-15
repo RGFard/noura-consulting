@@ -26,6 +26,7 @@
   &--light {
     color: $color-grey-light-1;
   }
+
   &--dark {
     color: $color-grey-dark-1;
   }
@@ -39,6 +40,7 @@
   &--secondry-dark {
     color: $color-secondary-dark;
   }
+
   &--black {
     font-size: 6rem;
     color: $color-black;
@@ -53,6 +55,7 @@
   &--light {
     color: $color-grey-light-1;
   }
+
   &--dark {
     color: $color-grey-dark-1;
   }
@@ -61,10 +64,12 @@
 .body-text {
   font-family: $font-primary;
   font-size: 4.1rem;
+  line-height: 1.6;
 
   @media only screen and (max-width: $bp-medium) {
     font-size: 4.7rem;
   }
+
   @media only screen and (max-width: $bp-small) {
     font-size: 4.7rem;
   }
