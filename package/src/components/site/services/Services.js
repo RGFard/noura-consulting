@@ -36,16 +36,16 @@ const query = graphql`
 
 const Services = ({ servicesMenuData }) => {
   const data = useStaticQuery(query);
-  const servicesButton = extractFromJson(data, "services");
+  const servicesButton = extractFromJson(data, servicesMenuData?.name);
 
   return (
     <div className="_services">
       <h2 className="_services__title heading-2 heading-2--dark">
-        {/* {servicesMenuData.name.charAt(0).toUpperCase() +
-          servicesMenuData.name.slice(1)} */}
+        {servicesMenuData?.name.charAt(0).toUpperCase() +
+          servicesMenuData?.name.slice(1)}
       </h2>
       <Service services={data.allContentfulService.nodes} />
-      <Button specifiedClass="_service-button" url={servicesMenuData.url} caption={servicesButton.combined} />
+      <Button specifiedClass="_service-button" url={servicesMenuData?.url} caption={servicesButton?.combined} />
     </div>
   );
 };
