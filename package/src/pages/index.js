@@ -1,77 +1,71 @@
 import * as React from "react";
+import { useContext } from "react";
 import { graphql } from "gatsby";
+import { useLocation } from "@reach/router";
 
 import "../sass/style.scss";
-import Layout from "../components/layout/Layout";
 import Head from "../components/general/Head";
 import PageIntro from "../components/site/pageIntro/PageIntro";
-import Weblog from "../components/site/blog/Weblog";
+import Blogs from "../components/site/blog/Blogs";
 import Services from "../components/site/services/Services";
 import Video from "../components/general/Video";
 import HomeVideo from "../assets/videos/home.mp4";
 
+import { SiteMetadataContext } from "../context/SiteMetadataContext";
 
 export default function HomePage({ data }) {
+  const siteMetadata = useContext(SiteMetadataContext);
 
-  const quickMenu = data?.siteMetadata?.nodes?.[0]?.data?.quickMenu;
-  const servicesMenuData = quickMenu.find(item => item.name === "services");
+  const quickMenu = siteMetadata?.quickMenu ?? [];
+
+  const servicesMenuData =
+    quickMenu.find(item => item.name === "services") || {};
+
+  const blogMenuData =
+    quickMenu.find(item => item.name === "blog") || {};
+
+  const { pathname } = useLocation();
+  const footerButton = pathname.replace(/\//g, "") === "";
 
   return (
-    <Layout>
+    <>
       <Head pageTitle="Home Page" />
+
       <div className="template2">
-        <Video src={HomeVideo} dark={true} />
+        <Video src={HomeVideo} dark />
       </div>
-      <PageIntro data={data} key={1} />
-      <Services footer={true} servicesMenuData={servicesMenuData} />
-      <Weblog footer={true} />
-    </Layout>
+
+      {/* ✅ data is now defined */}
+      <PageIntro data={data} />
+
+      <Services
+        footerButton={footerButton}
+        servicesMenuData={servicesMenuData}
+      />
+
+      <Blogs
+        footerButton={footerButton}
+        blogMenuData={blogMenuData}
+      />
+    </>
   );
 }
 
 export const query = graphql`
-  query getSinglePageIntro($name: String) {
-    contentfulPageIntro(name: { eq: $name }) {
-      name
+  query HomePageIntro {
+    contentfulPageIntro(page: { eq: "home" }) {
       friendlyTitle
-      url
-      page
       description {
         raw
       }
       image {
-        gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
         file {
           url
-          contentType
         }
       }
       video {
         file {
           url
-          contentType
-        }
-      }
-    }
-    siteMetadata: allContentfulSite {
-      nodes {
-        data {
-          title
-          description
-          author
-          mainServices {
-            name
-            url
-          }
-          quickMenu {
-            name
-            url
-            type
-          }
-          followUs {
-            name
-            url
-          }
         }
       }
     }

@@ -16,17 +16,22 @@ const query = graphql`
       }
     }
   }
+
   allContentfulService(
     sort: { order: ASC }
     filter: { site: { eq: "dataNexus" } }
   ) {
     nodes {
+      order
       friendlyTitle
       shortDescription
       url
       site
       mainImage {
-        gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+        gatsbyImageData(
+          layout: CONSTRAINED
+          placeholder: DOMINANT_COLOR
+        )
       }
       redirectCaption
     }
@@ -34,19 +39,37 @@ const query = graphql`
 }
 `;
 
-const Services = ({ servicesMenuData }) => {
+
+const Services = ({ footerButton = false, servicesMenuData = {} }) => {
   const data = useStaticQuery(query);
-  const servicesButton = extractFromJson(data, servicesMenuData?.name);
+
+  const { name = "", url = "" } = servicesMenuData;
+
+  const servicesButton =
+    name ? extractFromJson(data, name) : null;
+
+  const title =
+    name ? name.charAt(0).toUpperCase() + name.slice(1) : "Services";
 
   return (
-    <div className="_services">
-      <h2 className="_services__title heading-2 heading-2--dark">
-        {servicesMenuData?.name.charAt(0).toUpperCase() +
-          servicesMenuData?.name.slice(1)}
+    <section className="services">
+      <h2 className="services__title heading-2 heading-2--dark">
+        {title}
       </h2>
-      <Service services={data.allContentfulService.nodes} />
-      <Button specifiedClass="_service-button" url={servicesMenuData?.url} caption={servicesButton?.combined} />
-    </div>
+
+      <Service services={data?.allContentfulService?.nodes ?? []} />
+
+      {footerButton && url && (
+        <div className="services__footer">
+          <Button
+            specifiedClass="services__footer-button"
+            wide
+            url={url}
+            caption={servicesButton?.combined}
+          />
+        </div>
+      )}
+    </section>
   );
 };
 

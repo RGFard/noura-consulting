@@ -1,45 +1,62 @@
-%title {
-  background-size: cover;
-  background-position: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-%text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  gap: 1rem;
-  padding: 5rem;
-
-  // Safari only
-  @supports (-webkit-hyphens: none) {
-    padding: 2rem;
-  }
-}
-
-._services {
+.services {
   grid-column: center-start / center-end;
   margin: 5rem 5rem;
 
-  &__title{
-    @extend %title;
+  display: grid;
+
+  &__title {
+    @include title;
     margin-bottom: 6rem;
     margin-top: 6rem;
   }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+
+    &-button {
+      @include btn($color-secondary);
+
+      &:hover {
+        @include btn($color-secondary-dark);
+      }
+    }
+  }
 }
 
-._service {
+.service {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 4rem;
 
-  &-button {
+  @media (max-width: $bp-medium) {
+    grid-template-columns: 1fr;
+
+    &__image-col {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    &__text-col {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &__reverse {
+      &__image-col {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      &__text-col {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__button {
     @include btn($color-secondary);
 
     &:hover {
@@ -54,7 +71,7 @@
 
     &__text-col {
       order: 1;
-      @extend %text;
+      @include text;
 
       &__description {
         text-align: left;
@@ -71,8 +88,13 @@
     }
   }
 
+  &__image-col {
+    order: 1;
+  }
+
   &__text-col {
-    @extend %text;
+    order: 2;
+    @include text;
 
     &__description {
       text-align: left;

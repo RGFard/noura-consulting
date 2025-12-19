@@ -12,23 +12,23 @@ const Service = ({ services = [] }) => {
             const pathToImage = getImage(mainImage);
 
             return (
-                <div className={"_service"} key={index}>
-                    <div className={`_service${isReverse ? "__reverse__image-col" : "__image-col"}`}>
+                <div className={"service"} key={index}>
+                    <div className={`service${isReverse ? "__reverse__image-col" : "__image-col"}`}>
                         <GatsbyImage
                             image={pathToImage}
                             alt={friendlyTitle}
                         />
                     </div>
-                    <div className={`_service${isReverse ? "__reverse__text-col" : "__text-col"}`}>
+                    <div className={`service${isReverse ? "__reverse__text-col" : "__text-col"}`}>
                         <h3 className="heading-3 heading-3--secondry-dark">
                             {friendlyTitle}
                         </h3>
-                        <div className={`_service${isReverse ?
+                        <div className={`service${isReverse ?
                             "__reverse__text-col__description body-text" :
                             "__text-col__description body-text"}`}>
                             {shortDescription}
                         </div>
-                        <Button specifiedClass="_service-button" url={url} caption={redirectCaption} />
+                        <Button specifiedClass="service__button" url={url} caption={redirectCaption} />
                     </div>
                 </div>
             );
