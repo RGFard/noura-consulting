@@ -5,42 +5,42 @@ import { decrypt } from "../../utils/crypto";
 import Button from "../general/Button";
 
 export default function ContactForm() {
-    const [state, handleSubmit] = useForm(decrypt(process.env.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED));
+  const [state, handleSubmit] = useForm(decrypt(process.env.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED));
 
-    if (state.succeeded) {
-        return (
-            <section className="template2__section--body">
-                <p className="template2__section--form-result">Thank you for your submission!</p>
-                <br />
-                <Button specifiedClass="services-button" wide={true} caption="Send another message" url="reload" />
-                <br />
-                <Button specifiedClass="services-button" wide={true} caption="Go home" url="/" />
-            </section>);
-    }
-
+  if (state.succeeded) {
     return (
-        <section className="template2__section--body">
-            <p className="template2__section--form-result">We will respond within 24 hours upon submittion of a successful message.</p>
-            <br /><br /><br /><br />
-            <form className="template2__section--form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" maxLength="50" className="template2__section--form-input" key="input-1" />
+      <section className="template2__section--body">
+        <p className="template2__section--form-result">Thank you for your submission!</p>
+        <br />
+        <Button specifiedClass="template2__section--button" wide={true} caption="Send another message" url="reload" />
+        <br />
+        <Button specifiedClass="template2__section--button" wide={true} caption="Go home" url="/" />
+      </section>);
+  }
 
-                <label htmlFor="email">Email <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
-                <div>
-                    <ValidationError prefix="This" field="email" errors={state.errors} className="template2__section--form-error" />
-                    <input type="text" name="email" id="email" maxLength="50" className="template2__section--form-input" required />
-                </div>
+  return (
+    <section className="template2__section--body">
+      <p className="template2__section--form-result">We will respond within 24 hours upon submittion of a successful message.</p>
+      <br /><br /><br /><br />
+      <form className="template2__section--form" onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input type="text" name="name" id="name" maxLength="50" className="template2__section--form-input" key="input-1" />
 
-                <label htmlFor="message">Message <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
-                <div>
-                    <textarea name="message" id="message" maxLength="550" className="template2__section--form-input template2__section--form-textarea" required />
-                </div>
-                <div>
-                    <ValidationError errors={state.errors} className="template2__section--form-error" />
-                    <Button specifiedClass="services-button" caption="Submit" submit="submit" state={state} url="submit" />
-                </div>
-            </form>
-        </section>
-    );
+        <label htmlFor="email">Email <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
+        <div>
+          <ValidationError prefix="This" field="email" errors={state.errors} className="template2__section--form-error" />
+          <input type="text" name="email" id="email" maxLength="50" className="template2__section--form-input" required />
+        </div>
+
+        <label htmlFor="message">Message <label htmlFor="asteric" className="template2__section--form-error">*</label></label>
+        <div>
+          <textarea name="message" id="message" maxLength="550" className="template2__section--form-input template2__section--form-textarea" required />
+        </div>
+        <div>
+          <ValidationError errors={state.errors} className="template2__section--form-error" />
+          <Button specifiedClass="template2__section--button" caption="Submit" submit="submit" state={state} url="submit" />
+        </div>
+      </form>
+    </section>
+  );
 }

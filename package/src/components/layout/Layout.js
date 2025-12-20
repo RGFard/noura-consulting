@@ -23,10 +23,6 @@ const query = graphql`
         description
         author
         header
-        mainServices {
-          name
-          url
-        }
         quickMenu {
           name
           url

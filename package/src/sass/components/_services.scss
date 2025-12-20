@@ -1,13 +1,22 @@
 .services {
   grid-column: center-start / center-end;
-  margin: 5rem 5rem;
+  margin: 0.5rem 0.5rem;
 
   display: grid;
 
   &__title {
     @include title;
     margin-bottom: 6rem;
-    margin-top: 6rem;
+    
+    @media (max-width: $bp-medium) {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      margin-top: 0.5rem;
+    }
   }
 
   &__footer {
@@ -32,6 +41,7 @@
 
   @media (max-width: $bp-medium) {
     grid-template-columns: 1fr;
+    // margin-bottom: 0rem;
 
     &__image-col {
       grid-column: 1;
@@ -81,8 +91,9 @@
 
         // Safari only
         @supports (-webkit-hyphens: none) {
-          margin-top: 2rem;
-          margin-bottom: 2rem;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          margin-left: 0.5rem;
         }
       }
     }
@@ -104,9 +115,9 @@
 
       // Safari only
       @supports (-webkit-hyphens: none) {
-        margin-left: 3rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0.5rem;
       }
     }
   }

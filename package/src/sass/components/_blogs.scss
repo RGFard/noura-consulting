@@ -2,6 +2,13 @@
   grid-column: center-start / center-end;
   margin: 16rem 0;
   padding: 0 0 3rem 0;
+  
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+    padding: 0 0 0.5rem 0;
+  }
 
   &__title {
     display: flex;
@@ -66,7 +73,7 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
     margin-top: auto;
-    width: 100%; 
+    width: 100%;
     display: flex;
     justify-content: center;
   }

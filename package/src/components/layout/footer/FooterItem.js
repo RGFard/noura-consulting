@@ -1,30 +1,36 @@
 import React from "react";
-
 import FooterItemList from "./FooterItemList";
 
-const FooterItem = ({ siteMetadata, icons }) => {
-    const { mainServices, quickMenu, followUs } = siteMetadata;
+const FooterItem = ({ siteMetadata, icons, services = [] }) => {
+  const { quickMenu, followUs } = siteMetadata;
 
-    const footerItems = [];
+  const normalizedServices = services.map(service => ({
+    name: service.friendlyTitle,
+    url: service.url,
+  }));
 
-    footerItems.push({ title: "quick menu", type: "text", list: quickMenu });
-    footerItems.push({ title: "main services", type: "text", list: mainServices });
-    footerItems.push({ title: "follow us", type: "icon", list: followUs });
+  const footerItems = [
+    { title: "quick menu", type: "text", list: quickMenu },
+    { title: "services", type: "text", list: normalizedServices },
+    { title: "follow us", type: "icon", list: followUs },
+  ];
+
+  return footerItems.map((footerItem, index) => {
+    const { title, list, type } = footerItem;
 
     return (
-        footerItems.map((footerItem, index) => {
-            const { title, list, type } = footerItem;
-
-            return (
-                <div className="footer__item" key={index}>
-                    <div className="footer__item-title">{title}</div>
-                    <div className="footer__item-list">
-                        <FooterItemList icons={icons} type={type} key={index} list={list} />
-                    </div>
-                </div>
-            );
-        })
+      <div className="footer__item" key={title}>
+        <div className="footer__item-title">{title}</div>
+        <div className="footer__item-list">
+          <FooterItemList
+            icons={icons}
+            type={type}
+            list={list}
+          />
+        </div>
+      </div>
     );
+  });
 };
 
 export default FooterItem;

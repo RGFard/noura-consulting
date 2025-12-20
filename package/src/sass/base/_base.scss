@@ -94,6 +94,11 @@ svg {
     grid-column: full-start / full-end;
     grid-row: 2;
     padding: 2rem 5rem;
+
+    // Safari only
+    @supports (-webkit-hyphens: none) {
+      padding: 0.5rem 2rem;
+    }
   }
 
   &__hidden {

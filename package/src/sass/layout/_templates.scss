@@ -77,6 +77,14 @@
       }
     }
 
+    &--button {
+      @include btn($color-grey-dark-1);
+
+      &:hover {
+        @include btn($color-grey-dark-2);
+      }
+    }
+
     &--body {
       display: flex;
       flex-direction: column;
