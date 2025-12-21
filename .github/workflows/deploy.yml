@@ -25,6 +25,7 @@ jobs:
           CONTENTFUL_API_KEY: ${{ secrets.CONTENTFUL_API_KEY }}
           GATSBY_SECRET_PHRASE: ${{ secrets.GATSBY_SECRET_PHRASE }}
           GATSBY_FORMSPREE_FORM_ID_ENCRYPTED: ${{ secrets.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED }}
+          GATSBY_RECAPTCHA_SITE_KEY: ${{ secrets.GATSBY_RECAPTCHA_SITE_KEY }}
 
       - uses: shinyinc/action-aws-cli@v1.2
       - run: aws s3 sync public s3://${{ secrets.AWS_S3_BUCKET_NAME }}/
