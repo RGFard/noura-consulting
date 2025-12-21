@@ -1,11 +1,53 @@
 import * as React from "react";
+import { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { decrypt } from "../../utils/crypto";
 
 import Button from "../general/Button";
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm(decrypt(process.env.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED));
+  // const [state, handleSubmit] = useForm(decrypt(process.env.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED));
+  const [state, formspreeSubmit] = useForm(
+    decrypt(process.env.GATSBY_FORMSPREE_FORM_ID_ENCRYPTED)
+  );
+
+  useEffect(() => {
+    if (window.grecaptcha) return;
+
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
+  const handleRecaptchaSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    if (!window.grecaptcha?.enterprise) {
+      console.error("reCAPTCHA Enterprise not loaded");
+      return;
+    }
+
+    await new Promise((resolve) => {
+      window.grecaptcha.enterprise.ready(async () => {
+        await window.grecaptcha.enterprise.execute(
+          process.env.GATSBY_RECAPTCHA_SITE_KEY,
+          { action: "CONTACT_FORM" }
+        );
+        resolve();
+      });
+    });
+
+    // ✅ Read values safely
+    formspreeSubmit({
+      name: form.elements["name"]?.value || "",
+      email: form.elements["email"]?.value || "",
+      message: form.elements["message"]?.value || "",
+    });
+  };
 
   if (state.succeeded) {
     return (
@@ -22,7 +64,12 @@ export default function ContactForm() {
     <section className="template2__section--body">
       <p className="template2__section--form-result">We will respond within 24 hours upon submittion of a successful message.</p>
       <br /><br /><br /><br />
-      <form className="template2__section--form" onSubmit={handleSubmit}>
+      {/* <form className="template2__section--form" onSubmit={handleSubmit}> */}
+
+      <form
+        className="template2__section--form"
+        onSubmit={handleRecaptchaSubmit}
+      >
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" maxLength="50" className="template2__section--form-input" key="input-1" />
 
@@ -44,3 +91,4 @@ export default function ContactForm() {
     </section>
   );
 }
+

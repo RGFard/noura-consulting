@@ -14,7 +14,6 @@ const Button = ({ caption, url, wide, specifiedClass, submit, state }) => {
     }
 
     return (
-        // <div className="btn">
         <div>
             {button}
         </div>

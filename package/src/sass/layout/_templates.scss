@@ -180,6 +180,26 @@
         color: red;
         font-weight: bolder;
       }
+
+      &-g-recaptcha {
+        margin: 2rem 0 2.5rem 0;
+
+        // keep alignment consistent with inputs
+        display: flex;
+        justify-content: flex-start;
+
+        // prevent overflow on small screens
+        max-width: 100%;
+        overflow: hidden;
+
+        // optional subtle spacing polish
+        transform-origin: left center;
+
+        @media (max-width: 600px) {
+          // scale captcha slightly on small screens
+          transform: scale(0.9);
+        }
+      }
     }
   }
 }

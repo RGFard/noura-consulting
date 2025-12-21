@@ -2,7 +2,7 @@
   grid-column: center-start / center-end;
   margin: 16rem 0;
   padding: 0 0 3rem 0;
-  
+
   // Safari only
   @supports (-webkit-hyphens: none) {
     margin-top: 7rem;
@@ -36,6 +36,12 @@
   margin-top: 5rem;
   margin-bottom: 5rem;
   gap: 13rem;
+  
+  // Safari only
+  @supports (-webkit-hyphens: none) {
+    gap: 5rem;
+  }
+
 
   @media (max-width: $bp-medium) {
     grid-template-columns: 1fr;

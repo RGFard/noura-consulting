@@ -34,8 +34,8 @@ const SideNav = ({ siteMetadata }) => {
 
       <nav className="sidenav__nav">
         <ul className="sidenav__list">
-          {quickMenu.map((item) => (
-            <li key={item.url} className="sidenav__item">
+          {quickMenu.map((item, index) => (
+            <li key={`${item.url}-${index}`} className="sidenav__item">
               <Link
                 to={item.url}
                 className="sidenav__link"
