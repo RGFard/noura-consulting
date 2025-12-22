@@ -35,7 +35,6 @@ export default function HomePage({ data }) {
         <Video src={HomeVideo} dark />
       </div>
 
-      {/* ✅ data is now defined */}
       <PageIntro data={data} />
 
       <Services

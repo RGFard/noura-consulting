@@ -6,9 +6,9 @@ import setupRichText from "../../../utils/setupRichText";
 
 const BlogGrid = ({ blogs = [], singleButtonCaption }) => {
   return blogs.map(blog => {
-    const { friendlyTitle, url, mainDescription, image } = blog;
+    const { friendlyTitle, url, shortDescription, image } = blog;
     const pathToImage = getImage(image);
-    const description = setupRichText(mainDescription);
+    // const description = setupRichText(shortDescription);
 
     return (
       <article className="blogCard" key={url}>
@@ -23,7 +23,7 @@ const BlogGrid = ({ blogs = [], singleButtonCaption }) => {
         </h3>
 
         <div className="body-text">
-          {description}
+          {shortDescription}
         </div>
 
         <div className="blogCard__footer">

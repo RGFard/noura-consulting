@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { decrypt } from "../../utils/crypto";
 

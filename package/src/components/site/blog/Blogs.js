@@ -24,6 +24,7 @@ const query = graphql`
       order
       friendlyTitle
       url
+      shortDescription
       mainDescription {
         raw
       }

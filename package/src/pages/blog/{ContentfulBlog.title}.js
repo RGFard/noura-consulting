@@ -16,25 +16,28 @@ const BlogTemplate = ({ data }) => {
   const {
     title,
     friendlyTitle,
-    mainImage,
-    introduction,
-    introductionImage,
-    problemStatement,
-    problemStatementImage,
-    solution,
-    solutionImage,
-    conclusion,
+    image,
+    shortDescription,
+    mainDescription
   } = blog;
 
-  const pathToMainImage = getImage(mainImage);
-  const pathToIntroductionImage = getImage(introductionImage);
-  const pathToProblemStatementImage = getImage(problemStatementImage);
-  const pathToSolutionImage = getImage(solutionImage);
+  const pathToImage = getImage(image);
+  // const pathToIntroductionImage = getImage(introductionImage);
+  // const pathToProblemStatementImage = getImage(problemStatementImage);
+  // const pathToSolutionImage = getImage(solutionImage);
 
-  const introductionParagraph = setupRichText(introduction);
-  const problemStatementParagraph = setupRichText(problemStatement);
-  const solutionParagraph = setupRichText(solution);
-  const conclusionParagraph = setupRichText(conclusion);
+  // const introductionParagraph = setupRichText(introduction);
+  // const problemStatementParagraph = setupRichText(problemStatement);
+  // const solutionParagraph = setupRichText(solution);
+  // const conclusionParagraph = setupRichText(conclusion);
+  
+  // console.log(mainDescriptionParagraph);
+  
+  // const mainDescriptionParagraph = setupRichText(mainDescription);
+  const mainDescriptionParagraph = setupRichText({
+    raw: mainDescription.raw,
+    references: mainDescription.references,
+  });
 
   return (
     <>
@@ -44,45 +47,52 @@ const BlogTemplate = ({ data }) => {
         {/* Header */}
         <section className="template2__section--header">
           <div className="template2__section--header-text">
-            {friendlyTitle}
+            {/* {friendlyTitle} */}
           </div>
 
-          {pathToMainImage && (
+          {pathToImage && (
             <GatsbyImage
-              image={pathToMainImage}
+              image={pathToImage}
               className="template2__section--header-image"
-              alt={mainImage?.description || friendlyTitle}
+              alt={image?.description || friendlyTitle}
             />
           )}
         </section>
 
         {/* Introduction */}
         <Body
+          text={mainDescriptionParagraph}
+        // image={pathToIntroductionImage}
+        // alt={introductionImage?.description}
+        />
+
+        {/* Introduction */}
+        {/* <Body
           text={introductionParagraph}
           image={pathToIntroductionImage}
           alt={introductionImage?.description}
-        />
+        /> */}
 
         {/* Problem Statement */}
-        <Body
+        {/* <Body
           text={problemStatementParagraph}
           image={pathToProblemStatementImage}
           alt={problemStatementImage?.description}
-        />
+        /> */}
 
         {/* Solution */}
-        <Body
+        {/* <Body
           text={solutionParagraph}
           image={pathToSolutionImage}
           alt={solutionImage?.description}
-        />
+        /> */}
 
         {/* Conclusion */}
-        <section className="template2__section--body">
+        {/* <section className="template2__section--body">
           <div className="template2__section--body-text">
             {conclusionParagraph}
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );
@@ -93,46 +103,28 @@ export const query = graphql`
     contentfulBlog(title: { eq: $title }) {
       title
       friendlyTitle
-      mainImage {
+      image {
         gatsbyImageData(
           layout: CONSTRAINED
           placeholder: DOMINANT_COLOR
         )
         description
       }
-      introductionImage {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          placeholder: DOMINANT_COLOR
-        )
-        description
-      }
-      problemStatementImage {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          placeholder: DOMINANT_COLOR
-        )
-        description
-      }
-      solutionImage {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          placeholder: DOMINANT_COLOR
-        )
-        description
-      }
-      introduction {
+      shortDescription
+      mainDescription {
         raw
-      }
-      problemStatement {
-        raw
-      }
-      solution {
-        raw
-      }
-      conclusion {
-        raw
-      }
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            description
+            gatsbyImageData(
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
+          }
+        }
+      }      
     }
   }
 `;

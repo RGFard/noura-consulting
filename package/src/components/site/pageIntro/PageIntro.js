@@ -6,7 +6,7 @@ import setupRichText from "../../../utils/setupRichText";
 const PageIntro = ({ data }) => {
   const pageIntro = data?.contentfulPageIntro;
 
-  // 🔥 Guard: render nothing if data isn't ready
+  // Guard: render nothing if data isn't ready
   if (!pageIntro) return null;
 
   const {
