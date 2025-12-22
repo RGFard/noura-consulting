@@ -80,20 +80,58 @@ const setupRichText = ({ raw, references }) => {
 
       /* ---------- Embedded Image Assets ---------- */
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const assetId = node.data?.target?.sys?.id;
-        const asset = assetMap[assetId];
+        const id = node.data?.target?.sys?.id;
+        const asset = assetMap[id];
 
-        if (!asset) return null;
+        if (!asset?.gatsbyImageData) return null;
 
         const image = getImage(asset.gatsbyImageData);
-        if (!image) return null;
 
         return (
-          <figure className="template2__section--body-image">
+          <figure
+            className="template2__section--body-image"
+            style={{ outline: "3px solid red" }}   // 🔴 TEMP
+          >
             <GatsbyImage
               image={image}
               alt={asset.description || asset.title || ""}
             />
+          </figure>
+        );
+      },
+
+      /* ---------- Embedded Image Entry ---------- */
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+        const id = node.data?.target?.sys?.id;
+        const entry = assetMap[id];
+
+        if (!entry?.image?.gatsbyImageData) return null;
+
+        const image = getImage(entry.image.gatsbyImageData);
+
+        // 🔧 normalize alignment coming from Contentful
+        const alignment = (entry.alignment || "full")
+          .toString()
+          .trim()
+          .toLowerCase();
+
+        let className = "template2__section--body-image";
+
+        if (alignment === "left") {
+          className += " template2__section--body-image--left";
+        } else if (alignment === "right") {
+          className += " template2__section--body-image--right";
+        } else {
+          className += " template2__section--body-image--full";
+        }
+
+        return (
+          <figure className={className}>
+            <GatsbyImage
+              image={image}
+              alt={entry.image.description || entry.caption || ""}
+            />
+            {entry.caption && <figcaption>{entry.caption}</figcaption>}
           </figure>
         );
       },

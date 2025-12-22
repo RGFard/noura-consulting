@@ -100,18 +100,18 @@ const BlogTemplate = ({ data }) => {
 
 export const query = graphql`
   query getSingleBlog($title: String) {
-    contentfulBlog(title: { eq: $title }) {
-      title
-      friendlyTitle
-      image {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          placeholder: DOMINANT_COLOR
-        )
-        description
-      }
-      shortDescription
-      mainDescription {
+      contentfulBlog(title: { eq: $title }) {
+        title
+        friendlyTitle
+        image {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: DOMINANT_COLOR
+          )
+          description
+        }
+        shortDescription
+        mainDescription {
         raw
         references {
           ... on ContentfulAsset {
@@ -123,8 +123,20 @@ export const query = graphql`
               placeholder: BLURRED
             )
           }
+          ... on ContentfulImageBlock {
+            contentful_id
+            alignment
+            caption
+            image {
+              description
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+              )
+            }
+          }
         }
-      }      
+      } 
     }
   }
 `;
