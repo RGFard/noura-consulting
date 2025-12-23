@@ -4,7 +4,7 @@ import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const setupRichText = ({ raw, references }) => {
-  if (!raw) return null;
+  if (!raw || typeof raw !== "string") return null;
 
   // Build lookup table for assets
   const assetMap = {};
@@ -88,10 +88,7 @@ const setupRichText = ({ raw, references }) => {
         const image = getImage(asset.gatsbyImageData);
 
         return (
-          <figure
-            className="template2__section--body-image"
-            style={{ outline: "3px solid red" }}   // 🔴 TEMP
-          >
+          <figure className="template2__section--body-image">
             <GatsbyImage
               image={image}
               alt={asset.description || asset.title || ""}
@@ -108,31 +105,53 @@ const setupRichText = ({ raw, references }) => {
         if (!entry?.image?.gatsbyImageData) return null;
 
         const image = getImage(entry.image.gatsbyImageData);
+        if (!image) return null;
 
-        // 🔧 normalize alignment coming from Contentful
-        const alignment = (entry.alignment || "full")
+        const alignment = (entry.alignment || "right")
           .toString()
           .trim()
           .toLowerCase();
 
-        let className = "template2__section--body-image";
+        const wrapperClass =
+          alignment === "left"
+            ? "template2__imageText template2__imageText--left"
+            : alignment === "right"
+              ? "template2__imageText template2__imageText--right"
+              : "template2__imageText template2__imageText--full";
 
-        if (alignment === "left") {
-          className += " template2__section--body-image--left";
-        } else if (alignment === "right") {
-          className += " template2__section--body-image--right";
-        } else {
-          className += " template2__section--body-image--full";
-        }
+        const textNode = entry.sideText?.raw ? (
+          <div className="template2__imageText-text">
+            {setupRichText({
+              raw: entry.sideText.raw,
+              references: entry.sideText.references || [],
+            })}
+          </div>
+        ) : null;
 
-        return (
-          <figure className={className}>
+        const imageNode = (
+          <figure className="template2__imageText-image">
             <GatsbyImage
               image={image}
               alt={entry.image.description || entry.caption || ""}
             />
-            {entry.caption && <figcaption>{entry.caption}</figcaption>}
+            {entry.caption && <figcaption className="body-text template2__imageText-image--caption">{entry.caption}</figcaption>}
           </figure>
+        );
+
+        return (
+          <section className={wrapperClass}>
+            {alignment === "left" ? (
+              <>
+                {imageNode}
+                {textNode}
+              </>
+            ) : (
+              <>
+                {textNode}
+                {imageNode}
+              </>
+            )}
+          </section>
         );
       },
     },

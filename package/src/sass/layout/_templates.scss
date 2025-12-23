@@ -33,11 +33,12 @@
 
       &-video {
         width: 100%;
+        // height: 100vh;
         grid-row: 1 / 9;
         grid-column: 1 / 9;
 
         &--dark {
-          filter: brightness(50%);
+          filter: brightness(70%);
         }
 
         // Safari only
@@ -66,10 +67,10 @@
       &-image {
         z-index: 1;
         width: 100%;
-        height: 80vh;
+        // height: 80vh;
         grid-row: 1 / 9;
         grid-column: 1 / 9;
-        filter: brightness(50%);
+        filter: brightness(70%);
 
         @media only screen and (max-width: $bp-xlarge) {
           height: auto;
@@ -123,11 +124,8 @@
       }
 
       &-text {
-        // flex: 1;
-        // display: flex;
-        // flex-direction: column;
-        display: block; // 🔑 IMPORTANT
-
+        display: flex;
+        flex-direction: column;
       }
 
       &-image {
@@ -138,25 +136,6 @@
 
         @supports (-webkit-hyphens: none) {
           padding-top: 6rem;
-        }
-
-        &--left {
-          max-width: 40%;
-          margin-left: 0;
-          margin-right: auto;
-        }
-
-        &--right {
-          max-width: 40%;
-          margin-left: auto;
-          margin-right: 0;
-        }
-
-        &--full {
-          width: calc(100vw - 10rem);
-          max-width: none;
-          margin-left: calc(-50vw + 50%);
-          margin-right: 0;
         }
       }
     }
@@ -205,6 +184,57 @@
         font-size: 4rem;
         color: red;
         font-weight: bolder;
+      }
+    }
+  }
+
+  /* ============================= */
+  /* Image + Text Block (NEW)      */
+  /* ============================= */
+
+  &__imageText {
+    display: grid;
+    gap: 6rem;
+    align-items: start;
+    margin: 8rem 0;
+
+
+    /* Image on the RIGHT, text on the LEFT */
+    &--right {
+      grid-template-columns: 1fr 40%;
+
+      @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Image on the LEFT, text on the RIGHT */
+    &--left {
+      grid-template-columns: 40% 1fr;
+
+      @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Full-width image, text below */
+    &--full {
+      grid-template-columns: 1fr;
+    }
+
+    &-text {
+      min-width: 0;
+      overflow-wrap: break-word;
+    }
+
+    &-image {
+      min-width: 0;
+
+      &--caption {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-style: italic;
+        opacity: 0.8;
       }
     }
   }

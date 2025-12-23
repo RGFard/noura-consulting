@@ -10,30 +10,18 @@ import Body from "../../components/site/blog/Body";
 const BlogTemplate = ({ data }) => {
   const blog = data?.contentfulBlog;
 
-  // 🔒 Guard for SSR / missing data
+  // Guard for SSR / missing data
   if (!blog) return null;
 
   const {
     title,
     friendlyTitle,
     image,
-    shortDescription,
     mainDescription
   } = blog;
 
   const pathToImage = getImage(image);
-  // const pathToIntroductionImage = getImage(introductionImage);
-  // const pathToProblemStatementImage = getImage(problemStatementImage);
-  // const pathToSolutionImage = getImage(solutionImage);
 
-  // const introductionParagraph = setupRichText(introduction);
-  // const problemStatementParagraph = setupRichText(problemStatement);
-  // const solutionParagraph = setupRichText(solution);
-  // const conclusionParagraph = setupRichText(conclusion);
-  
-  // console.log(mainDescriptionParagraph);
-  
-  // const mainDescriptionParagraph = setupRichText(mainDescription);
   const mainDescriptionParagraph = setupRichText({
     raw: mainDescription.raw,
     references: mainDescription.references,
@@ -59,40 +47,10 @@ const BlogTemplate = ({ data }) => {
           )}
         </section>
 
-        {/* Introduction */}
+        {/* mainDescription */}
         <Body
           text={mainDescriptionParagraph}
-        // image={pathToIntroductionImage}
-        // alt={introductionImage?.description}
         />
-
-        {/* Introduction */}
-        {/* <Body
-          text={introductionParagraph}
-          image={pathToIntroductionImage}
-          alt={introductionImage?.description}
-        /> */}
-
-        {/* Problem Statement */}
-        {/* <Body
-          text={problemStatementParagraph}
-          image={pathToProblemStatementImage}
-          alt={problemStatementImage?.description}
-        /> */}
-
-        {/* Solution */}
-        {/* <Body
-          text={solutionParagraph}
-          image={pathToSolutionImage}
-          alt={solutionImage?.description}
-        /> */}
-
-        {/* Conclusion */}
-        {/* <section className="template2__section--body">
-          <div className="template2__section--body-text">
-            {conclusionParagraph}
-          </div>
-        </section> */}
       </main>
     </>
   );
@@ -127,6 +85,9 @@ export const query = graphql`
             contentful_id
             alignment
             caption
+            sideText {
+              raw
+            }
             image {
               description
               gatsbyImageData(
