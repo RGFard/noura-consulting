@@ -1,22 +1,13 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { useContext } from "react";
 
-import { extractFromJson } from "../../../utils/extractFromJson";
 import Service from "./Service";
 import Button from "../../general/Button";
+import { CaptionContext } from "../../../context/CaptionContext";
 
 const query = graphql`
 {
-  allContentfulJsonContent(filter: { name: { eq: "button" } }) {
-    nodes {
-      childrenContentfulJsonContentObjectJsonNode {
-        internal {
-          content
-        }
-      }
-    }
-  }
-
   allContentfulService(
     sort: { order: ASC }
     filter: { site: { eq: "dataNexus" } }
@@ -39,33 +30,39 @@ const query = graphql`
 }
 `;
 
-
-const Services = ({ footerButton = false, servicesMenuData = {} }) => {
+const Services = ({
+  footerButton,
+  footerUrl
+}) => {
   const data = useStaticQuery(query);
 
-  const { name = "", url = "" } = servicesMenuData;
-
-  const servicesButton =
-    name ? extractFromJson(data, name) : null;
-
-  const title =
-    name ? name.charAt(0).toUpperCase() + name.slice(1) : "Services";
+  const captions = useContext(CaptionContext);
+  const servicesCaptions = captions?.services ?? {};
+  const mainTitle = servicesCaptions?.mainTitle;
+  const mainSubTitle = servicesCaptions?.mainSubTitle;
+  const combinedButton = servicesCaptions?.combinedButton;
 
   return (
     <section className="services">
       <h2 className="services__title heading-2 heading-2--dark">
-        {title}
+        {mainTitle}
       </h2>
+
+      {mainSubTitle && (
+        <p className="services__title--subtitle">
+          {mainSubTitle}
+        </p>
+      )}
 
       <Service services={data?.allContentfulService?.nodes ?? []} />
 
-      {footerButton && url && (
+      {footerButton && (
         <div className="services__footer">
           <Button
             specifiedClass="services__footer-button"
             wide
-            url={url}
-            caption={servicesButton?.combined}
+            url={footerUrl}
+            caption={combinedButton}
           />
         </div>
       )}

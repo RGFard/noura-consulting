@@ -3,11 +3,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../../general/Button";
 
-const BlogGrid = ({ blogs = [], singleButtonCaption }) => {
+const BlogGrid = ({ blogs = [] }) => {
   return blogs.map(blog => {
-    const { friendlyTitle, url, shortDescription, image } = blog;
+    const { friendlyTitle, url, redirectCaption, shortDescription, image } = blog;
     const pathToImage = getImage(image);
-    // const description = setupRichText(shortDescription);
 
     return (
       <article className="blogCard" key={url}>
@@ -29,7 +28,7 @@ const BlogGrid = ({ blogs = [], singleButtonCaption }) => {
           <Button
             specifiedClass="blogCard__button"
             url={url}
-            caption={singleButtonCaption}
+            caption={redirectCaption}
           />
         </div>
       </article>

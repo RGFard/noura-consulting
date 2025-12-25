@@ -1,22 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { extractFromJson } from "../../../utils/extractFromJson";
 import BlogGrid from "./BlogGrid";
 import Button from "../../general/Button";
+import { CaptionContext } from "../../../context/CaptionContext";
 
 const query = graphql`
 {
-  allContentfulJsonContent(filter: { name: { eq: "button" } }) {
-    nodes {
-      childrenContentfulJsonContentObjectJsonNode {
-        internal {
-          content
-        }
-      }
-    }
-  }
-
   allContentfulBlog(
     sort: { order: ASC }
   ) {
@@ -24,6 +14,7 @@ const query = graphql`
       order
       friendlyTitle
       url
+      redirectCaption
       shortDescription
       mainDescription {
         raw
@@ -39,38 +30,45 @@ const query = graphql`
 }
 `;
 
-const Blogs = ({ footerButton = false, blogMenuData = {} }) => {
+const Blogs = ({ footerButton = false, limit }) => {
   const data = useStaticQuery(query);
+  const captions = useContext(CaptionContext);
 
-  const blogs = data?.allContentfulBlog?.nodes ?? [];
+  const blogCaptions = captions?.blog ?? {};
+  const {
+    mainTitle,
+    combinedButton,
+    combinedButtonUrl
+  } = blogCaptions;
 
-  const { name = "", url = "" } = blogMenuData;
+  const allBlogs = data?.allContentfulBlog?.nodes ?? [];
 
-  const blogButtons =
-    name ? extractFromJson(data, name) : null;
+  const blogs =
+    typeof limit === "number"
+      ? allBlogs.slice(0, limit)
+      : allBlogs;
 
   return (
     <section className="blogs">
-      <div className="blogs__title">
-        <h2 className="heading-2 heading-2--dark">
-          Blog Posts
-        </h2>
-      </div>
+      {mainTitle && (
+        <div className="blogs__title">
+          <h2 className="heading-2 heading-2--dark">
+            {mainTitle}
+          </h2>
+        </div>
+      )}
 
       <div className="blogGrid">
-        <BlogGrid
-          blogs={blogs}
-          singleButtonCaption={blogButtons?.single}
-        />
+        <BlogGrid blogs={blogs} />
       </div>
 
-      {footerButton && url && (
+      {footerButton && combinedButton && combinedButtonUrl && (
         <div className="blogs__footer">
           <Button
             specifiedClass="blogs__footer-button"
             wide
-            caption={blogButtons?.combined}
-            url={url}
+            caption={combinedButton}
+            url={combinedButtonUrl}
           />
         </div>
       )}

@@ -7,18 +7,28 @@
   &__title {
     @include title;
     margin-top: 6rem;
-    margin-bottom: 6rem;
-    
+
     @media (max-width: $bp-medium) {
       margin-top: 3rem;
-      margin-bottom: 0.5rem;
     }
 
     // Safari only
     @supports (-webkit-hyphens: none) {
       margin-top: 0.5rem;
     }
+
+    &--subtitle {
+      @include title;
+      font-size: 5rem;
+      font-weight: bold;
+      margin-bottom: 6rem;
+
+      @media (max-width: $bp-medium) {
+        margin-bottom: 0.5rem;
+      }
+    }
   }
+
 
   &__footer {
     display: flex;
