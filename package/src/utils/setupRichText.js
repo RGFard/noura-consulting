@@ -17,7 +17,7 @@ const setupRichText = ({ raw, references }) => {
   return documentToReactComponents(document, {
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <b className="font-bold">{text}</b>
+        <b className="body-text--font">{text}</b>
       ),
     },
 

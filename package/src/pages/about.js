@@ -6,11 +6,13 @@ import Head from "../components/general/Head";
 import setupRichText from "../utils/setupRichText";
 import Video from "../components/general/Video";
 import AboutVideoMp4 from "../assets/videos/about.mp4";
+import PageIntro from "../components/site/pageIntro/PageIntro";
+
 
 const AboutPage = ({ data }) => {
   const about = data?.contentfulGeneral;
 
-  // 🔒 Guard: prevents crashes during SSR / missing CMS entry
+  // Guard: prevents crashes during SSR / missing CMS entry
   if (!about) return null;
 
   const { friendlyTitle, description } = about;
@@ -27,6 +29,8 @@ const AboutPage = ({ data }) => {
           dark
         />
 
+        <PageIntro data={data} />
+
         <section className="template2__section--body">
           <div className="template2__section--body-text">
             {descriptionParagraph}
@@ -38,16 +42,34 @@ const AboutPage = ({ data }) => {
 };
 
 export const query = graphql`
-{
-  contentfulGeneral(title: { eq: "about" }) {
-    title
-    url
-    friendlyTitle
-    description {
-      raw
+query AboutPageData {
+    contentfulGeneral(title: { eq: "about" }) {
+      title
+      url
+      friendlyTitle
+      description {
+        raw
+      }
+    }
+
+
+    contentfulPageIntro(page: { eq: "about" }) {
+      friendlyTitle
+      description {
+        raw
+      }
+      image {
+        file {
+          url
+        }
+      }
+      video {
+        file {
+          url
+        }
+      }
     }
   }
-}
 `;
 
 export default AboutPage;

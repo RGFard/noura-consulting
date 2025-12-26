@@ -1,21 +1,16 @@
 import * as React from "react";
-import { useContext } from "react";
 import { useLocation } from "@reach/router";
+import { graphql } from "gatsby";
 
 import "../sass/style.scss";
 import Head from "../components/general/Head";
 import Blogs from "../components/site/blog/Blogs";
 import Video from "../components/general/Video";
 import BlogVideoMp4 from "../assets/videos/blog.mp4";
+import PageIntro from "../components/site/pageIntro/PageIntro";
 
-import { SiteMetadataContext } from "../context/SiteMetadataContext";
 
-export default function BlogPage() {
-  const siteMetadata = useContext(SiteMetadataContext);
-
-  const quickMenu = siteMetadata?.quickMenu ?? [];
-  const blogMenuData =
-    quickMenu.find(item => item.name === "blog") || {};
+export default function BlogPage({ data }) {
 
   const { pathname } = useLocation();
   const footerButton = pathname.replace(/\//g, "") === "";
@@ -28,10 +23,32 @@ export default function BlogPage() {
         <Video src={BlogVideoMp4} title="Blog" dark />
       </div>
 
+      <PageIntro data={data} />
+
       <Blogs
         footerButton={footerButton}
-        blogMenuData={blogMenuData}
       />
     </>
   );
 }
+
+export const query = graphql`
+query BlogPageData {
+    contentfulPageIntro(page: { eq: "blog" }) {
+      friendlyTitle
+      description {
+        raw
+      }
+      image {
+        file {
+          url
+        }
+      }
+      video {
+        file {
+          url
+        }
+      }
+    }
+  }
+`;
