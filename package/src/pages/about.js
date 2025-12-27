@@ -52,7 +52,6 @@ query AboutPageData {
       }
     }
 
-
     contentfulPageIntro(page: { eq: "about" }) {
       friendlyTitle
       description {

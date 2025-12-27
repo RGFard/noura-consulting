@@ -78,6 +78,25 @@ const setupRichText = ({
         </h3>
       ),
 
+      /* ---------- Lists ---------- */
+      [BLOCKS.OL_LIST]: (_, children) => (
+        <ol className="body-text">
+          {children}
+        </ol>
+      ),
+
+      [BLOCKS.UL_LIST]: (_, children) => (
+        <ul className="body-text">
+          {children}
+        </ul>
+      ),
+
+      [BLOCKS.LIST_ITEM]: (_, children) => (
+        <li className="body-text">
+          {children}
+        </li>
+      ),
+
       /* ---------- Paragraphs ---------- */
       [BLOCKS.PARAGRAPH]: (_, children) => {
         const content = Array.isArray(children) ? children : [children];

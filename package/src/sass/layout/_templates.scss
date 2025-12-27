@@ -91,7 +91,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 5rem 55rem;
+      padding: 5rem 35rem;
       min-height: 50vh;
 
       @media only screen and (max-width: $bp-xlarge) {
@@ -119,7 +119,7 @@
         }
 
         @media only screen and (max-width: $bp-small) {
-          padding: 5rem 3rem 0rem 3rem;
+          padding: 5rem 5rem 0rem 5rem;
         }
       }
 
@@ -194,7 +194,7 @@
 
   &__imageText {
     display: grid;
-    gap: 3rem;
+    gap: 6rem;
     align-items: start;
     margin: 8rem 0;
 
@@ -235,13 +235,18 @@
       min-width: 0;
       overflow-wrap: break-word;
 
-      @media only screen and (min-width: $bp-xxlarge) {
-        margin-top: 2rem;
+      @media only screen and (min-width: $bp-xxxlarge) {
+        margin-top: 3rem;
+      }
+
+      @media only screen and (min-width: $bp-xlarge) and (max-width: $bp-xxxlarge) {
+        margin-top: 1.5rem;
       }
     }
 
     &-image {
       min-width: 0;
+      max-height: 50%;
 
       &--caption {
         text-align: center;
@@ -251,10 +256,11 @@
       }
 
       @media only screen and (min-width: $bp-xlarge) and (max-width: $bp-xxlarge) {
-        margin-top: 9rem;
+        margin-top: 7rem;
       }
 
       @media only screen and (max-width: $bp-medium) {
+        margin-top: 4rem;
         width: 65%;
         max-width: 100%;
       }
