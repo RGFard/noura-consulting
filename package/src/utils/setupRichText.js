@@ -80,19 +80,19 @@ const setupRichText = ({
 
       /* ---------- Lists ---------- */
       [BLOCKS.OL_LIST]: (_, children) => (
-        <ol className="body-text">
+        <ol className="body-text body-text--margined">
           {children}
         </ol>
       ),
 
       [BLOCKS.UL_LIST]: (_, children) => (
-        <ul className="body-text">
+        <ul className="body-text body-text--margined">
           {children}
         </ul>
       ),
 
       [BLOCKS.LIST_ITEM]: (_, children) => (
-        <li className="body-text">
+        <li className="body-text body-text--margined">
           {children}
         </li>
       ),

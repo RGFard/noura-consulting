@@ -5,7 +5,6 @@ import "../sass/style.scss";
 import Head from "../components/general/Head";
 import setupRichText from "../utils/setupRichText";
 import Video from "../components/general/Video";
-import AboutVideoMp4 from "../assets/videos/about.mp4";
 import PageIntro from "../components/site/pageIntro/PageIntro";
 
 
@@ -15,28 +14,28 @@ const AboutPage = ({ data }) => {
   // Guard: prevents crashes during SSR / missing CMS entry
   if (!about) return null;
 
-  const { friendlyTitle, description } = about;
+  const { description } = about;
   const descriptionParagraph = setupRichText(description);
+
+  const {
+    file
+  } = data.allContentfulAsset.nodes[0];
 
   return (
     <>
       <Head pageTitle="About Page" />
 
-      <main className="template2">
-        <Video
-          src={AboutVideoMp4}
-          title={friendlyTitle}
-          dark
-        />
+      <div className="template2">
+        <Video src={file.url} title="About" dark />
+      </div>
 
-        <PageIntro data={data} />
+      <PageIntro data={data} />
 
-        <section className="template2__section--body">
-          <div className="template2__section--body-text">
-            {descriptionParagraph}
-          </div>
-        </section>
-      </main>
+      <section className="template2__section--body">
+        <div className="template2__section--body-text">
+          {descriptionParagraph}
+        </div>
+      </section>
     </>
   );
 };
@@ -49,6 +48,21 @@ query AboutPageData {
       friendlyTitle
       description {
         raw
+      }
+    }
+
+    allContentfulAsset(
+      filter: {
+        title: { eq: "about-top-banner" }
+        file: {
+          contentType: { regex: "/^video\\//" }
+        }
+      }
+    ) {
+      nodes {
+        file {
+          url
+        }
       }
     }
 

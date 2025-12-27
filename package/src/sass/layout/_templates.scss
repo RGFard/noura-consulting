@@ -194,7 +194,7 @@
 
   &__imageText {
     display: grid;
-    gap: 6rem;
+    gap: 3rem;
     align-items: start;
     margin: 8rem 0;
 
@@ -206,6 +206,9 @@
 
       @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
+      }
+
+      @media only screen and (max-width: $bp-small) {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -219,10 +222,6 @@
 
       @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
     }
 
@@ -246,7 +245,6 @@
 
     &-image {
       min-width: 0;
-      max-height: 50%;
 
       &--caption {
         text-align: center;
@@ -257,6 +255,12 @@
 
       @media only screen and (min-width: $bp-xlarge) and (max-width: $bp-xxlarge) {
         margin-top: 7rem;
+      }
+
+      @media only screen and (min-width: $bp-small) and (max-width: $bp-medium) {
+        margin-left: 32rem;
+        width: 90%;
+        max-width: 100%;
       }
 
       @media only screen and (max-width: $bp-medium) {
