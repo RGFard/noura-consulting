@@ -223,6 +223,13 @@
       @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
       }
+
+      @media only screen and (max-width: $bp-small) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     /* Full-width image, text below */
@@ -258,9 +265,9 @@
       }
 
       @media only screen and (min-width: $bp-small) and (max-width: $bp-medium) {
-        margin-left: 32rem;
-        width: 90%;
-        max-width: 100%;
+        // margin-left: 32rem;
+        width: 100%;
+        // max-width: 100%;
       }
 
       @media only screen and (max-width: $bp-medium) {
