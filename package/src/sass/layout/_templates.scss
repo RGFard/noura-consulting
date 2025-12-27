@@ -129,7 +129,7 @@
       }
 
       &-image {
-        width: 100%;
+        width: 65%;
         max-width: 100%;
         padding-top: 10rem;
         margin: 0 auto;
@@ -194,26 +194,35 @@
 
   &__imageText {
     display: grid;
-    gap: 6rem;
+    gap: 3rem;
     align-items: start;
     margin: 8rem 0;
 
 
     /* Image on the RIGHT, text on the LEFT */
     &--right {
-      grid-template-columns: 1fr 40%;
+      grid-template-columns: 1fr 50%;
+
 
       @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
 
     /* Image on the LEFT, text on the RIGHT */
     &--left {
-      grid-template-columns: 40% 1fr;
+      grid-template-columns: 50% 1fr;
 
       @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
 
@@ -225,6 +234,10 @@
     &-text {
       min-width: 0;
       overflow-wrap: break-word;
+
+      @media only screen and (min-width: $bp-xxlarge) {
+        margin-top: 2rem;
+      }
     }
 
     &-image {
@@ -235,6 +248,15 @@
         margin-top: 1.5rem;
         font-style: italic;
         opacity: 0.8;
+      }
+
+      @media only screen and (min-width: $bp-xlarge) and (max-width: $bp-xxlarge) {
+        margin-top: 9rem;
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        width: 65%;
+        max-width: 100%;
       }
     }
   }

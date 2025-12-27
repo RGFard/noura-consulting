@@ -6,25 +6,29 @@ import Head from "../../components/general/Head";
 import setupRichText from "../../utils/setupRichText";
 import Body from "../../components/site/blog/Body";
 
-// This is a test comment
 const BlogTemplate = ({ data }) => {
   const blog = data?.contentfulBlog;
-
-  // Guard for SSR / missing data
   if (!blog) return null;
 
   const {
     title,
     friendlyTitle,
     image,
-    mainDescription
+    mainDescription,
   } = blog;
 
-  const pathToImage = getImage(image);
+  const imageBlockMap = {};
+  data.allContentfulImageBlock.nodes.forEach(b => {
+    imageBlockMap[b.contentful_id] = b;
+  });
+
+
+  const headerImage = getImage(image?.gatsbyImageData);
 
   const mainDescriptionParagraph = setupRichText({
     raw: mainDescription.raw,
     references: mainDescription.references,
+    imageBlockMap,
   });
 
   return (
@@ -38,19 +42,17 @@ const BlogTemplate = ({ data }) => {
             {/* {friendlyTitle} */}
           </div>
 
-          {pathToImage && (
+          {headerImage && (
             <GatsbyImage
-              image={pathToImage}
+              image={headerImage}
               className="template2__section--header-image"
               alt={image?.description || friendlyTitle}
             />
           )}
         </section>
 
-        {/* mainDescription */}
-        <Body
-          text={mainDescriptionParagraph}
-        />
+        {/* Body */}
+        <Body text={mainDescriptionParagraph} />
       </main>
     </>
   );
@@ -58,18 +60,18 @@ const BlogTemplate = ({ data }) => {
 
 export const query = graphql`
   query getSingleBlog($title: String) {
-      contentfulBlog(title: { eq: $title }) {
-        title
-        friendlyTitle
-        image {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: DOMINANT_COLOR
-          )
-          description
-        }
-        shortDescription
-        mainDescription {
+    contentfulBlog(title: { eq: $title }) {
+      title
+      friendlyTitle
+      image {
+        gatsbyImageData(
+          layout: CONSTRAINED
+          placeholder: DOMINANT_COLOR
+        )
+        description
+      }
+      shortDescription
+      mainDescription {
         raw
         references {
           ... on ContentfulAsset {
@@ -81,23 +83,27 @@ export const query = graphql`
               placeholder: BLURRED
             )
           }
-          ... on ContentfulImageBlock {
-            contentful_id
-            alignment
-            caption
-            sideText {
-              raw
-            }
-            image {
-              description
-              gatsbyImageData(
-                layout: CONSTRAINED
-                placeholder: BLURRED
-              )
-            }
-          }
         }
-      } 
+      }
+    }
+
+    # ImageBlocks queried independently (NO union risk)
+    allContentfulImageBlock {
+      nodes {
+        contentful_id
+        alignment
+        caption
+        sideText {
+          raw
+        }
+        image {
+          description
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+          )
+        }
+      }
     }
   }
 `;

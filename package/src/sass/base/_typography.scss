@@ -66,6 +66,10 @@
   font-size: 4.1rem;
   line-height: 1.6;
 
+  @media only screen and (min-width: $bp-xxxlarge) {
+    font-size: 5.2rem;
+  }
+
   @media only screen and (max-width: $bp-medium) {
     font-size: 4.7rem;
   }
