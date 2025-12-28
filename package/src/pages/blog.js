@@ -6,21 +6,23 @@ import "../sass/style.scss";
 import Head from "../components/general/Head";
 import Blogs from "../components/site/blog/Blogs";
 import Video from "../components/general/Video";
-import BlogVideoMp4 from "../assets/videos/blog.mp4";
 import PageIntro from "../components/site/pageIntro/PageIntro";
-
 
 export default function BlogPage({ data }) {
 
   const { pathname } = useLocation();
   const footerButton = pathname.replace(/\//g, "") === "";
 
+  const {
+    file
+  } = data.allContentfulAsset.nodes[0];
+
   return (
     <>
       <Head pageTitle="Blog Page" />
 
       <div className="template2">
-        <Video src={BlogVideoMp4} title="Blog" dark />
+        <Video src={file.url} title="Blog" dark />
       </div>
 
       <PageIntro data={data} />
@@ -50,5 +52,19 @@ query BlogPageData {
         }
       }
     }
+    allContentfulAsset(
+      filter: {
+        title: { eq: "blog-top-banner" }
+        file: {
+          contentType: { regex: "/^video\\//" }
+        }
+      }
+    ) {
+      nodes {
+        file {
+          url
+        }
+      }
+    }      
   }
 `;
