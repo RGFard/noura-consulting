@@ -37,6 +37,7 @@ const Footer = ({ siteMetadata, icons }) => {
             <Button
               specifiedClass="footer__item-button"
               caption={caption}
+              url={"/about"}
             />
           </div>
         </div>

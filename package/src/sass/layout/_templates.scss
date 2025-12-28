@@ -137,6 +137,13 @@
         @supports (-webkit-hyphens: none) {
           padding-top: 6rem;
         }
+
+        &--caption {
+          text-align: center;
+          margin-top: 1.5rem;
+          font-style: italic;
+          opacity: 0.8;
+        }
       }
     }
 
@@ -197,20 +204,20 @@
     gap: 3rem;
     align-items: start;
     margin: 8rem 0;
-    
-    
+
+
     /* Image on the RIGHT, text on the LEFT */
     &--right {
       grid-template-columns: 1fr 50%;
-      
+
       @media only screen and (min-width: $bp-small) and (max-width: $bp-medium) {
         grid-template-columns: 1fr 40%;
       }
-      
+
       @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
       }
-      
+
       @media only screen and (max-width: $bp-small) {
         display: flex;
         flex-direction: column;
@@ -218,11 +225,11 @@
         align-items: center;
       }
     }
-    
+
     /* Image on the LEFT, text on the RIGHT */
     &--left {
       grid-template-columns: 50% 1fr;
-      
+
       @media only screen and (min-width: $bp-small) and (max-width: $bp-medium) {
         grid-template-columns: 1fr 40%;
       }

@@ -134,6 +134,11 @@ const setupRichText = ({
               image={getImage(asset.gatsbyImageData)}
               alt={asset.description || asset.title || ""}
             />
+            {asset.description && (
+              <figcaption className="body-text template2__section--body-image--caption">
+                {asset.description}
+              </figcaption>
+            )}
           </figure>
         );
       },
