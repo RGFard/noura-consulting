@@ -29,7 +29,7 @@ const AboutPage = ({ data }) => {
         <Video src={file.url} title="About" dark />
       </div>
 
-      <PageIntro data={data} />
+      <PageIntro intro={data.contentfulPageIntro} />
 
       <section className="template2__section--body">
         <div className="template2__section--body-text">

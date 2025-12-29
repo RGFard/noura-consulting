@@ -25,7 +25,7 @@ export default function BlogPage({ data }) {
         <Video src={file.url} title="Blog" dark />
       </div>
 
-      <PageIntro data={data} />
+      <PageIntro intro={data.contentfulPageIntro} />
 
       <Blogs
         footerButton={footerButton}

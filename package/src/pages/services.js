@@ -21,7 +21,7 @@ export default function ServicesPage({ data }) {
         <Video src={file.url} title="Services" dark />
       </div>
 
-      <PageIntro data={data} />
+      <PageIntro intro={data.contentfulPageIntro} />
 
       <Services footer={false} />
     </>

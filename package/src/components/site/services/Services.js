@@ -10,14 +10,13 @@ const query = graphql`
 {
   allContentfulService(
     sort: { order: ASC }
-    filter: { site: { eq: "dataNexus" } }
   ) {
     nodes {
       order
       friendlyTitle
       shortDescription
       url
-      site
+      slug
       mainImage {
         gatsbyImageData(
           layout: CONSTRAINED

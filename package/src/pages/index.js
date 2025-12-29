@@ -23,7 +23,7 @@ export default function HomePage({ data }) {
         <Video src={homeTopBannerVideo} dark />
       </div>
 
-      <PageIntro data={data} />
+      <PageIntro intro={data.contentfulPageIntro} />
 
       <Services
         footerButton={footerButton}

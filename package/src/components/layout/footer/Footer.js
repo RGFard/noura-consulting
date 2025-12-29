@@ -8,7 +8,6 @@ const query = graphql`
 {
   allContentfulService(
     sort: { order: ASC }
-    filter: { site: { eq: "dataNexus" } }
   ) {
     nodes {
       friendlyTitle

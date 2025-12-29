@@ -4,24 +4,17 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Head from "../../components/general/Head";
 import setupRichText from "../../utils/setupRichText";
+import PageIntro from "../../components/site/pageIntro/PageIntro";
 
 const ServiceTemplate = ({ data }) => {
   const service = data?.contentfulService;
   if (!service) return null;
 
-  const {
-    title,
-    friendlyTitle,
-    mainImage,
-    description,
-  } = service;
-
-
+  const { title, friendlyTitle, mainImage, description } = service;
 
   const imageBlocks = data.allContentfulImageBlock?.nodes || [];
   const assets = data.allContentfulAsset?.nodes || [];
 
-  // Build lookup maps
   const imageBlockMap = {};
   imageBlocks.forEach((b) => {
     imageBlockMap[b.contentful_id] = b;
@@ -40,13 +33,11 @@ const ServiceTemplate = ({ data }) => {
     imageBlockMap,
   });
 
-
   return (
     <>
       <Head pageTitle={title} />
 
       <main className="template2">
-        {/* Header */}
         <section className="template2__section--header">
           <div className="template2__section--header-text">
             {/* {friendlyTitle} */}
@@ -61,7 +52,10 @@ const ServiceTemplate = ({ data }) => {
           )}
         </section>
 
-        {/* Body */}
+        {data.contentfulPageIntro && (
+          <PageIntro intro={data.contentfulPageIntro} />
+        )}
+
         <section className="template2__section--body">
           <div className="template2__section--body-text">
             {bodyDescription}
@@ -73,10 +67,11 @@ const ServiceTemplate = ({ data }) => {
 };
 
 export const query = graphql`
-  query getSingleService($title: String) {
-    contentfulService(title: { eq: $title }) {
+  query getSingleService($slug: String!) {
+    contentfulService(slug: { eq: $slug }) {
       title
       friendlyTitle
+      slug
       mainImage {
         gatsbyImageData(
           layout: CONSTRAINED
@@ -86,6 +81,23 @@ export const query = graphql`
       }
       description {
         raw
+      }
+    }
+
+    contentfulPageIntro(slug: { eq: $slug }) {
+      friendlyTitle
+      description {
+        raw
+      }
+      image {
+        file {
+          url
+        }
+      }
+      video {
+        file {
+          url
+        }
       }
     }
 
@@ -120,6 +132,5 @@ export const query = graphql`
     }
   }
 `;
-
 
 export default ServiceTemplate;

@@ -1,46 +1,78 @@
+const path = require("path");
+
+/**
+ * -----------------------------------------
+ * 1️⃣ Webpack config (UNCHANGED)
+ * -----------------------------------------
+ */
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   const config = getConfig();
 
-  //
-  // 1️⃣ Patch sass-loader to silence Sass deprecation warnings
-  //
-  (config.module.rules || []).forEach(rule => {
+  (config.module.rules || []).forEach((rule) => {
     const candidates = rule.oneOf || [rule];
 
-    candidates.forEach(subRule => {
+    candidates.forEach((subRule) => {
       if (!subRule.use) return;
 
       const uses = Array.isArray(subRule.use) ? subRule.use : [subRule.use];
 
-      uses.forEach(loaderEntry => {
+      uses.forEach((loaderEntry) => {
         if (
           loaderEntry &&
           loaderEntry.loader &&
-          loaderEntry.loader.includes('sass-loader')
+          loaderEntry.loader.includes("sass-loader")
         ) {
           loaderEntry.options = loaderEntry.options || {};
           loaderEntry.options.sassOptions = {
             ...(loaderEntry.options.sassOptions || {}),
-            silenceDeprecations: [
-              'import',
-              'legacy-js-api',
-            ],
+            silenceDeprecations: ["import", "legacy-js-api"],
           };
         }
       });
     });
   });
 
-  //
-  // 2️⃣ Set Webpack infrastructure logging level on the SAME config
-  //
   config.infrastructureLogging = {
     ...(config.infrastructureLogging || {}),
-    level: 'error', // hides PackFileCacheStrategy + other infra noise
+    level: "error",
   };
 
-  //
-  // 3️⃣ Replace the updated config
-  //
   actions.replaceWebpackConfig(config);
+};
+
+/**
+ * -----------------------------------------
+ * 2️⃣ Create pages (USING SLUG)
+ * -----------------------------------------
+ */
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allContentfulService {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw result.errors;
+  }
+
+  const serviceTemplate = path.resolve(
+    "./src/pages/services/ServiceTemplate.js"
+  );
+
+  result.data.allContentfulService.nodes.forEach((service) => {
+    createPage({
+      path: `/services/${service.slug}`,
+      component: serviceTemplate,
+      context: {
+        slug: service.slug,
+      },
+    });
+  });
 };
