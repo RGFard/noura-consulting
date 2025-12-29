@@ -4,9 +4,6 @@ import VideoIntro from "../../../components/general/VideoIntro";
 import setupRichText from "../../../utils/setupRichText";
 
 const PageIntro = ({ intro }) => {
-  // const pageIntro = data?.contentfulPageIntro;
-  
-
   // Guard: render nothing if data isn't ready
   if (!intro) return null;
 
