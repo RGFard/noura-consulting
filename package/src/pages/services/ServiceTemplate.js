@@ -67,7 +67,7 @@ const ServiceTemplate = ({ data }) => {
 };
 
 export const query = graphql`
-  query getSingleService($slug: String!) {
+  query getSingleService($slug: String) {
     contentfulService(slug: { eq: $slug }) {
       title
       friendlyTitle
