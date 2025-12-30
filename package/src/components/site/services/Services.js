@@ -40,6 +40,7 @@ const Services = ({
   const mainTitle = servicesCaptions?.mainTitle;
   const mainSubTitle = servicesCaptions?.mainSubTitle;
   const combinedButton = servicesCaptions?.combinedButton;
+  const combinedButtonUrl = servicesCaptions?.combinedButtonUrl;
 
   return (
     <section className="services">
@@ -60,7 +61,7 @@ const Services = ({
           <Button
             specifiedClass="services__footer-button"
             wide
-            url={footerUrl}
+            url={combinedButtonUrl}
             caption={combinedButton}
           />
         </div>
