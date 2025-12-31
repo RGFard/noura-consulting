@@ -7,7 +7,6 @@ const PageIntro = ({ intro }) => {
   // Guard: render nothing if data isn't ready
   if (!intro) return null;
 
-
   const {
     friendlyTitle,
     image,
@@ -38,6 +37,7 @@ const PageIntro = ({ intro }) => {
           <VideoIntro
             src={video?.file?.url}
             imageUrl={image?.file?.url}
+            description={description}
           />
         </div>
       </div>

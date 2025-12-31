@@ -9,10 +9,10 @@
     }
 
     &__video {
-        width: 97%;
-        height: 90%;
-        margin: 2rem;
-        cursor: pointer;
-        object-fit:inherit;
+        @include mediaIntro;
+    }
+
+    &__iamge {
+        @include mediaIntro;
     }
 }
