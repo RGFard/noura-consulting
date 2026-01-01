@@ -6,6 +6,10 @@
     // Safari only
     @supports (-webkit-hyphens: none) {
         margin: 8rem 5rem 0rem 5rem;
+        
+        @media (max-width: $bp-small) {
+            margin: 8rem 2rem 0rem 2rem;
+        }
     }
 
     &__title {
