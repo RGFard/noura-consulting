@@ -45,12 +45,18 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
  * 2️⃣ Create pages (USING SLUG)
  * -----------------------------------------
  */
+// gatsby-node.js (additions only)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
     {
       allContentfulService {
+        nodes {
+          slug
+        }
+      }
+      allContentfulBlog {
         nodes {
           slug
         }
@@ -66,12 +72,26 @@ exports.createPages = async ({ graphql, actions }) => {
     "./src/pages/services/ServiceTemplate.js"
   );
 
+  const blogTemplate = path.resolve(
+    "./src/pages/blog/BlogTemplate.js"
+  );
+
   result.data.allContentfulService.nodes.forEach((service) => {
     createPage({
       path: `/services/${service.slug}`,
       component: serviceTemplate,
       context: {
         slug: service.slug,
+      },
+    });
+  });
+
+  result.data.allContentfulBlog.nodes.forEach((blog) => {
+    createPage({
+      path: `/blog/${blog.slug}`,
+      component: blogTemplate,
+      context: {
+        slug: blog.slug,
       },
     });
   });

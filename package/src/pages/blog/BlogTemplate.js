@@ -1,3 +1,4 @@
+// src/pages/blog/BlogTemplate.js
 import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -5,29 +6,32 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Head from "../../components/general/Head";
 import setupRichText from "../../utils/setupRichText";
 import Body from "../../components/site/blog/Body";
+import PageIntro from "../../components/site/pageIntro/PageIntro";
 
 const BlogTemplate = ({ data }) => {
   const blog = data?.contentfulBlog;
   if (!blog) return null;
 
-  const {
-    title,
-    friendlyTitle,
-    image,
-    mainDescription,
-  } = blog;
+  const { title, friendlyTitle, image, mainDescription } = blog;
+
+  const imageBlocks = data.allContentfulImageBlock?.nodes || [];
+  const assets = data.allContentfulAsset?.nodes || [];
 
   const imageBlockMap = {};
-  data.allContentfulImageBlock.nodes.forEach(b => {
+  imageBlocks.forEach((b) => {
     imageBlockMap[b.contentful_id] = b;
   });
 
+  const assetMap = {};
+  assets.forEach((a) => {
+    assetMap[a.contentful_id] = a;
+  });
 
   const headerImage = getImage(image?.gatsbyImageData);
 
-  const mainDescriptionParagraph = setupRichText({
+  const body = setupRichText({
     raw: mainDescription.raw,
-    references: mainDescription.references,
+    assetMap,
     imageBlockMap,
   });
 
@@ -36,7 +40,6 @@ const BlogTemplate = ({ data }) => {
       <Head pageTitle={title} />
 
       <main className="template2">
-        {/* Header */}
         <section className="template2__section--header">
           <div className="template2__section--header-text">
             {/* {friendlyTitle} */}
@@ -51,18 +54,22 @@ const BlogTemplate = ({ data }) => {
           )}
         </section>
 
-        {/* Body */}
-        <Body text={mainDescriptionParagraph} />
+        {data.contentfulPageIntro && (
+          <PageIntro intro={data.contentfulPageIntro} />
+        )}
+
+        <Body text={body} />
       </main>
     </>
   );
 };
 
 export const query = graphql`
-  query getSingleBlog($title: String) {
-    contentfulBlog(title: { eq: $title }) {
+  query getSingleBlog($slug: String) {
+    contentfulBlog(slug: { eq: $slug }) {
       title
       friendlyTitle
+      slug
       image {
         gatsbyImageData(
           layout: CONSTRAINED
@@ -70,24 +77,28 @@ export const query = graphql`
         )
         description
       }
-      shortDescription
       mainDescription {
         raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            title
-            description
-            gatsbyImageData(
-              layout: CONSTRAINED
-              placeholder: BLURRED
-            )
-          }
+      }
+    }
+
+    contentfulPageIntro(slug: { eq: $slug }) {
+      friendlyTitle
+      description {
+        raw
+      }
+      image {
+        file {
+          url
+        }
+      }
+      video {
+        file {
+          url
         }
       }
     }
 
-    # ImageBlocks queried independently (NO union risk)
     allContentfulImageBlock {
       nodes {
         contentful_id
@@ -103,6 +114,18 @@ export const query = graphql`
             placeholder: BLURRED
           )
         }
+      }
+    }
+
+    allContentfulAsset {
+      nodes {
+        contentful_id
+        title
+        description
+        gatsbyImageData(
+          layout: CONSTRAINED
+          placeholder: BLURRED
+        )
       }
     }
   }
