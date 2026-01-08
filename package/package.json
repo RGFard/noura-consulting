@@ -1,7 +1,7 @@
 {
-  "name": "noura-consulting",
+  "name": "data-nexus",
   "private": true,
-  "description": "Noura Consulting Ltd.; A software provider corporation with specialties in Blockchain Ethereum, Smart Contracts, Web3, Mobile Native Apps, and APIs",
+  "description": "Data Nexus is an end-to-end integration platform that streamlines and modernizes how organizations exchange and govern data.",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
