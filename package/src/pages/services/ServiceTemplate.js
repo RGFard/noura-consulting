@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Head from "../../components/general/Head";
+import Video from "../../components/general/Video";
 import setupRichText from "../../utils/setupRichText";
 import PageIntro from "../../components/site/pageIntro/PageIntro";
 
@@ -10,7 +11,13 @@ const ServiceTemplate = ({ data }) => {
   const service = data?.contentfulService;
   if (!service) return null;
 
-  const { title, friendlyTitle, mainImage, description } = service;
+  const {
+    title,
+    friendlyTitle,
+    mainImage,
+    description,
+    video,
+  } = service;
 
   const imageBlocks = data.allContentfulImageBlock?.nodes || [];
   const assets = data.allContentfulAsset?.nodes || [];
@@ -25,7 +32,8 @@ const ServiceTemplate = ({ data }) => {
     assetMap[a.contentful_id] = a;
   });
 
-  const pathToMainImage = getImage(mainImage?.gatsbyImageData);
+  const headerImage = getImage(mainImage?.gatsbyImageData);
+  const videoUrl = video?.file?.url;
 
   const bodyDescription = setupRichText({
     raw: description.raw,
@@ -38,19 +46,25 @@ const ServiceTemplate = ({ data }) => {
       <Head pageTitle={title} />
 
       <main className="template2">
-        <section className="template2__section--header">
-          <div className="template2__section--header-text">
-            {/* {friendlyTitle} */}
+        {videoUrl ? (
+          <div className="template2">
+            <Video src={videoUrl} dark />
           </div>
+        ) : (
+          <section className="template2__section--header">
+            <div className="template2__section--header-text">
+              {/* {friendlyTitle} */}
+            </div>
 
-          {pathToMainImage && (
-            <GatsbyImage
-              image={pathToMainImage}
-              className="template2__section--header-image"
-              alt={mainImage?.description || friendlyTitle}
-            />
-          )}
-        </section>
+            {headerImage && (
+              <GatsbyImage
+                image={headerImage}
+                className="template2__section--header-image"
+                alt={mainImage?.description || friendlyTitle}
+              />
+            )}
+          </section>
+        )}
 
         {data.contentfulPageIntro && (
           <PageIntro intro={data.contentfulPageIntro} />
@@ -78,6 +92,11 @@ export const query = graphql`
           placeholder: DOMINANT_COLOR
         )
         description
+      }
+      video {
+        file {
+          url
+        }
       }
       description {
         raw
