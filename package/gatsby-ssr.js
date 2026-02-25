@@ -10,7 +10,11 @@ export const onRenderBody = ({ setHeadComponents }) => {
     <script
       key="ga-script"
       async
-      src="https://www.googletagmanager.com/gtag/js?id=G-REQJRGVSJ6"
+      // Account: reza2011@gmail.com
+      // src="https://www.googletagmanager.com/gtag/js?id=G-REQJRGVSJ6"
+      
+      // Account: reza.fard.00001@gmail.com
+      src="https://www.googletagmanager.com/gtag/js?id=G-3X0VM1D6ZV"
     />,
     <script
       key="ga-inline"
@@ -19,7 +23,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-REQJRGVSJ6', {
+          gtag('config', 'G-3X0VM1D6ZV', {
             send_page_view: false
           });
         `,
