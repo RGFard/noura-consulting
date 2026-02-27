@@ -13,7 +13,7 @@ const BlogTemplate = ({ data }) => {
   const blog = data?.contentfulBlog;
   if (!blog) return null;
 
-  const { title, friendlyTitle, image, mainDescription, video } = blog;
+  const { friendlyTitle, image, mainDescription, video } = blog;
 
   const imageBlocks = data.allContentfulImageBlock?.nodes || [];
   const assets = data.allContentfulAsset?.nodes || [];
@@ -40,7 +40,7 @@ const BlogTemplate = ({ data }) => {
 
   return (
     <>
-      <Head pageTitle={title} />
+      <Head pageTitle={friendlyTitle} />
 
       <main className="template2">
         {videoUrl ? (

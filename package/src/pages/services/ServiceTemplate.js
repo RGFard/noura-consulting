@@ -12,7 +12,6 @@ const ServiceTemplate = ({ data }) => {
   if (!service) return null;
 
   const {
-    title,
     friendlyTitle,
     mainImage,
     description,
@@ -43,7 +42,7 @@ const ServiceTemplate = ({ data }) => {
 
   return (
     <>
-      <Head pageTitle={title} />
+      <Head pageTitle={friendlyTitle} />
 
       <main className="template2">
         {videoUrl ? (
