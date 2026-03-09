@@ -47,6 +47,14 @@
 
   <!-- Example blog posts -->
   <url>
+    <loc>https://datanexuscore.com/blog/the-hidden-cost-of-data-integration</loc>
+  </url>
+  
+  <url>
+    <loc>https://datanexuscore.com/blog/when-two-companies-cant-integrate-directly</loc>
+  </url>
+
+  <url>
     <loc>https://datanexuscore.com/blog/why-integration-breaks-as-soon-as-your-second-partner-joins</loc>
   </url>
 
@@ -55,7 +63,11 @@
   </url>
 
   <url>
-    <loc>https://datanexuscore.com/blog/when-two-companies-cant-integrate-directly</loc>
+    <loc>https://datanexuscore.com/blog/legacy-integration-as-a-business-constraint-in-a-modern-platform-era</loc>
+  </url>
+
+  <url>
+    <loc>https://datanexuscore.com/blog/how-poor-data-quality-drains-profit</loc>
   </url>
 
 </urlset>
